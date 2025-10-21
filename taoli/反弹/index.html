@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>错杀反弹策略 - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">价格套利策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">错杀反弹策略</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1.策略的风险等级、分类和策略核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2.选股条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3.买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4.卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5.仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6.风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7.手动实操步骤（纯人工交易版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">错杀反弹策略</h1>
+<h2 id="1">1.策略的风险等级、分类和策略核心逻辑</h2>
+<ul>
+<li>风险等级：R5（激进型）</li>
+<li>策略分类：逆向投资策略 / 小盘股轮动策略</li>
+<li>策略核心逻辑：基于市场恐慌情绪识别被错杀的小盘股，通过构建小盘股指数监控市场情绪，在恐慌性下跌后捕捉反弹机会。核心在于"恐慌识别+小盘轮动+及时止盈"，利用市场非理性行为获取超额收益。</li>
+</ul>
+<h2 id="2">2.选股条件</h2>
+<ul>
+<li>选股范围：中小板指数成分股（399101.XSHE）</li>
+<li>基础池：中小板全部股票</li>
+<li>筛选条件：</li>
+<li>市值筛选：流通市值最小的15只股票（5×3）</li>
+<li>状态排除：排除停牌、ST、*ST、退市股票</li>
+<li>涨跌停排除：排除涨停开盘和跌停开盘股票</li>
+<li>特殊保留：昨日涨停股票优先保留</li>
+<li>最终数量：精选5只股票构建组合</li>
+</ul>
+<h2 id="3">3.买入条件</h2>
+<ul>
+<li>买入时机：周一9:16选股，10:40执行买入</li>
+<li>买入条件：</li>
+<li>恐慌信号：小盘股指数较近期高点下跌超过22%</li>
+<li>市场状态：当前处于恐慌状态（g.panic_today_signal=True）</li>
+<li>持仓要求：持仓数量未达到目标数量</li>
+<li>买入方式：</li>
+<li>等分资金：可用现金平均分配到目标股票</li>
+<li>数量限制：严格控制在5只股票以内</li>
+<li>顺序买入：按筛选顺序依次买入</li>
+</ul>
+<h2 id="4">4.卖出条件</h2>
+<ul>
+<li>恐慌止损：小盘股指数较前一日下跌2%立即清仓</li>
+<li>涨停管理：</li>
+<li>昨日涨停股票：今日涨停打开立即卖出</li>
+<li>持续涨停：继续持有观察</li>
+<li>时间止盈：持仓超过10天且指数下跌时减仓</li>
+<li>风险止盈：小盘股指数较近期高点下跌22%时清仓</li>
+</ul>
+<h2 id="5">5.仓位管理</h2>
+<ul>
+<li>持仓数量：固定持有5只小盘股</li>
+<li>仓位比例：</li>
+<li>单一个股：等分资金，集中投资</li>
+<li>总仓位：通常接近满仓运作</li>
+<li>现金管理：非恐慌期保持现金</li>
+<li>动态调整：每周一更新股票池，根据恐慌信号动态调整</li>
+</ul>
+<h2 id="6">6.风控管理</h2>
+<ul>
+<li>情绪风控：通过小盘股指数实时监控市场情绪</li>
+<li>波动风控：小盘股特有的高波动性管理</li>
+<li>流动性风控：中小板股票确保基本流动性</li>
+<li>技术风控：严格的止损止盈机制</li>
+<li>极端风控：恐慌信号的快速响应和仓位控制</li>
+</ul>
+<h2 id="7">7.手动实操步骤（纯人工交易版）</h2>
+<p>第一步：盘前准备（9:00-9:15）
+1. 更新持仓记录，识别昨日涨停股票
+2. 计算持有天数，为时间止盈做准备
+3. 检查小盘股指数，初步判断市场情绪</p>
+<p>第二步：恐慌状态检查（9:15）
+1. 计算小盘股指数相对高点跌幅
+2. 判断是否处于恐慌状态（跌幅超过22%）
+3. 记录当日交易信号（恐慌/正常）</p>
+<p>第三步：周度选股（周一9:16）
+1. 获取中小板指数成分股
+2. 按流通市值从小到大排序，取前15名
+3. 排除停牌、ST、涨跌停股票
+4. 加入昨日涨停股票并优先排序
+5. 最终确定5只目标股票</p>
+<p>第四步：日内买入（10:40）
+1. 确认恐慌信号仍然有效
+2. 检查持仓数量，计算需要买入的股票
+3. 等分资金买入目标股票
+4. 重置持有天数计数器</p>
+<p>第五步：涨停检查（14:00）
+1. 检查昨日涨停股票今日表现
+2. 涨停打开：立即卖出
+3. 继续涨停：保持持有
+4. 记录每笔卖出操作</p>
+<p>第六步：时间止盈（14:55）
+1. 检查持仓天数是否超过10天
+2. 检查小盘股指数是否下跌
+3. 满足条件：卖出未涨停的持仓股票
+4. 不满足条件：继续持有</p>
+<p>第七步：恐慌止损（14:55）
+1. 计算小盘股指数实时涨跌幅
+2. 较前一日下跌2%：立即清仓所有持仓
+3. 发送恐慌卖出信号
+4. 记录清仓原因和时间</p>
+<p>第八步：盘后分析（15:00后）
+1. 更新小盘股指数历史数据
+2. 分析恐慌信号的准确性
+3. 评估选股组合的表现
+4. 优化恐慌阈值和止损参数</p>
+<p>关键执行要点
+- 严格遵循恐慌信号，不主观判断市场底部
+- 专注小盘股，利用其高弹性的特点
+- 快速响应市场变化，及时止盈止损
+- 控制持仓数量，避免过度分散
+- 完善指数监控体系，提高信号准确性</p>
+<p>风险提示
+该策略依赖恐慌情绪的准确识别，在温和下跌市场中可能失效。小盘股的高波动性可能带来较大回撤。恐慌阈值的设定需要根据市场环境动态调整，过度敏感可能导致频繁交易。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>首板低开策略 - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">价格套利策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板低开策略</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">首板低开策略</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
+<ul>
+<li>一级分类：方向性策略</li>
+<li>二级分类：<strong>事件驱动策略</strong>（核心博弈“首板涨停”后“低开”这一特定事件模式）</li>
+<li>核心逻辑：捕捉强势股（昨日涨停）在次日因市场情绪或主力洗盘而低开时产生的“预期差”机会。策略假设首板后的低开是短暂的，股价会延续前日的强势而回升，从而在低开时买入，并在当日冲高时卖出，获取短线收益。</li>
+</ul>
+<h2 id="2">2. 选股条件</h2>
+<ul>
+<li>选股范围：全市场A股（排除科创板、北交所、ST股、停牌股、上市未满250天的新股）。</li>
+<li>筛选方法：</li>
+<li>基础过滤：过滤掉不符合条件的股票（见选股范围）。</li>
+<li>核心事件：筛选出<strong>昨日涨停</strong>的股票。</li>
+<li>排除连板：排除连续涨停（2板及以上）的股票，专注于“首板”。</li>
+<li>相对位置：股价处于过去60日内的相对低位（相对位置 rp ≤ 0.5）。</li>
+<li>关键信号：今日开盘价相对于昨日收盘价<strong>低开3%-4%</strong>（开盘涨幅在96%至97%之间）。</li>
+<li>更新频率：每日开盘前。</li>
+</ul>
+<h2 id="3">3. 买入条件</h2>
+<ul>
+<li>触发信号：同时满足以上所有选股条件。</li>
+<li>确认方式：在早上9:30，获取到所有股票的真实开盘价后，程序自动计算并确认。</li>
+<li>执行时点：上午9:30开盘后立即执行。</li>
+</ul>
+<h2 id="4">4. 卖出条件</h2>
+<ul>
+<li>止盈条件（上午）：在11:28，如果持仓股的<strong>当前价 &lt; 当日涨停价</strong>（即未封板）且<strong>当前价 &gt; 持仓成本</strong>，则全部卖出，锁定利润。</li>
+<li>止损/清仓条件（下午）：在14:50，无论盈亏，只要持仓股<strong>未封死涨停</strong>，则全部卖出，避免隔夜风险。</li>
+</ul>
+<h2 id="5">5. 仓位管理</h2>
+<ul>
+<li>资金分配：如果筛选出多只符合条件的股票，则<strong>等分总资金</strong>买入。例如，有3只股票，则每只股票投入总资金的1/3。</li>
+<li>加减仓规则：不加仓。每次交易都是全新的组合，前一日的持仓会在卖出条件触发时全部清空。</li>
+<li>总仓位控制：策略本身不设总仓位上限，但通过“空仓时才买入”的规则，保证了同一时期只会运行一个投资组合。</li>
+</ul>
+<h2 id="6">6. 风控管理</h2>
+<ul>
+<li>个股风控：</li>
+<li>通过“低开3%-4%”的限制，控制了单笔交易的初始风险。</li>
+<li>通过“相对低位”选股，避免追高历史高位的涨停股。</li>
+<li>强制在收盘前清仓，规避隔夜不确定性和系统性风险。</li>
+<li>组合风控：通过等分资金自动实现分散投资，避免单一个股的黑天鹅风险。</li>
+<li>系统风控：排除了ST、停牌、新股等高风险或无法交易的标的。</li>
+</ul>
+<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
+<p>第一步：盘前准备（每个交易日上午9:15-9:25）</p>
+<ol>
+<li>准备工具：打开你的股票交易软件和记事本。</li>
+<li>生成昨日涨停股列表：</li>
+<li>在软件中查找“昨日涨停”的板块或功能，将列表导出或记录下来。</li>
+<li>手动过滤：从这个列表中，人工剔除：<ul>
+<li>股票代码以 4， 8 开头，或以 68 开头的（科创板/北交所）。</li>
+<li>名称前带有*ST或ST的股票。</li>
+<li>上市时间较短（例如少于1年）的新股。</li>
+<li>昨日是连续第2个或更多涨停板的股票（需要手动查看K线确认）。</li>
+</ul>
+</li>
+</ol>
+<p>第二步：开盘决策（上午9:25-9:30）</p>
+<ol>
+<li>确认集合竞价结果：集合竞价结束后（9:25），查看经过第一步过滤后的股票池。</li>
+<li>筛选低开股：逐一计算这些股票的开盘涨跌幅：(今日开盘价 / 昨日收盘价) - 1。</li>
+<li>最终买入名单：只保留那些<strong>低开3%到4%</strong>（即开盘涨跌幅为 -3% 到 -4%）的股票。</li>
+<li>计算买入金额：如果你的总资金是10万元，最终名单有2只股票，则每只股票计划投入5万元。</li>
+</ol>
+<p>第三步：盘中执行</p>
+<ol>
+<li>买入操作（9:30）：</li>
+<li>开盘后，立即对最终买入名单里的股票进行买入。</li>
+<li>委托方式：建议使用“限价委托”，价格可以设为买一价或当前价，确保快速成交。</li>
+<li>
+<p>买入数量：用计划投入金额 / 当前股价，取整后下单。</p>
+</li>
+<li>
+<p>卖出操作（严格按时间表执行）：</p>
+</li>
+<li>上午11:28：检查所有持仓。<ul>
+<li>如果某只股票<strong>当前股价高于你的成本价</strong>，并且<strong>没有封死涨停</strong>，就<strong>全部卖出</strong>。</li>
+</ul>
+</li>
+<li>下午14:50：检查所有<strong>剩余的</strong>持仓。<ul>
+<li>无论盈亏，只要<strong>没有封死涨停</strong>，就<strong>全部卖出</strong>。</li>
+</ul>
+</li>
+</ol>
+<p>第四步：纪律与记录</p>
+<ol>
+<li>严格守时：必须在规定的时间点（9:25, 9:30, 11:28, 14:50）执行相应操作，克服犹豫和贪婪。</li>
+<li>保持空仓：收盘后，你应该处于空仓状态。如果没有股票满足买入条件，则当天不操作。</li>
+<li>做好记录：记录每笔交易的股票、买卖时间、价格、盈亏原因，用于周末复盘。</li>
+</ol>
+<p>风险提示：该策略是短线交易，成功率并非100%，可能遇到“低开低走”的情况。手动执行存在延迟和情绪干扰，需严格遵守纪律。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

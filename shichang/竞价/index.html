@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>集合竞价量比策略 - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">市场中性策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../taoli/" class="nav-link">价格套利策略</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">集合竞价量比策略</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略特点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 手动实操步骤</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">集合竞价量比策略</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
+<ul>
+<li>一级分类：技术面短线策略</li>
+<li>二级分类：集合竞价 + 量比选股 + 高换手突破</li>
+<li>核心逻辑：在集合竞价阶段捕捉量比异常放大且换手率高的股票，开盘后立即买入，尾盘卖出，实现日内短线交易。</li>
+</ul>
+<h2 id="2">2. 选股条件</h2>
+<ul>
+<li>选股范围：全市场A股（排除科创板）</li>
+<li>核心指标：量比 + 集合竞价换手率</li>
+</ul>
+<h2 id="3">3. 核心筛选流程</h2>
+<p>第一步：基础过滤
+- 排除范围：
+  - 科创板(688开头)
+  - ST股票
+  - 停牌股票
+  - 退市股票
+- 上市时间：上市满180天
+- 确保流动性：正常交易状态</p>
+<p>第二步：量比筛选
+- 量比计算：5日平均成交量比率
+- 排序方式：按量比降序排列
+- 选择数量：前10名股票</p>
+<p>第三步：换手率筛选
+- 换手计算：
+  - 集合竞价成交额 / 流通市值
+  - 流通市值单位：亿元
+- 换手门槛：换手率 &gt; 0.3%
+- 排序方式：按换手率降序排列</p>
+<h2 id="4">4. 买入条件</h2>
+<ul>
+<li>时间窗口：9:27（开盘前）</li>
+<li>仓位控制：</li>
+<li>最大持仓：3只股票</li>
+<li>资金分配：可用现金等分</li>
+<li>动态调整：根据持仓数量</li>
+<li>执行逻辑：</li>
+<li>持仓数 &lt; 3时买入</li>
+<li>按换手率排序选择</li>
+<li>等金额分配资金</li>
+</ul>
+<h2 id="5">5. 卖出条件</h2>
+<ul>
+<li>卖出时间：14:45（尾盘）</li>
+<li>卖出条件：</li>
+<li>非涨停状态可卖出</li>
+<li>清空所有持仓</li>
+<li>持仓周期：日内交易（T+0）</li>
+</ul>
+<h2 id="6">6. 仓位管理</h2>
+<ul>
+<li>持仓限制：最多3只股票</li>
+<li>资金分配：</li>
+<li>可用现金等分买入</li>
+<li>动态计算可买数量</li>
+<li>风险控制：</li>
+<li>分散持仓</li>
+<li>日内了结</li>
+</ul>
+<h2 id="7">7. 风控管理</h2>
+<ul>
+<li>质量风控：</li>
+<li>排除问题股票</li>
+<li>确保交易流动性</li>
+<li>执行风控：</li>
+<li>涨停限制卖出</li>
+<li>避免无效交易</li>
+<li>时间风控：</li>
+<li>严格的买卖时间</li>
+<li>日内了结风险</li>
+</ul>
+<h2 id="8">8. 交易频率</h2>
+<ul>
+<li>选股计算：9:26（集合竞价）</li>
+<li>买入执行：9:27（开盘前）</li>
+<li>卖出执行：14:45（尾盘）</li>
+<li>持仓周期：单日持有</li>
+</ul>
+<h2 id="9">9. 策略特点</h2>
+<p>量价分析优势：
+- 量比识别资金关注
+- 高换手确认活跃度
+- 集合竞价数据利用</p>
+<p>短线交易特点：
+- 日内了结规避隔夜风险
+- 严格的买卖时间控制
+- 明确的止损止盈机制</p>
+<p>执行效率：
+- 自动化的选股流程
+- 快速的交易执行
+- 清晰的仓位管理</p>
+<h2 id="10">10. 手动实操步骤</h2>
+<p>第一步：盘前准备
+- 获取全市场股票数据
+- 执行基础过滤条件
+- 准备数据计算</p>
+<p>第二步：集合竞价分析
+- 计算量比指标
+- 筛选前10名股票
+- 获取集合竞价数据</p>
+<p>第三步：换手率计算
+- 计算流通市值
+- 计算集合竞价换手率
+- 筛选高换手股票</p>
+<p>第四步：买入执行
+- 检查持仓数量
+- 计算可买股票数量
+- 等金额分配买入</p>
+<p>第五步：盘中监控
+- 监控持仓状态
+- 准备尾盘卖出</p>
+<p>第六步：尾盘卖出
+- 检查涨停状态
+- 清空所有持仓
+- 记录交易信息</p>
+<p>策略优势：
+- 明确的量价突破逻辑
+- 严格的日内风险控制
+- 高效的交易执行
+- 适应短线交易特点</p>
+<p>风险提示：该策略属于高风险短线策略，集合竞价数据波动性大。建议结合大盘环境，注意流动性风险，严格执行止损纪律。在活跃市场中效果较好，震荡市中需谨慎使用。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
