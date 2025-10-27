@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>涨停板回调策略 - 量化策略武器库</title>
+        <title>涨停板回调策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                                <a href="../../shichang/" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">价格套利策略</a>
+                                <a href="../" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">涨停板回调策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">涨停板回调策略（散户实操优化版 · A股合规版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
@@ -120,125 +120,130 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1"><strong>涨停板回调策略</strong></h1>
+<h1 id="a"><strong>涨停板回调策略（散户实操优化版 · A股合规版）</strong></h1>
 <h2 id="1"><strong>1. 策略分类和核心逻辑</strong></h2>
 <ul>
-<li><strong>一级分类</strong>：技术面短线策略</li>
-<li><strong>二级分类</strong>：涨停板回调 + 集合竞价选股</li>
-<li><strong>核心逻辑</strong>：捕捉近期有过涨停的股票，在回调到合适位置时介入，利用涨停股的强势特征获取短线收益。</li>
+<li><strong>一级分类</strong>：技术面短线策略  </li>
+<li><strong>二级分类</strong>：涨停板回调 + 低吸战法  </li>
+<li><strong>核心逻辑</strong>：在<strong>符合A股T+1规则</strong>的前提下，筛选<strong>近5日内曾涨停、当前回调至支撑位、未破位的小市值主板股</strong>，于<strong>次日早盘低吸</strong>，持有1–3个交易日博弈反弹。核心是“<strong>有涨停基因 + 回调不过度 + 位置相对安全</strong>”，避免追高，专注可买、可卖、可止损的标的。</li>
 </ul>
+<hr />
 <h2 id="2"><strong>2. 选股条件</strong></h2>
 <ul>
-<li><strong>选股范围</strong>：全市场A股（排除特定板块）</li>
-<li><strong>排除范围</strong>：</li>
-<li>科创板、创业板股票</li>
-<li>ST股及风险警示股票</li>
-<li>停牌股票</li>
-<li>流通市值≥200亿的大盘股</li>
-<li>次新股（上市不满375天）</li>
+<li><strong>选股范围</strong>：A股主板（60/00开头）  </li>
+<li><strong>排除范围</strong>：  </li>
+<li>创业板（300开头）、科创板（688/689开头）  </li>
+<li>ST、*ST、退市风险警示股票  </li>
+<li>停牌股票  </li>
+<li>流通市值 ≥ 200亿元（排除大盘股）  </li>
+<li>上市不满375天的次新股  </li>
 </ul>
+<hr />
 <h2 id="3"><strong>3. 核心筛选流程</strong></h2>
-<p><strong>第一步：周度股票池准备</strong>
-- 获取非次新股
-- 筛选小市值股票
-- 排除高风险板块
-- 选取近期有过涨停的股票</p>
-<p><strong>第二步：盘前精细筛选</strong>
-1. <strong>价格位置筛选</strong>：
-   - 价格回调到相对低位
-   - 波动幅度在合理区间
-   - 昨日跌幅有限</p>
-<ol>
-<li><strong>成交量筛选</strong>：</li>
-<li>成交量稳定性检查</li>
-<li>
-<p>排除异常放量股票</p>
-</li>
-<li>
-<p><strong>集合竞价筛选</strong>：</p>
-</li>
-<li>竞价成交量占比排序</li>
-<li>
-<p>开盘价表现合理</p>
-</li>
-<li>
-<p><strong>持仓保护</strong>：</p>
-</li>
-<li>现有持仓未大幅下跌的保留</li>
-</ol>
+<p><strong>第一步：周度基础池准备（每周日晚或周一早）</strong><br />
+- 使用问财筛选全市场符合长期条件的股票（非次新、小市值、非ST、主板）  </p>
+<p><strong>第二步：每日盘前精细筛选（交易日9:00–9:20）</strong><br />
+1. <strong>涨停记录</strong>：近5个交易日内至少有1次涨停<br />
+2. <strong>价格回调</strong>：当前股价较涨停日最高价<strong>回调10%–25%</strong>（不过度杀跌）<br />
+3. <strong>未破位</strong>：股价仍在<strong>20日均线之上</strong>（趋势未坏）<br />
+4. <strong>量能稳定</strong>：昨日成交额 &gt; 3000万元（保障流动性）<br />
+5. <strong>开盘温和</strong>：集合竞价涨幅在 <strong>-2% 至 +3%</strong> 之间（无极端情绪）</p>
+<blockquote>
+<p>✅ <strong>同花顺问财语句（直接复制使用）</strong>：<br />
+<code>主板股票，非ST，上市天数大于375，流通市值小于200亿，近5日有涨停，当前价比近5日最高价低10%到25%，股价高于20日均线，昨日成交额大于30000000</code></p>
+<p>📌 <strong>说明</strong>：<br />
+- 问财支持“近5日有涨停”“流通市值”“20日均线”等自然语言；<br />
+- “当前价比近5日最高价低10%到25%”可有效捕捉合理回调；<br />
+- 结果通常为5–15只，人工再按<strong>集合竞价涨幅</strong>排序剔除高开/低开极端股。</p>
+</blockquote>
+<hr />
 <h2 id="4"><strong>4. 买入条件</strong></h2>
 <ul>
-<li><strong>技术信号</strong>：</li>
-<li>近期涨停记录</li>
-<li>价格回调到位</li>
-<li>集合竞价活跃</li>
-<li>成交量稳定</li>
-<li><strong>仓位控制</strong>：</li>
-<li>固定持仓数量</li>
-<li>等权重分配</li>
-<li>逐步建仓</li>
+<li><strong>技术信号</strong>：  </li>
+<li>满足问财筛选结果  </li>
+<li>集合竞价涨幅 ∈ [-2%, +3%]  </li>
+<li>未跌停、未一字涨停  </li>
+<li><strong>买入时机</strong>：<strong>9:35–10:00</strong>（连续竞价开始后，避开开盘波动）  </li>
+<li><strong>仓位控制</strong>：  </li>
+<li><strong>固定持仓3只</strong>（最多）  </li>
+<li><strong>等权重分配</strong>（如总资金6万，每只2万）  </li>
+<li><strong>单股数量为100股整数倍</strong>（符合A股交易单位）  </li>
+<li><strong>建仓方式</strong>：一次性买入，不补仓</li>
 </ul>
+<hr />
 <h2 id="5"><strong>5. 卖出条件</strong></h2>
 <ul>
-<li><strong>主动卖出</strong>：</li>
-<li>跌出选股名单</li>
-<li>达到止盈目标</li>
-<li>触及止损线</li>
-<li><strong>被动卖出</strong>：</li>
-<li>调仓替换</li>
-<li>竞价不佳</li>
+<li><strong>主动止盈</strong>：  </li>
+<li>持仓第2日或第3日<strong>冲高涨幅 ≥ 6%</strong> → 卖出  </li>
+<li><strong>涨停封板</strong> → 可持有至开板日卖出  </li>
+<li><strong>强制止损</strong>：  </li>
+<li><strong>买入后任一交易日收盘价 &lt; 买入价 × 0.93</strong>（-7%硬止损）  </li>
+<li><strong>跌破20日均线</strong> → 次日开盘卖出  </li>
+<li><strong>调仓卖出</strong>：  </li>
+<li>股票<strong>不再出现在新一日问财筛选结果中</strong> → 次日卖出  </li>
+<li><strong>时间清仓</strong>：  </li>
+<li><strong>最长持有3个交易日</strong>（T日买入 → T+3日14:55前清仓）</li>
 </ul>
+<blockquote>
+<p>✅ <strong>完全符合T+1</strong>：T日买入 → T+1日起可卖出。</p>
+</blockquote>
+<hr />
 <h2 id="6"><strong>6. 仓位管理</strong></h2>
 <ul>
-<li>固定持仓数量</li>
-<li>等权重分配</li>
-<li>日度调仓</li>
-<li>严格风控</li>
+<li><strong>固定持仓数量</strong>：<strong>3只</strong>（新手建议1–2只）  </li>
+<li><strong>等权重分配</strong>：每只约30%–35%资金  </li>
+<li><strong>调仓频率</strong>：<strong>每日盘前更新候选池，仅替换不合格个股</strong>（非全换）  </li>
+<li><strong>现金管理</strong>：无符合标的时空仓，不强行交易</li>
 </ul>
+<hr />
 <h2 id="7"><strong>7. 风控管理</strong></h2>
 <ul>
-<li><strong>质量风控</strong>：排除高风险板块</li>
-<li><strong>流动性风控</strong>：排除问题股票</li>
-<li><strong>技术风控</strong>：多重过滤条件</li>
-<li><strong>止损风控</strong>：硬性止损机制</li>
-<li><strong>分散风控</strong>：适度分散投资</li>
+<li><strong>质量风控</strong>：排除ST、次新、创业板、科创板  </li>
+<li><strong>流动性风控</strong>：成交额 &gt; 3000万 + 主板交易，确保可成交  </li>
+<li><strong>技术风控</strong>：20日均线 + 回调幅度双重过滤  </li>
+<li><strong>止损风控</strong>：-7%硬止损 + 跌破均线离场  </li>
+<li><strong>分散风控</strong>：3只行业尽量不集中（如不全买新能源）</li>
 </ul>
+<hr />
 <h2 id="8"><strong>8. 交易频率</strong></h2>
 <ul>
-<li>周度股票池准备</li>
-<li>每日盘前筛选</li>
-<li>开盘即时交易</li>
-<li>盘中持续监控</li>
-<li>盘后总结分析</li>
+<li><strong>周度准备</strong>：每周初更新基础池（可选）  </li>
+<li><strong>每日盘前</strong>：9:00用问财筛选当日候选股  </li>
+<li><strong>开盘交易</strong>：9:35–10:00买入，14:55前可卖出（T+1日后）  </li>
+<li><strong>盘中监控</strong>：每日收盘前检查是否触发止损/止盈  </li>
+<li><strong>盘后总结</strong>：记录交易日志，每周复盘</li>
 </ul>
+<hr />
 <h2 id="9"><strong>9. 手动实操步骤</strong></h2>
-<p><strong>第一步：周度准备</strong>
-- 更新基础股票池
-- 初步筛选标的
-- 建立备选库</p>
-<p><strong>第二步：盘前筛选</strong>
-- 价格位置分析
-- 成交量检查
-- 竞价数据排序
-- 确定买入名单</p>
-<p><strong>第三步：开盘交易</strong>
-- 卖出不合格持仓
-- 按计划买入新标
-- 控制持仓数量</p>
-<p><strong>第四步：盘中监控</strong>
-- 跟踪持仓表现
-- 执行止盈止损
-- 调整仓位结构</p>
-<p><strong>第五步：盘后总结</strong>
-- 分析交易记录
-- 评估策略效果
-- 优化执行流程</p>
-<p><strong>策略优势</strong>：
-- 明确的买卖信号
-- 严格的风险控制
-- 短线机会捕捉能力
-- 系统化的选股流程</p>
-<p><strong>风险提示</strong>：该策略在震荡市中表现较好，但在单边下跌市中可能面临连续止损。小市值股票波动性较大，需要严格的风险控制。建议投资者配合其他策略分散风险。</p></div>
+<p><strong>第一步：盘前选股（9:00–9:20）</strong><br />
+1. 打开同花顺问财，粘贴上述语句；<br />
+2. 导出结果，剔除集合竞价涨幅 &lt; -2% 或 &gt; +3% 的股票；<br />
+3. 保留3只“回调合理+均线支撑+量能稳定”的标的。</p>
+<p><strong>第二步：开盘买入（9:35–10:00）</strong><br />
+1. 限价单买入（价格=当前买一价）；<br />
+2. 数量为100股整数倍；<br />
+3. 记录：股票、买入价、日期。</p>
+<p><strong>第三步：持仓监控（T+1日起）</strong><br />
+- 每日检查：是否盈利≥6%？是否破20日线？是否亏损≥7%？<br />
+- 若在新问财池中消失 → 次日卖出。</p>
+<p><strong>第四步：卖出执行（T+1至T+3日 9:30–14:55）</strong><br />
+- 按规则止盈/止损/调仓；<br />
+- T+3日14:55前强制清仓。</p>
+<p><strong>第五步：盘后复盘（15:00后）</strong><br />
+- 更新交易记录；<br />
+- 评估策略有效性；<br />
+- 优化候选股选择标准。</p>
+<hr />
+<p><strong>策略优势</strong>：<br />
+- 选股条件全部可通过<strong>问财自然语言实现</strong>；<br />
+- 买入卖出时点明确，<strong>符合A股T+1、100股整数倍、交易时段等规则</strong>；<br />
+- 止损止盈量化清晰，避免情绪干扰；<br />
+- 适合兼职散户每日10分钟操作。</p>
+<p><strong>风险提示</strong>：<br />
+- 小市值股波动大，<strong>单笔亏损可能达7%</strong>；<br />
+- <strong>熊市中回调股可能持续阴跌</strong>，需严格止损；<br />
+- <strong>严禁在大盘暴跌日（如上证跌&gt;2%）操作</strong>；<br />
+- 建议先用<strong>模拟盘或≤10%资金试运行1个月</strong>。</p></div>
             </div>
         </div>
 

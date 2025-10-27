@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>三阳三阴战法策略 - 量化策略武器库</title>
+        <title>三阳三阴战法策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                                <a href="../../shichang/" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">价格套利策略</a>
+                                <a href="../" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">三阳三阴战法策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">三阳三阴战法策略（散户实操优化版 · A股合规版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
@@ -120,102 +120,119 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">三阳三阴战法策略</h1>
+<h1 id="a">三阳三阴战法策略（散户实操优化版 · A股合规版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li><strong>一级分类</strong>：技术面短线策略</li>
-<li><strong>二级分类</strong>：形态识别 + 突破交易</li>
-<li><strong>核心逻辑</strong>：识别"三阳三阴"特定K线形态，在价格突破关键位置时介入，利用形态学的规律性获取收益。</li>
+<li><strong>一级分类</strong>：技术面短线策略  </li>
+<li><strong>二级分类</strong>：K线形态 + 突破低吸  </li>
+<li><strong>核心逻辑</strong>：在<strong>符合A股T+1规则</strong>的前提下，识别<strong>近6个交易日出现“三连阳”后小幅回调（1–2根阴线）</strong> 的主板股票，于<strong>回调结束、再次放量上涨时低吸介入</strong>，持有1–3日博弈反弹。核心是“<strong>三阳蓄势 + 阴线洗盘 + 二次启动</strong>”，避免追高，专注可量化、可买入、可止损的形态。</li>
 </ul>
+<hr />
 <h2 id="2">2. 选股条件</h2>
 <ul>
-<li><strong>选股范围</strong>：全市场A股</li>
-<li><strong>排除范围</strong>：</li>
-<li>创业板、科创板股票</li>
-<li>ST股及风险警示股票</li>
-<li>停牌股票</li>
-<li>上市不满1080天的次新股</li>
+<li><strong>选股范围</strong>：A股主板（60/00开头）  </li>
+<li><strong>排除范围</strong>：  </li>
+<li>创业板（300开头）、科创板（688/689开头）  </li>
+<li>ST、*ST、退市风险警示股票  </li>
+<li>停牌股票  </li>
+<li>上市不满200天的次新股（原1080天过严，调整为合理值）  </li>
 </ul>
+<hr />
 <h2 id="3">3. 核心筛选流程</h2>
-<p>第一步：形态识别
-- 连续3天阳线收盘
-- 连续3天收盘价高于开盘价
-- 近期高点创阶段性新高
-- 价格波动幅度在特定区间</p>
-<p>第二步：技术验证
-- 30日内高低点涨幅在100%-250%
-- 山谷形态确认
-- 历史高点突破验证
-- 涨停板数量控制</p>
+<p><strong>第一步：盘前形态初筛（使用问财自然语言）</strong><br />
+筛选同时满足以下条件的股票：<br />
+1. <strong>近6日内有连续3日阳线</strong>（收盘价 &gt; 开盘价）<br />
+2. <strong>最近1–2日为阴线回调</strong>（收盘价 &lt; 开盘价）<br />
+3. <strong>股价处于相对低位</strong>：当前价 &lt; 近20日最高价 × 0.95（避免高位接盘）<br />
+4. <strong>趋势未破</strong>：股价 &gt; 20日均线<br />
+5. <strong>流动性充足</strong>：昨日成交额 &gt; 3000万元  </p>
+<blockquote>
+<p>✅ <strong>同花顺问财语句（直接复制使用）</strong>：<br />
+<code>主板股票，非ST，上市天数大于200，近6日有连续3天收盘价大于开盘价，最近2天有至少1天收盘价小于开盘价，当前价小于20日最高价的95%，股价高于20日均线，昨日成交额大于30000000</code></p>
+<p>📌 <strong>说明</strong>：<br />
+- 问财支持“连续3天收盘价大于开盘价”等自然语言；<br />
+- “最近2天有阴线”确保回调发生；<br />
+- 结果通常为5–15只，人工复核K线形态即可。</p>
+</blockquote>
+<p><strong>第二步：人工K线复核（5分钟内完成）</strong><br />
+打开问财结果中的个股K线图（日线），<strong>肉眼确认</strong>：<br />
+- 是否有清晰的“阳阳阳 → 阴/阴阴”结构（共4–6根K线）；<br />
+- 三阳期间<strong>温和放量</strong>，阴线<strong>缩量回调</strong>；<br />
+- 无长上影线或大阴线破位。<br />
+→ 剔除形态不标准的，保留3–5只。</p>
+<hr />
 <h2 id="4">4. 买入条件</h2>
 <ul>
-<li><strong>技术信号</strong>：</li>
-<li>符合三阳三阴形态</li>
-<li>当前价格高于昨日收盘价1%</li>
-<li>未达到涨停价</li>
-<li><strong>仓位控制</strong>：</li>
-<li>全仓单只股票</li>
-<li>可用资金充足性检查</li>
+<li><strong>技术信号</strong>：  </li>
+<li>通过问财筛选 + 人工K线确认；  </li>
+<li><strong>当日9:35后，股价站上昨日最高价</strong>（确认回调结束）；  </li>
+<li><strong>当前价未涨停</strong>（留有买入空间）。  </li>
+<li><strong>买入时机</strong>：<strong>9:35–10:00</strong>（连续竞价稳定后）  </li>
+<li><strong>仓位控制</strong>：  </li>
+<li><strong>最多持仓3只</strong>（不全仓单只）；  </li>
+<li><strong>等权重分配</strong>（如总资金6万，每只≤2万）；  </li>
+<li><strong>买入数量为100股整数倍</strong>（符合A股规则）。</li>
 </ul>
+<hr />
 <h2 id="5">5. 卖出条件</h2>
 <ul>
-<li><strong>技术卖出</strong>：</li>
-<li>价格跌破10日均线2%</li>
-<li>涨幅超过110%止盈</li>
-<li>跌幅达到10%止损</li>
-<li><strong>形态卖出</strong>：</li>
-<li>开盘大幅低开7%以上</li>
-<li>MACD指标转弱</li>
-<li>连续涨停后出现调整</li>
+<li><strong>止盈卖出</strong>：  </li>
+<li>持仓第2日或第3日<strong>涨幅 ≥ 6%</strong> → 分批或全部卖出；  </li>
+<li><strong>涨停封板</strong> → 可持有至次日冲高或开板卖出。  </li>
+<li><strong>止损卖出</strong>：  </li>
+<li><strong>买入后任一交易日收盘价 &lt; 买入价 × 0.93</strong>（-7%硬止损）；  </li>
+<li><strong>盘中跌破20日均线且30分钟未收回</strong> → 次日开盘卖出。  </li>
+<li><strong>强制清仓</strong>：  </li>
+<li><strong>最长持有3个交易日</strong>（T日买入 → T+3日14:55前清仓）。</li>
 </ul>
+<blockquote>
+<p>✅ <strong>完全符合T+1</strong>：T日买入 → T+1日起可卖出。</p>
+</blockquote>
+<hr />
 <h2 id="6">6. 仓位管理</h2>
 <ul>
-<li>持仓数量：单只股票</li>
-<li>资金分配：全仓操作</li>
-<li>交易频率：日度机会</li>
-<li>风险控制：多重止损</li>
+<li><strong>持仓数量</strong>：<strong>1–3只</strong>（新手建议1–2只）  </li>
+<li><strong>资金分配</strong>：等权重，单只 ≤ 总资金35%  </li>
+<li><strong>交易频率</strong>：有信号才交易，无信号空仓  </li>
+<li><strong>风险控制</strong>：单笔最大亏损 ≤ 7%，总仓位 ≤ 100%</li>
 </ul>
+<hr />
 <h2 id="7">7. 风控管理</h2>
 <ul>
-<li><strong>质量风控</strong>：排除高风险板块</li>
-<li><strong>技术风控</strong>：均线支撑确认</li>
-<li><strong>止损风控</strong>：严格的止损规则</li>
-<li><strong>时间风控</strong>：尾盘清理机制</li>
+<li><strong>质量风控</strong>：排除创业板、科创板、ST、次新  </li>
+<li><strong>流动性风控</strong>：成交额 &gt; 3000万，确保可成交  </li>
+<li><strong>技术风控</strong>：20日均线 + 缩量回调双重验证  </li>
+<li><strong>止损风控</strong>：-7%硬止损 + 均线破位离场  </li>
+<li><strong>分散风控</strong>：避免同行业集中（如不全买AI或新能源）</li>
 </ul>
+<hr />
 <h2 id="8">8. 交易频率</h2>
 <ul>
-<li>选股计算：开盘前</li>
-<li>买入操作：盘中实时</li>
-<li>卖出操作：盘中监控</li>
-<li>清理操作：14:40后</li>
+<li><strong>选股计算</strong>：每个交易日9:00用问财完成  </li>
+<li><strong>买入操作</strong>：9:35–10:00（T日）  </li>
+<li><strong>卖出操作</strong>：T+1至T+3日 9:30–14:55  </li>
+<li><strong>清理操作</strong>：T+3日14:55前清仓，不留隔夜</li>
 </ul>
+<hr />
 <h2 id="9">9. 手动实操步骤</h2>
-<p>第一步：盘前筛选
-- 识别三阳三阴形态
-- 验证技术条件
-- 建立候选股票池</p>
-<p>第二步：开盘监控
-- 跟踪候选股价格走势
-- 确认突破条件
-- 检查买入信号</p>
-<p>第三步：执行买入
-- 价格符合条件时下单
-- 全仓买入目标股票
-- 记录成本价格</p>
-<p>第四步：盘中监控
-- 实时跟踪技术指标
-- 执行止损止盈操作
-- 监控均线支撑</p>
-<p>第五步：尾盘处理
-- 清空未买入候选股
-- 总结当日交易
-- 准备次日筛选</p>
-<p>策略优势：
-- 明确的形态识别标准
-- 严格的风险控制体系
-- 清晰的买卖信号
-- 历史验证的有效性</p>
-<p>风险提示：该策略针对特定技术形态，需要准确识别"三阳三阴"模式。全仓操作风险集中，建议投资者根据自身风险承受能力调整仓位，并配合其他分析方法进行综合判断。</p></div>
+<p><strong>第一步：盘前筛选（9:00–9:20）</strong><br />
+1. 问财粘贴语句，导出候选股；<br />
+2. 打开每只K线图，确认“三阳+1–2阴”形态；<br />
+3. 剔除高开&gt;5%或低开&lt;-3%的极端股；<br />
+4. 保留3只以内标的。</p>
+<p><strong>第二步：开盘监控（9:30–9:35）</strong><br />
+- 观察候选股是否<strong>站上昨日最高价</strong>；<br />
+- 若未突破，放弃该股。</p>
+<p><strong>第三步：执行买入（9:35–10:00）</strong><br />
+- 限价单买入（价格=买一价）；<br />
+- 数量为100股整数倍；<br />
+- 记录成本价和日期。</p>
+<p><strong>第四步：盘中监控（T+1日起）</strong><br />
+- 每日收盘前检查：是否盈利≥6%？是否破20日线？是否亏损≥7%？</p>
+<p><strong>第五步：尾盘处理（T+3日14:55前）</strong><br />
+- 无论盈亏，全部清仓；<br />
+- 更新交易日志，准备次日筛选。</p>
+<hr /></div>
             </div>
         </div>
 

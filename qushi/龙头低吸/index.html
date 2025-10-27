@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>超跌反弹反转策略（散户友好版） - 量化策略武器库</title>
+        <title>龙头股低吸策略（散户手动简化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">超跌反弹反转策略（散户友好版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">龙头股低吸策略（散户手动简化版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
@@ -101,11 +101,23 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 交易频率</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 情绪周期监控（简化版）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工交易版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">策略理论基础（简化版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">交易执行要点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">风险提示</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,190 +128,138 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">超跌反弹反转策略（散户友好版）</h1>
+<h1 id="_1">龙头股低吸策略（散户手动简化版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
-<h3 id="_2">一级分类</h3>
-<ul>
-<li>技术面反转策略</li>
-</ul>
-<h3 id="_3">二级分类</h3>
-<ul>
-<li>超跌反弹+均线突破</li>
-</ul>
-<h3 id="_4">核心逻辑</h3>
-<ul>
-<li><strong>捕捉长期下跌后首次突破55日均线的股票</strong>，利用超跌反弹的动能获取收益，通过严格止损控制风险。  </li>
-<li><strong>强调多重过滤</strong>，确保选股质量，避免过度暴露于高风险个股。</li>
-</ul>
+<p><strong>一级分类</strong>：技术面+情绪面策略（简化执行版）<br />
+<strong>二级分类</strong>：龙头股低吸策略（非打板版）<br />
+<strong>核心逻辑</strong>：基于市场情绪周期理论，识别近期市场中连板数最多或板块地位最强的龙头股，在其首次明显分歧回调（如炸板、放量滞涨、回踩均线）后，于次日或尾盘低吸介入，避免追高打板，通过合理止盈止损，捕捉龙头第二波上涨机会，追求稳健的短线超额收益。</p>
 <hr />
 <h2 id="2">2. 选股条件</h2>
-<h3 id="_5">选股范围</h3>
-<ul>
-<li>全市场A股（主板为主）</li>
-</ul>
-<h3 id="_6">排除范围</h3>
-<ul>
-<li>ST股及风险警示股票  </li>
-<li>科创板股票  </li>
-<li>上市未满250天的次新股  </li>
-<li>停牌股票  </li>
-<li>流通市值 &lt; 50亿的股票  </li>
-<li><strong>新增排除</strong>：近一年内出现过重大负面公告（如诉讼、监管处罚等）</li>
-</ul>
-<h3 id="_7">核心筛选流程</h3>
-<ul>
-<li><strong>基本面初筛</strong>：ROE &gt; 0，按ROE降序排列取前10  </li>
-<li><strong>技术面确认</strong>：55日均线突破信号验证  </li>
-<li><strong>超跌特征</strong>：长期下跌后的首次反弹  </li>
-<li><strong>新增要求</strong>：剔除资产负债率 &gt; 70%的公司（财务稳健性）</li>
-</ul>
+<p><strong>选股范围</strong>：全市场A股（主板为主）  </p>
+<p><strong>排除范围</strong>：<br />
+- 科创板、北交所股票<br />
+- ST股及其他退市标签股<br />
+- 上市未满60天的次新股<br />
+- 当日停牌或涨跌停股票  </p>
+<p><strong>核心筛选标准</strong>：<br />
+- <strong>龙头定义</strong>：近5个交易日内出现过<strong>2连板及以上</strong>，或为当前市场<strong>最高连板股/板块核心标的</strong>（可通过同花顺“涨停棱镜”或“连板天梯”查看）<br />
+- <strong>数量限制</strong>：最多同时观察3只龙头股，最终持仓不超过2只  </p>
+<p><strong>技术面筛选</strong>：<br />
+- <strong>回调信号</strong>：龙头股出现以下任一情形：<br />
+  - 涨停被打开（炸板）且收盘未回封；<br />
+  - 连续上涨后首次放巨量（成交量 &gt; 前5日均量2倍）但涨幅 &lt; 3%；<br />
+  - 股价回调至<strong>10日均线附近</strong>（±2%）且未破20日均线。<br />
+- <strong>黑名单机制</strong>：若某龙头股买入后亏损超5%，3日内不再参与。</p>
 <hr />
 <h2 id="3">3. 买入条件</h2>
-<h3 id="_8">技术信号</h3>
-<ul>
-<li><strong>40日内仅有1-3天突破55日均线</strong>  </li>
-<li><strong>最近3日内有突破55日均线</strong>  </li>
-<li><strong>当前价格站上55日均线</strong>  </li>
-<li><strong>10日内低点为60日内最低点</strong>  </li>
-<li><strong>新增要求</strong>：开盘涨幅不超过5%，避免追高</li>
-</ul>
-<h3 id="_9">仓位控制</h3>
-<ul>
-<li><strong>持仓数量</strong>：最多5只股票  </li>
-<li><strong>等权重分配资金</strong>  </li>
-<li><strong>可用现金充足性检查</strong>  </li>
-<li><strong>逐步建仓至满仓</strong></li>
-</ul>
-<h3 id="_10">买入方式</h3>
-<ul>
-<li><strong>尾盘14:45–14:55市价单买入</strong>（避开早盘情绪干扰）  </li>
-<li><strong>按100股整数倍下单</strong></li>
-</ul>
+<p><strong>交易频率</strong>：<strong>低频择机</strong>（平均每月1–3次，非每日交易）  </p>
+<p><strong>买入规则</strong>：<br />
+- 仅当龙头股出现明确<strong>分歧回调信号</strong>后才考虑买入；<br />
+- <strong>不参与开盘打板</strong>，放弃“排队买涨停”行为；<br />
+- 买入时机：<strong>尾盘14:45–14:55</strong>（避免盘中诱多）；<br />
+- 买入前提：当日涨幅 ≤ 3%，且大盘未大跌（上证跌幅 &lt; -1%）；<br />
+- 资金分配：单只股票仓位 ≤ 25%，总股票仓位 ≤ 50%。  </p>
+<p><strong>买入方式</strong>：<br />
+- 手动市价单买入（尾盘流动性充足，无需限价排队）；<br />
+- 不追求买在最低点，只求买在“安全区域”。</p>
 <hr />
 <h2 id="4">4. 卖出条件</h2>
-<h3 id="_11">技术卖出</h3>
-<ul>
-<li><strong>日内高点回撤5%</strong>  </li>
-<li><strong>单日下跌5%</strong>  </li>
-<li><strong>跌破55日均线2%</strong>  </li>
-<li><strong>新增条件</strong>：持有满3周仍未上涨，则强制卖出（避免长期滞涨）</li>
-</ul>
-<h3 id="_12">止损卖出</h3>
-<ul>
-<li><strong>总亏损达到5%</strong>  </li>
-<li><strong>任何卖出信号触发立即执行</strong></li>
-</ul>
-<h3 id="_13">盘中监控</h3>
-<ul>
-<li><strong>每日收盘后检查是否跌破20日均线</strong>，若连续两日破线，则次日开盘卖出（趋势破坏信号）</li>
-</ul>
+<p><strong>止损卖出</strong>：<br />
+- 从买入成本起算，<strong>亏损 ≥ 7%</strong> 立即卖出；<br />
+- 若买入后次日低开低走，无反抽意愿，可提前止损。  </p>
+<p><strong>条件卖出（14:50前）</strong>：<br />
+- 持有满<strong>3个交易日</strong>仍未达止盈目标，第4日开盘卖出；<br />
+- 股价<strong>再次涨停</strong>，次日冲高（如+3%以上）卖出；<br />
+- 板块整体退潮（同板块多只股大跌），无论盈亏减仓或清仓。  </p>
+<p><strong>特殊情况</strong>：<br />
+- 若买入后当日涨停，可持有至次日冲高卖出；<br />
+- 遇重大利好（如政策支持、业绩超预期），可延长持有至5日。</p>
 <hr />
 <h2 id="5">5. 仓位管理</h2>
-<h3 id="_14">持仓数量</h3>
-<ul>
-<li>最多5只股票（保持分散投资）</li>
-</ul>
-<h3 id="_15">资金分配</h3>
-<ul>
-<li><strong>严格的等权重分配</strong>（每只股票约20%仓位）  </li>
-<li><strong>新增资金管理</strong>：未使用资金买入货币ETF（511880），享受T+0流动性与收益</li>
-</ul>
-<h3 id="_16">调仓频率</h3>
-<ul>
-<li><strong>日度信号检查</strong>，每周一调仓</li>
-</ul>
-<h3 id="_17">仓位控制</h3>
-<ul>
-<li><strong>接近满仓运作</strong>，但保留部分现金应对突发情况</li>
-</ul>
+<p><strong>持仓数量</strong>：<strong>最多2只股票</strong>（避免精力分散）  </p>
+<p><strong>资金分配</strong>：<br />
+- 单只股票初始仓位10%～25%；<br />
+- 总股票仓位不超过50%，其余资金持有货币ETF（511880）。  </p>
+<p><strong>调仓频率</strong>：<strong>不每日调仓</strong>，仅在出现新龙头分歧机会时替换；  </p>
+<p><strong>风险控制</strong>：<br />
+- 不满仓、不杠杆、不All in单一个股；<br />
+- 同一板块最多持有1只龙头。</p>
 <hr />
 <h2 id="6">6. 风控管理</h2>
-<h3 id="_18">质量风控</h3>
-<ul>
-<li><strong>排除ST、科创板、次新股等风险股票</strong>  </li>
-<li><strong>新增排除</strong>：近期有重大负面公告的公司</li>
-</ul>
-<h3 id="_19">流动性风控</h3>
-<ul>
-<li><strong>排除停牌股票</strong>  </li>
-<li><strong>新增要求</strong>：日成交额 &lt; 1亿元的股票不参与（确保流动性）</li>
-</ul>
-<h3 id="_20">技术风控</h3>
-<ul>
-<li><strong>多重卖出信号监控</strong>  </li>
-<li><strong>新增要求</strong>：每日收盘后检查是否跌破20日均线，若连续两日破线，则次日开盘卖出（趋势破坏信号）</li>
-</ul>
-<h3 id="_21">止损风控</h3>
-<ul>
-<li><strong>5%硬性止损线</strong></li>
-</ul>
-<h3 id="_22">分散风控</h3>
-<ul>
-<li><strong>5只股票分散投资</strong>，避免集中持股带来的风险</li>
-</ul>
+<p><strong>盘前风控</strong>：<br />
+- 不参与无明确逻辑的“跟风涨停”；<br />
+- 只做市场公认的主线龙头（如AI、新能源、消费等当前热点）。  </p>
+<p><strong>盘中风控</strong>：<br />
+- 不因盘中拉升临时追高；<br />
+- 不因小幅浮亏补仓摊薄。  </p>
+<p><strong>流动性风控</strong>：<br />
+- 仅参与日成交额 ≥ 3亿元的龙头股，确保进出顺畅。  </p>
+<p><strong>情绪风控</strong>：<br />
+- 若市场最高连板数 ≤ 2板，视为“情绪退潮期”，暂停新开仓；<br />
+- 上证指数跌破250日均线时，仓位上限降至20%。  </p>
+<p><strong>纪律风控</strong>：<br />
+- <strong>7%止损线不可突破</strong>；<br />
+- <strong>不持仓过周末</strong>（除非已涨停或重大利好）；<br />
+- <strong>每月最多交易3次，宁可错过，不可做错</strong>。</p>
 <hr />
-<h2 id="7">7. 交易频率</h2>
-<h3 id="_23">选股计算</h3>
-<ul>
-<li>开盘前</li>
-</ul>
-<h3 id="_24">买入操作</h3>
-<ul>
-<li>开盘09:30（改为尾盘14:45–14:55）</li>
-</ul>
-<h3 id="_25">卖出操作</h3>
-<ul>
-<li>尾盘14:55</li>
-</ul>
-<h3 id="_26">持仓监控</h3>
-<ul>
-<li>持续跟踪</li>
-</ul>
+<h2 id="7">7. 情绪周期监控（简化版）</h2>
+<p><strong>情绪指标</strong>：<br />
+- 观察同花顺“连板天梯”或东方财富“涨停板”栏目中的<strong>最高连板数</strong>；  </p>
+<p><strong>周期判断</strong>：<br />
+- 最高连板 ≥ 4板，且梯队完整（3板、2板有跟风）→ <strong>上升期</strong>，可参与；<br />
+- 最高连板 ≤ 2板，或龙头连续A杀 → <strong>退潮期</strong>，空仓观望。  </p>
+<p><strong>情绪记录</strong>：<br />
+- 每周日晚简单记录：“本周龙头是谁？是否赚钱效应？”<br />
+- 不需复杂模型，凭常识判断即可。</p>
 <hr />
 <h2 id="8">8. 手动实操步骤（纯人工交易版）</h2>
-<h3 id="_27">第一步：盘前准备（每周日晚）</h3>
+<p><strong>第一步：盘后观察（每日16:00–17:00）</strong><br />
+- 打开同花顺“涨停棱镜”或“连板天梯”；<br />
+- 标记当前市场最高连板股及板块核心标的；<br />
+- 加入自选股，观察是否出现分歧信号。</p>
+<p><strong>第二步：分歧识别（次日起）</strong><br />
+- 观察龙头是否炸板、放巨量、回踩均线；<br />
+- 确认板块是否仍有支撑（至少1只跟风股强势）。</p>
+<p><strong>第三步：买入执行（尾盘14:45–14:55）</strong><br />
+- 确认当日涨幅 ≤ 3%；<br />
+- 确认大盘稳定；<br />
+- 手动下单，设置7%止损条件单。</p>
+<p><strong>第四步：持仓管理（买入后）</strong><br />
+- 第2日：若冲高+5%以上，可部分止盈；<br />
+- 第3–4日：未达目标则评估趋势，第4日离场；<br />
+- 任何时点破7%止损，立即卖出。</p>
+<p><strong>第五步：收盘总结（每日15:30后）</strong><br />
+- 记录交易理由与结果；<br />
+- 更新“近期失败龙头”黑名单；<br />
+- 判断市场情绪是否进入退潮。</p>
+<p><strong>第六步：纪律维护</strong><br />
+- 不因“怕卖飞”而放弃止损；<br />
+- 不因“市场热闹”而强行开仓；<br />
+- <strong>只做高确定性机会，其余时间空仓学习</strong>。</p>
+<hr />
+<h2 id="_2">策略理论基础（简化版）</h2>
 <ul>
-<li>获取全市场股票池  </li>
-<li>执行基本面和技术面筛选  </li>
-<li>确定10只候选股票  </li>
-<li>记录选股结果  </li>
+<li><strong>龙头效应</strong>：市场最强股在分歧后常有反包机会；  </li>
+<li><strong>情绪周期</strong>：退潮期空仓，上升期轻仓试错；  </li>
+<li><strong>低吸优于打板</strong>：回避开盘抢筹劣势，提升盈亏比；  </li>
+<li><strong>强者恒强</strong>：真龙头回调后往往率先修复。</li>
 </ul>
-<h3 id="0900">第二步：开盘前筛选（周一09:00）</h3>
-<ol>
-<li><strong>获取全市场A股，排除风险股票</strong>  </li>
-<li>ST、科创板、次新股、停牌、EPS为负、ROE &lt; 0、资产负债率 &gt; 70%  </li>
-<li><strong>选择ROE &gt; 0的股票，按ROE降序排列取前10</strong>  </li>
-<li><strong>确认55日均线突破信号</strong>  </li>
-<li><strong>记录最终10只候选股票</strong></li>
-</ol>
-<h3 id="14451455">第三步：尾盘买入（周一14:45–14:55）</h3>
-<ol>
-<li><strong>检查持仓数量是否不足5只</strong>  </li>
-<li><strong>计算每只股票分配资金</strong>  </li>
-<li><strong>按等权重执行买入</strong>  </li>
-<li><strong>确保现金充足性</strong>  </li>
-<li><strong>若周一开盘涨幅超过5%，则暂缓买入，等待回调后再入场</strong></li>
-</ol>
-<h3 id="103013001400">第四步：盘中监控（每日10:30、13:00、14:00）</h3>
-<ol>
-<li><strong>持续跟踪持仓价格</strong>  </li>
-<li><strong>监控技术指标变化</strong>  </li>
-<li><strong>准备卖出信号判断</strong>  </li>
-<li><strong>新增监控</strong>：每日收盘后检查是否跌破20日均线，若连续两日破线，则次日开盘卖出</li>
-</ol>
-<h3 id="1455">第五步：尾盘卖出（14:55）</h3>
-<ol>
-<li><strong>检查所有持仓卖出条件</strong>  </li>
-<li><strong>执行触发信号的卖出操作</strong>  </li>
-<li><strong>记录卖出原因和结果</strong></li>
-</ol>
-<h3 id="_28">第六步：盘后总结（收盘后）</h3>
-<ol>
-<li><strong>分析当日交易记录</strong>  </li>
-<li><strong>计算账户收益率</strong>  </li>
-<li><strong>总结策略表现</strong>  </li>
-<li><strong>优化参数设置</strong></li>
-</ol></div>
+<hr />
+<h2 id="_3">交易执行要点</h2>
+<ul>
+<li><strong>耐心等待</strong>：每月可能只有1–2次机会；  </li>
+<li><strong>尾盘介入</strong>：避开早盘情绪干扰；  </li>
+<li><strong>严格止损</strong>：7%是生命线；  </li>
+<li><strong>轻仓试错</strong>：单票≤25%，总仓≤50%。</li>
+</ul>
+<hr />
+<h2 id="_4">风险提示</h2>
+<ul>
+<li>龙头股波动大，单日回撤可达5%～8%；  </li>
+<li>情绪退潮时，龙头也可能连续大跌；  </li>
+<li>该策略依赖对“主线”和“龙头”的正确识别，判断错误将导致亏损；  </li>
+<li><strong>最大风险仍是纪律执行——必须接受“小亏离场”的设定</strong>。</li>
+</ul></div>
             </div>
         </div>
 

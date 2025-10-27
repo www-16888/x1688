@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>首板低开策略 - 量化策略武器库</title>
+        <title>首板低开策略（散户实操优化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                                <a href="../../shichang/" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">价格套利策略</a>
+                                <a href="../" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,13 +75,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板低开策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板低开策略（散户实操优化版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,7 +89,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简化+明确）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -101,7 +101,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">⚠️ 风险提示（散户特别注意）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,98 +116,142 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">首板低开策略</h1>
+<h1 id="_1">首板低开策略（散户实操优化版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li>一级分类：方向性策略</li>
-<li>二级分类：<strong>事件驱动策略</strong>（核心博弈“首板涨停”后“低开”这一特定事件模式）</li>
-<li>核心逻辑：捕捉强势股（昨日涨停）在次日因市场情绪或主力洗盘而低开时产生的“预期差”机会。策略假设首板后的低开是短暂的，股价会延续前日的强势而回升，从而在低开时买入，并在当日冲高时卖出，获取短线收益。</li>
+<li><strong>一级分类</strong>：方向性策略  </li>
+<li><strong>二级分类</strong>：<strong>事件驱动策略</strong>（核心博弈“首板涨停”后“低开”这一特定事件模式）  </li>
+<li><strong>核心逻辑</strong>：捕捉强势股（昨日首次涨停）在次日因情绪或洗盘低开3%-4%时的短线反弹机会。策略假设低开是短暂错杀，股价当日有望冲高，通过开盘买入、日内冲高卖出，获取1%-5%的短线收益。</li>
 </ul>
-<h2 id="2">2. 选股条件</h2>
+<hr />
+<h2 id="2">2. 选股条件（适配普通软件）</h2>
 <ul>
-<li>选股范围：全市场A股（排除科创板、北交所、ST股、停牌股、上市未满250天的新股）。</li>
-<li>筛选方法：</li>
-<li>基础过滤：过滤掉不符合条件的股票（见选股范围）。</li>
-<li>核心事件：筛选出<strong>昨日涨停</strong>的股票。</li>
-<li>排除连板：排除连续涨停（2板及以上）的股票，专注于“首板”。</li>
-<li>相对位置：股价处于过去60日内的相对低位（相对位置 rp ≤ 0.5）。</li>
-<li>关键信号：今日开盘价相对于昨日收盘价<strong>低开3%-4%</strong>（开盘涨幅在96%至97%之间）。</li>
-<li>更新频率：每日开盘前。</li>
+<li><strong>选股范围</strong>：A股主板（排除科创板688/689、创业板300开头、北交所4/8开头、ST/*ST、停牌股、上市不足250天新股）  </li>
+<li>
+<p><strong>筛选方法</strong>（全部可通过同花顺/通达信/问财实现）：  </p>
+</li>
+<li>
+<p><strong>基础过滤</strong>：  </p>
+<ul>
+<li>非ST、非科创板、非创业板、非北交所、非新股（上市&gt;250天）  </li>
 </ul>
+</li>
+<li><strong>昨日涨停</strong>：收盘价 = 涨停价（涨幅≈10%，主板）  </li>
+<li><strong>首板确认</strong>：昨日涨停，但前一日<strong>未涨停</strong>（即非连板）  </li>
+<li><strong>今日低开</strong>：开盘价在<strong>昨日收盘价的96%–97%之间</strong>（即低开3%–4%）  </li>
+<li>
+<p><strong>简化位置要求</strong>（可选）：60日内最高价 &gt; 当前价 × 1.3（即当前价处于60日相对低位，避免高位首板）  </p>
+</li>
+<li>
+<p><strong>更新频率</strong>：每日盘前（9:15–9:25）  </p>
+</li>
+</ul>
+<blockquote>
+<p>✅ <strong>问财语句示例（同花顺问财）</strong>：<br />
+<code>昨日涨停，非ST，主板，上市天数&gt;250，昨日非连续涨停，今日开盘价&lt;昨日收盘价*0.97，今日开盘价&gt;昨日收盘价*0.96</code><br />
+或更精确版：<br />
+<code>涨停家数中，非ST，代码不以300、688、689、4、8开头，上市超过250天，昨日涨停且前日未涨停，今日开盘跌幅介于3%到4%</code></p>
+<p>✅ <strong>通达信选股公式（可保存为条件选股）</strong>：<br />
+```pascal
+{ 首板低开策略 - 散户版 }
+ZT := C/REF(C,1) &gt;= 1.095 AND C = H;        { 昨日涨停 }
+NOT_ZT_YESTER := REF(C,2)/REF(C,3) &lt; 1.095; { 前日未涨停，确保首板 }
+LOW_OPEN := O/REF(C,1) &gt;= 0.96 AND O/REF(C,1) &lt;= 0.97; { 今低开3%-4% }
+NOT_NEW := FINANCE(42) &gt; 250;               { 上市天数&gt;250 }
+NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
+MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
+<p>ZT AND NOT_ZT_YESTER AND LOW_OPEN AND NOT_NEW AND NOT_ST AND MAIN_BOARD;
+```</p>
+</blockquote>
+<hr />
 <h2 id="3">3. 买入条件</h2>
 <ul>
-<li>触发信号：同时满足以上所有选股条件。</li>
-<li>确认方式：在早上9:30，获取到所有股票的真实开盘价后，程序自动计算并确认。</li>
-<li>执行时点：上午9:30开盘后立即执行。</li>
+<li><strong>触发信号</strong>：集合竞价结束（9:25）后，股票满足上述全部条件  </li>
+<li><strong>确认方式</strong>：  </li>
+<li>9:25后，在问财或自选股中查看符合条件的股票列表  </li>
+<li>人工核对：是否真为“首板”（看K线：昨日涨停，前日未涨停）  </li>
+<li><strong>执行时点</strong>：<strong>9:30 开盘后立即买入</strong>  </li>
+<li><strong>委托建议</strong>：  </li>
+<li>使用<strong>限价单</strong>，价格设为<strong>开盘价或当前买一价</strong>  </li>
+<li>若开盘后快速拉升，可放弃该股（避免追高）</li>
 </ul>
-<h2 id="4">4. 卖出条件</h2>
+<hr />
+<h2 id="4">4. 卖出条件（简化+明确）</h2>
 <ul>
-<li>止盈条件（上午）：在11:28，如果持仓股的<strong>当前价 &lt; 当日涨停价</strong>（即未封板）且<strong>当前价 &gt; 持仓成本</strong>，则全部卖出，锁定利润。</li>
-<li>止损/清仓条件（下午）：在14:50，无论盈亏，只要持仓股<strong>未封死涨停</strong>，则全部卖出，避免隔夜风险。</li>
+<li><strong>上午止盈（11:28）</strong>：  </li>
+<li>若<strong>当前价 &gt; 买入成本</strong> 且 <strong>未封涨停</strong> → <strong>全部卖出</strong>  </li>
+<li><strong>下午清仓（14:50）</strong>：  </li>
+<li>无论盈亏，只要<strong>未封死涨停</strong>（即涨停板有打开或未触及）→ <strong>全部卖出</strong>  </li>
+<li><strong>例外情况</strong>：  </li>
+<li>若股票在14:50前已封死涨停且封单稳定，可持有至收盘（但散户建议仍卖出，避免尾盘炸板）</li>
 </ul>
+<blockquote>
+<p>📌 <strong>操作提示</strong>：设置手机闹钟提醒 11:28 和 14:50，避免遗忘。</p>
+</blockquote>
+<hr />
 <h2 id="5">5. 仓位管理</h2>
 <ul>
-<li>资金分配：如果筛选出多只符合条件的股票，则<strong>等分总资金</strong>买入。例如，有3只股票，则每只股票投入总资金的1/3。</li>
-<li>加减仓规则：不加仓。每次交易都是全新的组合，前一日的持仓会在卖出条件触发时全部清空。</li>
-<li>总仓位控制：策略本身不设总仓位上限，但通过“空仓时才买入”的规则，保证了同一时期只会运行一个投资组合。</li>
+<li><strong>资金分配</strong>：若选出 N 只股票，则每只分配 <strong>总可用资金的 1/N</strong>  </li>
+<li>例：总资金10万，选出2只 → 每只买5万  </li>
+<li><strong>最大持股数限制</strong>：建议 <strong>不超过3只</strong>（避免过度分散、操作困难）  </li>
+<li><strong>无加仓</strong>：单日单股仅买入一次  </li>
+<li><strong>空仓规则</strong>：若无符合条件股票，当日空仓；前一日持仓必在当日清空</li>
 </ul>
+<hr />
 <h2 id="6">6. 风控管理</h2>
 <ul>
-<li>个股风控：</li>
-<li>通过“低开3%-4%”的限制，控制了单笔交易的初始风险。</li>
-<li>通过“相对低位”选股，避免追高历史高位的涨停股。</li>
-<li>强制在收盘前清仓，规避隔夜不确定性和系统性风险。</li>
-<li>组合风控：通过等分资金自动实现分散投资，避免单一个股的黑天鹅风险。</li>
-<li>系统风控：排除了ST、停牌、新股等高风险或无法交易的标的。</li>
+<li><strong>个股风控</strong>：  </li>
+<li>低开3%-4%天然限制初始亏损（最大浮亏约4%）  </li>
+<li>排除高位首板（通过60日相对低位辅助判断）  </li>
+<li>日内交易，杜绝隔夜黑天鹅  </li>
+<li><strong>组合风控</strong>：  </li>
+<li>最多3只股票，自动分散  </li>
+<li>单日总亏损超5%时，次日暂停交易（可选纪律）  </li>
+<li><strong>系统风控</strong>：  </li>
+<li>软件自动过滤ST、新股、非主板，降低踩雷概率</li>
 </ul>
-<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
-<p>第一步：盘前准备（每个交易日上午9:15-9:25）</p>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h3 id="915925">第一步：盘前准备（9:15–9:25）</h3>
 <ol>
-<li>准备工具：打开你的股票交易软件和记事本。</li>
-<li>生成昨日涨停股列表：</li>
-<li>在软件中查找“昨日涨停”的板块或功能，将列表导出或记录下来。</li>
-<li>手动过滤：从这个列表中，人工剔除：<ul>
-<li>股票代码以 4， 8 开头，或以 68 开头的（科创板/北交所）。</li>
-<li>名称前带有*ST或ST的股票。</li>
-<li>上市时间较短（例如少于1年）的新股。</li>
-<li>昨日是连续第2个或更多涨停板的股票（需要手动查看K线确认）。</li>
+<li>打开<strong>同花顺问财</strong>（网页或APP）  </li>
+<li>输入问财语句（见上文），获取初步股票池  </li>
+<li>人工复核每只股票：  </li>
+<li>看K线：确认昨日是<strong>第一个涨停板</strong>（前日未涨停）  </li>
+<li>看开盘价：确认低开在3%-4%之间（问财可能有延迟，以9:25集合竞价为准）  </li>
+<li>剔除明显问题股（如业绩暴雷、重大利空新闻）</li>
+</ol>
+<h3 id="925930">第二步：开盘决策（9:25–9:30）</h3>
+<ol>
+<li>9:25集合竞价结束，刷新问财或自选股  </li>
+<li>最终确定买入名单（通常0–3只）  </li>
+<li>计算每只买入金额（总资金 ÷ 股票数）  </li>
+<li>准备好交易界面，挂单价格设为<strong>开盘价</strong></li>
+</ol>
+<h3 id="_2">第三步：盘中执行</h3>
+<ul>
+<li><strong>9:30</strong>：立即下单买入（限价单，快速成交）  </li>
+<li><strong>11:28</strong>：检查持仓，符合条件则卖出  </li>
+<li><strong>14:50</strong>：清仓所有未涨停持仓  </li>
 </ul>
-</li>
-</ol>
-<p>第二步：开盘决策（上午9:25-9:30）</p>
-<ol>
-<li>确认集合竞价结果：集合竞价结束后（9:25），查看经过第一步过滤后的股票池。</li>
-<li>筛选低开股：逐一计算这些股票的开盘涨跌幅：(今日开盘价 / 昨日收盘价) - 1。</li>
-<li>最终买入名单：只保留那些<strong>低开3%到4%</strong>（即开盘涨跌幅为 -3% 到 -4%）的股票。</li>
-<li>计算买入金额：如果你的总资金是10万元，最终名单有2只股票，则每只股票计划投入5万元。</li>
-</ol>
-<p>第三步：盘中执行</p>
-<ol>
-<li>买入操作（9:30）：</li>
-<li>开盘后，立即对最终买入名单里的股票进行买入。</li>
-<li>委托方式：建议使用“限价委托”，价格可以设为买一价或当前价，确保快速成交。</li>
-<li>
-<p>买入数量：用计划投入金额 / 当前股价，取整后下单。</p>
-</li>
-<li>
-<p>卖出操作（严格按时间表执行）：</p>
-</li>
-<li>上午11:28：检查所有持仓。<ul>
-<li>如果某只股票<strong>当前股价高于你的成本价</strong>，并且<strong>没有封死涨停</strong>，就<strong>全部卖出</strong>。</li>
+<h3 id="_3">第四步：纪律与记录</h3>
+<ul>
+<li><strong>必须空仓收盘</strong>  </li>
+<li><strong>每日记录</strong>：股票代码、买入价、卖出价、盈亏、是否符合逻辑  </li>
+<li><strong>每周复盘</strong>：统计胜率、平均收益、失败原因（如“低开低走”“冲高回落”）</li>
 </ul>
-</li>
-<li>下午14:50：检查所有<strong>剩余的</strong>持仓。<ul>
-<li>无论盈亏，只要<strong>没有封死涨停</strong>，就<strong>全部卖出</strong>。</li>
+<hr />
+<h2 id="_4">⚠️ 风险提示（散户特别注意）</h2>
+<ul>
+<li>该策略<strong>非稳赚</strong>，在市场退潮期（如连续跌停潮）胜率会显著下降  </li>
+<li>手动操作存在<strong>延迟、漏单、情绪干扰</strong>风险  </li>
+<li><strong>建议先用模拟盘或≤10%资金试运行1个月</strong>，验证个人执行力  </li>
+<li>若连续3日亏损，暂停策略，检查市场环境是否适合  </li>
 </ul>
-</li>
-</ol>
-<p>第四步：纪律与记录</p>
-<ol>
-<li>严格守时：必须在规定的时间点（9:25, 9:30, 11:28, 14:50）执行相应操作，克服犹豫和贪婪。</li>
-<li>保持空仓：收盘后，你应该处于空仓状态。如果没有股票满足买入条件，则当天不操作。</li>
-<li>做好记录：记录每笔交易的股票、买卖时间、价格、盈亏原因，用于周末复盘。</li>
-</ol>
-<p>风险提示：该策略是短线交易，成功率并非100%，可能遇到“低开低走”的情况。手动执行存在延迟和情绪干扰，需严格遵守纪律。</p></div>
+<blockquote>
+<p>✅ <strong>一句话总结</strong>：<br />
+<strong>“首板+低开3%-4%+主板+非连板”是核心，纪律执行是盈利关键。借助问财/通达信可实现筛选，但需人工复核+严格守时。</strong></p>
+</blockquote></div>
             </div>
         </div>
 

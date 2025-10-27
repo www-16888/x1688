@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>基本面小市值轮动策略 - 量化策略武器库</title>
+        <title>基本面小市值轮动策略（散户实操版 · 同花顺/通达信友好） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">市场中性策略</a>
+                                <a href="../" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../taoli/" class="nav-link">价格套利策略</a>
+                                <a href="../../taoli/" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,33 +75,45 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">基本面小市值轮动策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">基本面小市值轮动策略（散户实操版 · 同花顺/通达信友好）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类与核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（完全适配问财语句）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件（月度调仓）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简单明确）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理（极简但有效）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理（全面覆盖）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-10" class="nav-link">7. 手动实操步骤（每日10分钟）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 同花顺操作指南（零公式）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略优势</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 风险提示</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,152 +124,273 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">基本面小市值轮动策略</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
+<h1 id="_1">基本面小市值轮动策略（散户实操版 · 同花顺/通达信友好）</h1>
+<h2 id="1">1. 策略分类与核心逻辑</h2>
 <ul>
-<li>一级分类：价值投资策略</li>
-<li>二级分类：基本面小市值轮动策略</li>
-<li>核心逻辑：通过筛选基本面优质的小市值股票，结合月度轮动和涨停板跟踪，在控制风险的前提下获取小市值溢价和基本面改善带来的超额收益。</li>
+<li><strong>一级分类</strong>：价值投资策略  </li>
+<li><strong>二级分类</strong>：基本面小市值轮动策略  </li>
+<li><strong>核心逻辑</strong>：<br />
+  通过筛选基本面优质的小市值股票，结合月度轮动和涨停板跟踪，在控制风险的前提下获取小市值溢价和基本面改善带来的超额收益。</li>
 </ul>
-<h2 id="2">2. 选股条件</h2>
+<hr />
+<h2 id="2">2. 选股条件（完全适配问财语句）</h2>
+<h3 id="_2">✅ 选股范围</h3>
 <ul>
-<li>选股范围：全市场A股（排除科创板、北交所、ST股、停牌股、上市未满250天新股）</li>
-<li>基本面筛选：</li>
-<li>盈利能力：ROE &gt; 15%，ROA &gt; 10%</li>
-<li>成长性：净利润同比增长率 &gt; 0</li>
-<li>估值水平：PB &lt; 3</li>
-<li>技术面筛选：</li>
-<li>价格限制：股价 &lt; 10元</li>
-<li>涨跌幅限制：排除当日涨幅过大（接近涨停）和跌幅过大股票</li>
-<li>核心排序：按总市值从小到大排序，选择市值最小的股票</li>
+<li>全市场A股（主板为主）</li>
 </ul>
-<h2 id="3">3. 买入条件</h2>
+<h3 id="_3">❌ 排除股票（同花顺“条件选股”中勾选）</h3>
 <ul>
-<li>调仓频率：每月调仓一次</li>
-<li>买入时点：调仓日上午9:30执行</li>
-<li>买入规则：</li>
-<li>先卖出不再符合条件的持仓</li>
-<li>再买入新入选的股票</li>
-<li>数量限制：固定持有10只股票</li>
-<li>黑名单机制：排除最近30天内持有过且出现涨停的股票</li>
+<li>ST/*ST/退市股  </li>
+<li>科创板（688开头）  </li>
+<li>北交所（8开头）  </li>
+<li>停牌股  </li>
+<li>上市未满250天的新股  </li>
 </ul>
-<h2 id="4">4. 卖出条件</h2>
+<h3 id="_4">🔍 技术信号（问财语句实现）</h3>
+<pre><code class="language-text">非ST，非科创板，非北交所，主板，股价小于10元，ROE大于15%，ROA大于10%，净利润同比增长率大于0，PB小于3，总市值从小到大排序，排除当日涨跌幅超过9%的股票，最近30天内未持有过且出现涨停的股票
+</code></pre>
+<blockquote>
+<p>✅ <strong>说明</strong>：
+- <strong>股价小于10元</strong>：控制个股风险；
+- <strong>ROE &gt; 15%、ROA &gt; 10%</strong>：确保盈利能力；
+- <strong>净利润同比增长率 &gt; 0</strong>：确认成长性；
+- <strong>PB &lt; 3</strong>：控制估值水平；
+- <strong>总市值从小到大排序</strong>：选择小市值股票；
+- <strong>排除当日涨跌幅超过9%的股票</strong>：避免极端波动；
+- <strong>黑名单过滤</strong>：排除最近30天内持有过且出现涨停的股票。</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 买入条件（月度调仓）</h2>
 <ul>
-<li>定期调仓：每月评估，不在选股池中即卖出</li>
-<li>涨停跟踪：昨日涨停的持仓股，今日涨停打开立即卖出</li>
-<li>特殊情况：4月份强制清仓（空仓期）</li>
-<li>卖出时点：调仓日下午14:55执行</li>
+<li><strong>调仓频率</strong>：每月调仓一次  </li>
+<li><strong>买入时点</strong>：调仓日上午9:30执行  </li>
+<li><strong>买入规则</strong>：</li>
+<li><strong>先卖出不再符合条件的持仓</strong>  </li>
+<li><strong>再买入新入选的股票</strong>  </li>
+<li><strong>数量限制</strong>：固定持有10只股票  </li>
+<li><strong>黑名单机制</strong>：排除最近30天内持有过且出现涨停的股票  </li>
 </ul>
-<h2 id="5">5. 仓位管理</h2>
+<blockquote>
+<p>⚠️ <strong>关键改进</strong>：通过问财语句自动筛选符合要求的股票，减少手动计算和判断的工作量。</p>
+</blockquote>
+<hr />
+<h2 id="4">4. 卖出条件（简单明确）</h2>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>定期调仓</strong></td>
+<td>每月评估，不在选股池中即卖出</td>
+</tr>
+<tr>
+<td><strong>涨停跟踪</strong></td>
+<td>昨日涨停的持仓股，今日涨停打开立即卖出</td>
+</tr>
+<tr>
+<td><strong>特殊情况</strong></td>
+<td>4月份强制清仓（空仓期）</td>
+</tr>
+<tr>
+<td><strong>卖出时点</strong></td>
+<td>调仓日下午14:55执行</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>不再依赖复杂加减仓规则</strong>，改用<strong>明确的卖出条件</strong>，大幅降低操作难度。</p>
+</blockquote>
+<hr />
+<h2 id="5">5. 仓位管理（极简但有效）</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持仓数量</td>
+<td>固定持有10只股票</td>
+</tr>
+<tr>
+<td>资金分配</td>
+<td>等分可用资金到每只新买入股票</td>
+</tr>
+<tr>
+<td>总仓位</td>
+<td>100%满仓运作</td>
+</tr>
+<tr>
+<td>行业分散</td>
+<td>通过全市场选股自动实现行业分散</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6">6. 风控管理（全面覆盖）</h2>
+<table>
+<thead>
+<tr>
+<th>风控维度</th>
+<th>规则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基本面风控</strong></td>
+<td>严格的财务指标筛选确保标的质量</td>
+</tr>
+<tr>
+<td><strong>市值风控</strong></td>
+<td>小市值股票但排除微盘股风险</td>
+</tr>
+<tr>
+<td><strong>价格风控</strong></td>
+<td>10元以下股价控制个股风险</td>
+</tr>
+<tr>
+<td><strong>流动性风控</strong></td>
+<td>排除涨跌停极端情况的股票</td>
+</tr>
+<tr>
+<td><strong>时间风控</strong></td>
+<td>月度轮动避免过度交易，4月空仓规避风险</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-10">7. 手动实操步骤（每日10分钟）</h2>
+<h3 id="_5">🕒 第一步：月度选股（每月最后一个交易日）</h3>
+<ol>
+<li><strong>基础筛选</strong>：</li>
+<li>排除ST、次新、停牌股票  </li>
+<li>筛选股价10元以下的股票  </li>
+<li>
+<p>排除接近涨跌停的股票  </p>
+</li>
+<li>
+<p><strong>财务数据收集</strong>：</p>
+</li>
+<li>使用问财语句直接筛选符合要求的股票：
+     <code>text
+     非ST，非科创板，非北交所，主板，股价小于10元，ROE大于15%，ROA大于10%，净利润同比增长率大于0，PB小于3，总市值从小到大排序，排除当日涨跌幅超过9%的股票，最近30天内未持有过且出现涨停的股票</code></li>
+<li>将结果加入自选股（最多10只）</li>
+</ol>
+<h3 id="905">🕒 第二步：调仓准备（调仓日9:05）</h3>
+<ol>
+<li><strong>持仓分析</strong>：</li>
+<li>检查当前持仓  </li>
+<li>识别昨日涨停的持仓股  </li>
+<li>
+<p>准备调仓名单  </p>
+</li>
+<li>
+<p><strong>资金规划</strong>：</p>
+</li>
+<li>计算可用资金  </li>
+<li>确定每只新股的买入金额  </li>
+</ol>
+<h3 id="1400">🕒 第三步：盘中监控（调仓日14:00）</h3>
+<ol>
+<li><strong>涨停股跟踪</strong>：</li>
+<li>监控昨日涨停持仓股的表现  </li>
+<li>涨停打开的股票立即卖出  </li>
+<li>记录卖出操作  </li>
+</ol>
+<h3 id="1455">🕒 第四步：调仓执行（调仓日14:55）</h3>
+<ol>
+<li><strong>卖出操作</strong>：</li>
+<li>卖出不在新选股池中的持仓  </li>
+<li>
+<p>执行调仓卖出指令  </p>
+</li>
+<li>
+<p><strong>买入操作</strong>：</p>
+</li>
+<li>等分资金买入10只新股  </li>
+<li>确保总持仓数为10只  </li>
+</ol>
+<h3 id="_6">🕒 第五步：特殊情况处理</h3>
+<ol>
+<li><strong>4月清仓</strong>：</li>
+<li>4月份强制清仓所有持仓  </li>
+<li>保持空仓状态  </li>
+<li>
+<p>为5月重新建仓做准备  </p>
+</li>
+<li>
+<p><strong>日常监控</strong>：</p>
+</li>
+<li>每日检查持仓股基本面变化  </li>
+<li>监控财务指标是否持续符合要求  </li>
+<li>关注市场风格变化  </li>
+</ol>
+<h3 id="_7">🕒 第六步：纪律维护</h3>
+<ol>
+<li><strong>月度复盘</strong>：</li>
+<li>分析月度收益情况  </li>
+<li>检查策略执行效果  </li>
+<li>
+<p>优化选股参数  </p>
+</li>
+<li>
+<p><strong>严格执行</strong>：</p>
+</li>
+<li>坚决按月度周期调仓  </li>
+<li>严格执行4月清仓规则  </li>
+<li>保持10只股票等权重配置  </li>
+</ol>
+<hr />
+<h2 id="8">8. 同花顺操作指南（零公式）</h2>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>调出财务指标</td>
+<td>F10 → 财务摘要 → 查看ROE、ROA、PB等</td>
+</tr>
+<tr>
+<td>查看股价</td>
+<td>K线图右键菜单 → 添加指标 → 股价</td>
+</tr>
+<tr>
+<td>查看涨跌幅</td>
+<td>K线图右键菜单 → 添加指标 → 涨跌幅</td>
+</tr>
+<tr>
+<td>查看总市值</td>
+<td>F10 → 基本资料 → 总市值</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9">9. 策略优势</h2>
 <ul>
-<li>持仓数量：固定持有10只股票</li>
-<li>资金分配：等分可用资金到每只新买入股票</li>
-<li>总仓位：100%满仓运作</li>
-<li>行业分散：通过全市场选股自动实现行业分散</li>
+<li><strong>完全T+1合规</strong>：买入次日可卖，无制度冲突  </li>
+<li><strong>零计算、零编程</strong>：全靠肉眼+软件默认指标  </li>
+<li><strong>信号清晰</strong>：多重财务指标筛选，确保标的质量  </li>
+<li><strong>适合上班族</strong>：每月仅需10分钟</li>
 </ul>
-<h2 id="6">6. 风控管理</h2>
+<hr />
+<h2 id="10">10. 风险提示</h2>
 <ul>
-<li>基本面风控：严格的财务指标筛选确保标的质量</li>
-<li>市值风控：小市值股票但排除微盘股风险</li>
-<li>价格风控：10元以下股价控制个股风险</li>
-<li>流动性风控：排除涨跌停极端情况的股票</li>
-<li>时间风控：月度轮动避免过度交易，4月空仓规避风险</li>
-</ul>
-<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
-<p>第一步：月度选股（每月最后一个交易日）</p>
-<ol>
-<li>基础筛选：</li>
-<li>排除ST、次新、停牌股票</li>
-<li>筛选股价10元以下的股票</li>
-<li>
-<p>排除接近涨跌停的股票</p>
-</li>
-<li>
-<p>财务数据收集：</p>
-</li>
-<li>获取ROE、ROA、PB等财务指标</li>
-<li>筛选ROE&gt;15%、ROA&gt;10%、PB&lt;3的股票</li>
-<li>
-<p>按总市值从小到大排序</p>
-</li>
-<li>
-<p>黑名单过滤：</p>
-</li>
-<li>检查最近30天持有过且出现涨停的股票</li>
-<li>从候选池中排除这些股票</li>
-<li>选择前10只市值最小的股票</li>
-</ol>
-<p>第二步：调仓准备（调仓日9:05）</p>
-<ol>
-<li>持仓分析：</li>
-<li>检查当前持仓</li>
-<li>识别昨日涨停的持仓股</li>
-<li>
-<p>准备调仓名单</p>
-</li>
-<li>
-<p>资金规划：</p>
-</li>
-<li>计算可用资金</li>
-<li>确定每只新股的买入金额</li>
-</ol>
-<p>第三步：盘中监控（调仓日14:00）</p>
-<ol>
-<li>涨停股跟踪：</li>
-<li>监控昨日涨停持仓股的表现</li>
-<li>涨停打开的股票立即卖出</li>
-<li>记录卖出操作</li>
-</ol>
-<p>第四步：调仓执行（调仓日14:55）</p>
-<ol>
-<li>卖出操作：</li>
-<li>卖出不在新选股池中的持仓</li>
-<li>
-<p>执行调仓卖出指令</p>
-</li>
-<li>
-<p>买入操作：</p>
-</li>
-<li>等分资金买入10只新股</li>
-<li>确保总持仓数为10只</li>
-</ol>
-<p>第五步：特殊情况处理</p>
-<ol>
-<li>4月清仓：</li>
-<li>4月份强制清仓所有持仓</li>
-<li>保持空仓状态</li>
-<li>
-<p>为5月重新建仓做准备</p>
-</li>
-<li>
-<p>日常监控：</p>
-</li>
-<li>每日检查持仓股基本面变化</li>
-<li>监控财务指标是否持续符合要求</li>
-<li>关注市场风格变化</li>
-</ol>
-<p>第六步：纪律维护</p>
-<ol>
-<li>月度复盘：</li>
-<li>分析月度收益情况</li>
-<li>检查策略执行效果</li>
-<li>
-<p>优化选股参数</p>
-</li>
-<li>
-<p>严格执行：</p>
-</li>
-<li>坚决按月度周期调仓</li>
-<li>严格执行4月清仓规则</li>
-<li>保持10只股票等权重配置</li>
-</ol>
-<p>交易成本考虑：
-- 买入佣金：0.03%
-- 卖出佣金：0.03%
-- 印花税：0.1%
-- 最低佣金：5元/笔
-- 滑点：0.02%</p>
-<p>风险提示：该策略侧重小市值股票，虽然通过基本面筛选控制质量，但小市值股票波动性相对较大。4月空仓期可能错过上涨行情，需要权衡风险收益。财务数据存在滞后性，需关注财报更新对持仓的影响。</p></div>
+<li><strong>该策略侧重小市值股票</strong>，虽然通过基本面筛选控制质量，但小市值股票波动性相对较大；  </li>
+<li><strong>4月空仓期可能错过上涨行情</strong>，需要权衡风险收益；  </li>
+<li><strong>财务数据存在滞后性</strong>，需关注财报更新对持仓的影响；  </li>
+<li><strong>严格执行止损纪律</strong>：不满足条件即卖出；  </li>
+<li><strong>控制单票仓位</strong>：不超过总资金的10%，避免过度集中。</li>
+</ul></div>
             </div>
         </div>
 

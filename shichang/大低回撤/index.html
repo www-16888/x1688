@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>大容量低回撤投资策略 - 量化策略武器库</title>
+        <title>大容量低回撤投资策略（散户简化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">市场中性策略</a>
+                                <a href="../" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../taoli/" class="nav-link">价格套利策略</a>
+                                <a href="../../taoli/" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,33 +75,37 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">大容量低回撤投资策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">大容量低回撤投资策略（散户简化版）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1.策略的风险等级、分类和策略核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2.选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略的风险等级、分类和策略核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3.买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可查、工具可筛）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4.卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5.仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6.风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7.手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">关键执行要点</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,108 +116,129 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">大容量低回撤投资策略</h1>
-<h2 id="1">1.策略的风险等级、分类和策略核心逻辑</h2>
+<h1 id="_1">大容量低回撤投资策略（散户简化版）</h1>
+<h2 id="1">1. 策略的风险等级、分类和策略核心逻辑</h2>
 <ul>
-<li>风险等级：R3（稳健型）</li>
-<li>策略分类：价值投资策略 / 多因子选股策略</li>
-<li>策略核心逻辑：通过多因子量化模型筛选高质量价值股，结合严格的涨停板管理和持仓控制，实现大容量下的低回撤投资。核心在于"质量+价值+低波动"三因子组合，在控制风险的前提下获取稳定超额收益。</li>
+<li><strong>风险等级</strong>：R2–R3（稳健偏保守）  </li>
+<li><strong>策略分类</strong>：价值投资策略 / 基本面筛选策略  </li>
+<li><strong>策略核心逻辑</strong>：<br />
+  聚焦<strong>盈利稳定、估值合理、股价波动小</strong>的优质公司，避开高估值、高波动、业绩差的股票。<br />
+  通过<strong>半年调仓 + 持仓分散 + 止盈纪律</strong>，在控制回撤的前提下获取长期稳健收益。<br />
+<strong>核心理念</strong>：买“便宜的好公司”，不追热点，不碰妖股。</li>
 </ul>
-<h2 id="2">2.选股条件</h2>
+<hr />
+<h2 id="2">2. 选股条件（人工可查、工具可筛）</h2>
 <ul>
-<li>选股范围：全市场A股（基于300天前上市股票）</li>
-<li>基础池：全市场正常交易的股票</li>
-<li>多因子筛选体系：</li>
-<li>质量因子：ROIC_TTM（投资资本回报率）</li>
-<li>盈利因子：销售毛利率</li>
-<li>价值因子：营收市值比（1/PS_TTM）</li>
-<li>风险因子：120日年化收益方差（反向指标）</li>
-<li>因子权重：ROIC_TTM + 毛利率 - 营收市值比 - 波动率</li>
-<li>排序规则：综合得分从高到低排序</li>
+<li><strong>选股范围</strong>：沪深300成分股 或 中证红利指数成分股（质量高、流动性好、数据全）  </li>
+<li><strong>基础池</strong>：正常交易、非ST、非*ST、上市满1年以上  </li>
+<li><strong>筛选条件（四看原则）</strong>：</li>
+<li><strong>看盈利</strong>：近3年净利润为正，且销售毛利率 &gt; 20%（行业对比更佳）  </li>
+<li><strong>看估值</strong>：市盈率（PE_TTM）&lt; 15，且市净率（PB）&lt; 1.8  </li>
+<li><strong>看波动</strong>：近1年股价最大回撤 &lt; 30%（对比沪深300）  </li>
+<li><strong>看分红</strong>：近3年有分红记录（体现现金流和股东回报意识）</li>
 </ul>
-<h2 id="3">3.买入条件</h2>
+<blockquote>
+<p>✅ <strong>无需计算</strong>：上述数据在<strong>同花顺F10、东方财富APP、雪球个股页</strong>均可直接查看。</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 买入条件</h2>
 <ul>
-<li>买入时机：每季度第一个月第一个交易日9:30（1月、4月、7月、10月）</li>
-<li>买入条件：</li>
-<li>季度调仓：仅在季度初执行调仓</li>
-<li>持仓限制：最多持有40只股票</li>
-<li>重复限制：最近20天内持仓过的股票不再买入</li>
-<li>买入方式：</li>
-<li>等分资金：可用现金平均分配到新买入股票</li>
-<li>数量控制：严格控制在目标持仓数量内</li>
-<li>顺序买入：按综合得分从高到低依次买入</li>
+<li><strong>买入时机</strong>：每年<strong>6月第一个交易日</strong> 和 <strong>12月第一个交易日</strong>（半年调仓）  </li>
+<li><strong>买入条件</strong>：</li>
+<li>股票满足上述“四看”条件  </li>
+<li><strong>不在最近6个月内持仓过</strong>（避免反复买卖）  </li>
+<li>当日<strong>非涨停、非跌停</strong>（避免追高或接飞刀）  </li>
+<li><strong>买入方式</strong>：</li>
+<li><strong>等权重买入</strong>：总资金 ÷ 目标持股数（建议10~15只）  </li>
+<li><strong>按优先级买入</strong>：优先选分红稳定、行业龙头、毛利率更高的公司  </li>
+<li><strong>分批建仓</strong>（可选）：若大盘处于高位（如上证&gt;3400），可分2天买入</li>
 </ul>
-<h2 id="4">4.卖出条件</h2>
+<hr />
+<h2 id="4">4. 卖出条件</h2>
 <ul>
-<li>定期调仓：季度调仓时卖出不在新选股列表中的股票</li>
-<li>涨停保护：</li>
-<li>昨日涨停股票：今日涨停打开立即卖出</li>
-<li>持续涨停：继续持有观察</li>
-<li>重复限制：卖出后20天内不再买入同一股票</li>
-<li>强制卖出：尾盘检查涨停状态，不满足条件及时卖出</li>
+<li><strong>定期调仓</strong>：半年调仓日卖出不符合新条件的股票  </li>
+<li><strong>止盈卖出</strong>：</li>
+<li>单只个股<strong>累计盈利 ≥ 30%</strong>，可考虑卖出一半，留一半博趋势  </li>
+<li>若盈利回撤超50%（如从+40%跌到+20%），则全部止盈  </li>
+<li><strong>止损卖出</strong>：</li>
+<li>股价跌破买入价 <strong>-15%</strong>，无条件止损  </li>
+<li>公司出现<strong>业绩暴雷、被ST、分红中断</strong>等基本面恶化信号，立即卖出  </li>
+<li><strong>不参与涨停博弈</strong>：若持仓股突然连续涨停（非基本面驱动），<strong>第二个涨停板打开时卖出</strong></li>
 </ul>
-<h2 id="5">5.仓位管理</h2>
+<hr />
+<h2 id="5">5. 仓位管理</h2>
 <ul>
-<li>持仓数量：固定持有40只股票</li>
-<li>仓位比例：</li>
-<li>单一个股：等分资金，高度分散</li>
-<li>总仓位：通常接近满仓运作</li>
-<li>现金管理：调仓期间临时持有现金</li>
-<li>动态调整：季度定期调仓，严格控制持仓数量</li>
+<li><strong>持仓数量</strong>：10~15只（兼顾分散与可操作性）  </li>
+<li><strong>仓位比例</strong>：</li>
+<li>单一个股：6%~10%（等权重）  </li>
+<li>总仓位：  <ul>
+<li>大盘PE&lt;12 或 沪指&lt;3000 → 满仓  </li>
+<li>大盘PE&gt;18 或 沪指&gt;3400 → 仓位≤70%，留现金  </li>
 </ul>
-<h2 id="6">6.风控管理</h2>
+</li>
+<li><strong>动态调整</strong>：仅在调仓日调整，平时不频繁操作</li>
+</ul>
+<hr />
+<h2 id="6">6. 风控管理</h2>
 <ul>
-<li>容量风控：40只股票分散投资，适合大资金运作</li>
-<li>质量风控：通过ROIC和毛利率筛选高质量企业</li>
-<li>价值风控：营收市值比确保估值合理性</li>
-<li>波动风控：低波动因子控制组合回撤</li>
-<li>涨停风控：严格的涨停板管理和卖出机制</li>
-<li>重复风控：避免频繁交易同一股票</li>
+<li><strong>分散风控</strong>：10~15只跨行业（避免全买银行或全买消费）  </li>
+<li><strong>质量风控</strong>：只选有持续盈利和分红的公司  </li>
+<li><strong>估值风控</strong>：PE&gt;20 或 PB&gt;2 的股票一律不碰  </li>
+<li><strong>情绪风控</strong>：不追热点、不炒题材、不听消息  </li>
+<li><strong>止损纪律</strong>：-15%硬止损，保护本金第一</li>
 </ul>
-<h2 id="7">7.手动实操步骤（纯人工交易版）</h2>
-<p>第一步：盘前准备（9:00-9:15）
-1. 更新持仓记录，记录当前持有股票
-2. 检查历史持仓，生成20天内不再买入列表
-3. 识别昨日涨停股票，准备特殊监控</p>
-<p>第二步：季度选股（季度初9:15-9:25）
-1. 多因子计算：获取ROIC、毛利率、PS、波动率数据
-2. 数据归一化：标准化处理各因子数值
-3. 综合评分：按权重计算每只股票的综合得分
-4. 排序筛选：按得分从高到低排序，取前40名</p>
-<p>第三步：季度调仓（季度初9:30）
-1. 卖出操作：
-  - 卖出不在新选股列表中的股票
-  - 保留昨日涨停且继续涨停的股票
-2. 买入操作：
-  - 等分资金买入新选出的股票
-  - 避开最近20天持仓过的股票
-3. 仓位调整：确保最终持有40只股票</p>
-<p>第四步：盘中监控（9:30-14:00）
-1. 涨停监控：实时跟踪昨日涨停股表现
-2. 持仓监控：检查持仓股票价格波动
-3. 市场分析：评估整体市场环境</p>
-<p>第五步：涨停检查（14:00）
-1. 检查昨日涨停股票：
-  - 涨停打开：立即卖出
-  - 继续涨停：保持持有
-2. 记录操作：详细记录每笔卖出原因</p>
-<p>第六步：盘后统计（15:10）
-1. 持仓汇总：统计当前持仓股票信息
-2. 绩效记录：记录每只股票的市值和盈亏
-3. 建仓时间：跟踪每只股票的持有时间</p>
-<p>第七步：季度复盘（调仓日后）
-1. 因子有效性：评估各因子的选股效果
-2. 回撤分析：分析组合的最大回撤情况
-3. 容量评估：检查策略的资金容纳能力
-4. 参数优化：根据市场变化调整因子权重</p>
-<p>关键执行要点
-- 严格遵循季度调仓纪律，避免频繁交易
-- 坚持多因子量化选股，不加入主观判断
-- 高度重视涨停板管理，保护既得收益
-- 严格控制持仓数量，确保充分分散
-- 完善历史记录，为复盘优化提供数据支持</p>
-<p>风险提示
-该策略依赖因子选股的有效性，在风格切换的市场中可能短期失效。大容量特性虽然适合机构资金，但在极端市场环境下流动性可能受限。季度调仓频率较低，可能错过短期机会。</p></div>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
+<h3 id="530-1130">第一步：调仓日前准备（5月30日 / 11月30日）</h3>
+<ol>
+<li>打开<strong>同花顺/东方财富</strong>，进入“沪深300”或“中证红利”成分股列表  </li>
+<li>导出或截图成分股名单（约300只）</li>
+</ol>
+<h3 id="i">第二步：初筛（用问财/i问财快速过滤）</h3>
+<p>在 <strong>同花顺i问财</strong>（https://www.iwencai.com）输入以下语句（任选其一）：</p>
+<h4 id="_2">✅ 问财选股语句（直接复制粘贴）：</h4>
+<pre><code class="language-text">沪深300成分股，非ST，上市满1年，市盈率&lt;15，市净率&lt;1.8，毛利率&gt;20%，近3年净利润为正，近3年有分红
+</code></pre>
+<p>或</p>
+<pre><code class="language-text">中证红利成分股，PE&lt;15，PB&lt;1.8，毛利率&gt;20%，非ST，近一年最大回撤&lt;30%
+</code></pre>
+<blockquote>
+<p>💡 结果通常为30~60只股票，人工再精筛。</p>
+</blockquote>
+<h3 id="f10">第三步：人工精筛（肉眼观察F10）</h3>
+<p>对问财筛选出的股票，逐个打开<strong>F10资料</strong>，检查：
+- 是否近3年都分红？<br />
+- 是否有大额商誉或应收账款激增？（警惕财务风险）<br />
+- 所属行业是否处于下行周期？（如地产、教培等回避）<br />
+- 近1年股价是否平稳？（避免“过山车”个股）</p>
+<p><strong>最终选出10~15只</strong>，按“行业分散+龙头优先”原则确定。</p>
+<h3 id="61-121-930">第四步：调仓日操作（6月1日 / 12月1日 9:30）</h3>
+<ol>
+<li><strong>卖出</strong>：不在新名单中的持仓股（涨停则顺延至开板日）  </li>
+<li><strong>买入</strong>：等分资金买入新名单股票（避开近6个月持有过的）  </li>
+<li><strong>记录</strong>：在Excel登记买入日期、成本、行业</li>
+</ol>
+<h3 id="_3">第五步：日常监控（无需盯盘）</h3>
+<ul>
+<li>每月查看一次持仓股F10，关注<strong>季度财报发布</strong>  </li>
+<li>若个股触发止盈/止损条件，在<strong>收盘前5分钟</strong>手动操作  </li>
+<li>其余时间<strong>不看盘、不操作</strong></li>
+</ul>
+<h3 id="_4">第六步：半年复盘</h3>
+<ul>
+<li>统计组合收益 vs 沪深300  </li>
+<li>检查哪些因子失效（如低PE股跑输）  </li>
+<li>微调选股条件（如将PE上限从15调到18）</li>
+</ul>
+<hr />
+<h2 id="_5">关键执行要点</h2>
+<ul>
+<li>✅ <strong>只用免费工具</strong>：同花顺、问财、F10足够  </li>
+<li>✅ <strong>不计算、不编程</strong>：所有数据肉眼可见  </li>
+<li>✅ <strong>低频操作</strong>：每年仅2次调仓，适合上班族  </li>
+<li>✅ <strong>严守纪律</strong>：不因“感觉要涨”而提前买入  </li>
+<li>✅ <strong>行业分散</strong>：金融、消费、制造、公用事业等至少覆盖3个行业</li>
+</ul></div>
             </div>
         </div>
 

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>蛇皮走位小市值策略 - 量化策略武器库</title>
+        <title>蛇皮走位小市值策略（散户实操优化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../shichang/" class="nav-link">市场中性策略</a>
+                                <a href="../../shichang/" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">价格套利策略</a>
+                                <a href="../" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,33 +75,37 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">蛇皮走位小市值策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">蛇皮走位小市值策略（散户实操优化版）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1.策略的风险等级、分类和策略核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2.选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略的风险等级、分类和策略核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3.买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4.卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5.仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简化+可执行）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6.风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7.手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">⚠️ 风险提示</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,115 +116,135 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">蛇皮走位小市值策略</h1>
-<h2 id="1">1.策略的风险等级、分类和策略核心逻辑</h2>
+<h1 id="_1">蛇皮走位小市值策略（散户实操优化版）</h1>
+<h2 id="1">1. 策略的风险等级、分类和策略核心逻辑</h2>
 <ul>
-<li>风险等级：R4（积极型）</li>
-<li>策略分类：小市值策略 / 动量反转策略</li>
-<li>策略核心逻辑：通过小市值股票的均值回归特性，结合股价波动率和持仓盈亏状态进行动态仓位调整。核心在于"小市值+低波动+盈利保护"，在控制风险的前提下捕捉小盘股的超额收益。</li>
+<li><strong>风险等级</strong>：R3（稳健偏积极）——降低频率、简化条件、减少持仓  </li>
+<li><strong>策略分类</strong>：小市值策略 / 均值回归策略（简化版）  </li>
+<li><strong>策略核心逻辑</strong>：在<strong>市场相对平稳期</strong>，筛选<strong>低价、小市值、基本面不差、近期未大涨</strong>的股票，于次日早盘低吸，持有3–5天博弈小盘股轮动反弹。核心是“<strong>小市值+低价+非亏损+低位置</strong>”，避免复杂计算，聚焦可观察、可买入、可卖出的标的。</li>
 </ul>
-<h2 id="2">2.选股条件</h2>
+<hr />
+<h2 id="2">2. 选股条件（适配普通软件）</h2>
 <ul>
-<li>选股范围：全市场A股（排除上市未满250天新股）</li>
-<li>基础池：全市场正常交易的股票</li>
-<li>财务筛选条件：</li>
-<li>盈利能力：ROE&gt;15%，ROA&gt;10%</li>
-<li>市值要求：总市值从小到大排序</li>
-<li>价格要求：股价低于10元</li>
-<li>状态排除条件：</li>
-<li>排除科创板、北交所股票</li>
-<li>排除停牌、ST股票</li>
-<li>排除涨停（97%以上）和跌停（104%以下）股票</li>
-<li>排序规则：按市值从小到大排序，取前10名</li>
+<li><strong>选股范围</strong>：A股主板 + 创业板（<strong>排除科创板688/689、北交所4/8开头、ST/*ST、停牌股、上市&lt;250天新股</strong>）  </li>
+<li>
+<p><strong>筛选条件（全部可通过同花顺问财实现）</strong>：</p>
+</li>
+<li>
+<p><strong>价格要求</strong>：股价 &lt; 10元  </p>
+</li>
+<li><strong>市值要求</strong>：<strong>流通市值 &lt; 50亿元</strong>（确保小盘，但保留一定流动性）  </li>
+<li><strong>基本面底线</strong>：<strong>近4个季度无连续亏损</strong>（问财可近似为“非亏损股”）  </li>
+<li><strong>状态排除</strong>：非ST、非停牌、<strong>近5日涨幅 &lt; 15%</strong>（避免追高）  </li>
+<li><strong>流动性保障</strong>：<strong>昨日成交额 &gt; 2000万元</strong></li>
 </ul>
-<h2 id="3">3.买入条件</h2>
+<blockquote>
+<p>✅ <strong>同花顺问财语句（盘后15:30使用）</strong>：<br />
+<code>股价&lt;10元，流通市值&lt;50亿，非ST，主板或创业板，上市天数&gt;250，昨日成交额&gt;20000000，近5日涨幅&lt;15%，非亏损股</code><br />
+（注：“非亏损股”为问财关键词，代表近一年未亏损；若结果过多，可加“换手率&lt;8%”过滤）</p>
+<p>✅ <strong>通达信选股公式（盘后运行）</strong>：<br />
+```pascal
+{ 蛇皮走位 - 散户优化版 }
+PRICE_LT_10 := C &lt; 10;
+MCAP_LT_5B := FINANCE(40) &lt; 5000000000;
+NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
+MAIN_OR_GEM := CODELIKE('60') OR CODELIKE('00') OR CODELIKE('30');
+NOT_NEW := FINANCE(42) &gt; 250;
+LIQ_YESTER := AMO &gt; 20000000;
+NO_RECENT_RALLY := (C / REF(C,5) - 1) &lt; 0.15;
+NOT_LOSS := FINANCE(33) &gt; 0;  { 净利润&gt;0，近似非亏损 }</p>
+<p>PRICE_LT_10 AND MCAP_LT_5B AND NOT_ST AND MAIN_OR_GEM AND NOT_NEW AND LIQ_YESTER AND NO_RECENT_RALLY AND NOT_LOSS;
+```</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 买入条件</h2>
 <ul>
-<li>买入时机：14:30执行买入</li>
-<li>买入条件：</li>
-<li>波动率条件：股票池波动率方差&lt;0.02且均值&gt;0</li>
-<li>盈利条件：持仓总盈利在-10%到40%之间</li>
-<li>仓位要求：持仓数量未达到目标数量</li>
-<li>买入方式：</li>
-<li>等分资金：可用现金平均分配到目标股票</li>
-<li>数量限制：最多持有10只股票</li>
-<li>顺序买入：按选股顺序依次买入</li>
+<li><strong>买入时机</strong>：<strong>次日（T+1日）9:35–10:00</strong>（避开开盘波动，确保流动性）  </li>
+<li><strong>前提条件</strong>：  </li>
+<li><strong>中证1000指数（000852）处于20日均线上方</strong>（代表小盘股环境不差）  </li>
+<li><strong>全市场跌停股 &lt; 20家</strong>（无极端恐慌）  </li>
+<li><strong>买入方式</strong>：  </li>
+<li>从问财结果中<strong>按流通市值从小到大排序</strong>，选<strong>前3–5只</strong>；  </li>
+<li><strong>等分资金</strong>买入；  </li>
+<li><strong>限价单</strong>：价格=前日收盘价±0.02元。</li>
 </ul>
-<h2 id="4">4.卖出条件</h2>
+<hr />
+<h2 id="4">4. 卖出条件（简化+可执行）</h2>
 <ul>
-<li>波动止损：波动率条件不满足时卖出非核心持仓</li>
-<li>盈利保护：</li>
-<li>总盈利超过40%：清仓等待</li>
-<li>总亏损超过10%：清仓等待</li>
-<li>涨停管理：昨日涨停股票今日涨停打开立即卖出</li>
-<li>调仓卖出：不在新选股列表中的股票及时卖出</li>
+<li><strong>止盈卖出</strong>：  </li>
+<li><strong>盈利 ≥ 8%</strong> → 次日冲高卖出；  </li>
+<li>
+<p><strong>持股第5日14:50</strong> → 无论盈亏强制卖出。  </p>
+</li>
+<li>
+<p><strong>止损卖出</strong>：  </p>
+</li>
+<li><strong>亏损 ≥ 5%</strong> → 当日或次日开盘止损；  </li>
+<li>
+<p><strong>跌破10日均线</strong> → 收盘前卖出。  </p>
+</li>
+<li>
+<p><strong>例外</strong>：若个股突发涨停，可持有至开板日卖出。</p>
+</li>
 </ul>
-<h2 id="5">5.仓位管理</h2>
+<hr />
+<h2 id="5">5. 仓位管理</h2>
 <ul>
-<li>持仓数量：固定持有10只小市值股票</li>
-<li>仓位比例：</li>
-<li>单一个股：等分资金，分散投资</li>
-<li>总仓位：根据波动率和盈利条件动态调整</li>
-<li>现金管理：条件不满足时保持现金</li>
-<li>动态调整：每日检查，根据市场状态调整仓位</li>
+<li><strong>最大持仓数</strong>：<strong>3–5只</strong>（原10只不可行）  </li>
+<li><strong>单股仓位</strong>：≤ 总资金的25%  </li>
+<li><strong>总仓位</strong>：仅在市场环境平稳时操作，<strong>不满足前提时空仓</strong>  </li>
+<li><strong>换仓频率</strong>：每周调仓1次（如每周一选股，周二买入）</li>
 </ul>
-<h2 id="6">6.风控管理</h2>
+<hr />
+<h2 id="6">6. 风控管理</h2>
 <ul>
-<li>波动风控：通过波动率方差控制入场时机</li>
-<li>盈利风控：严格的盈利保护机制</li>
-<li>市值风控：小市值股票的流动性管理</li>
-<li>价格风控：低价股筛选避免高价股风险</li>
-<li>质量风控：ROE和ROA确保基本面质量</li>
+<li><strong>市场风控</strong>：仅当中证1000站上20日线时操作  </li>
+<li><strong>个股风控</strong>：流通市值&lt;50亿+成交额&gt;2000万+非亏损，规避垃圾股  </li>
+<li><strong>时间风控</strong>：5日持有上限，防止阴跌  </li>
+<li><strong>亏损风控</strong>：单笔最大亏损5%  </li>
+<li><strong>流动性风控</strong>：早盘买入+非极小盘，确保可成交</li>
 </ul>
-<h2 id="7">7.手动实操步骤（纯人工交易版）</h2>
-<p>第一步：盘前准备（9:05）
-1. 识别昨日涨停的持仓股票
-2. 更新持仓记录和成本数据
-3. 准备当日交易计划</p>
-<p>第二步：涨停检查（14:00）
-1. 检查昨日涨停股票今日表现
-2. 涨停打开：立即卖出
-3. 继续涨停：保持持有
-4. 记录卖出操作和原因</p>
-<p>第三步：波动率计算（14:30前）
-1. 获取中小板指数成分股
-2. 计算流通市值最小的20只股票
-3. 计算这些股票近两日的涨跌幅
-4. 计算涨跌幅的方差和均值</p>
-<p>第四步：盈利状态计算（14:30）
-1. 计算每只持仓股票的当前盈亏
-2. 汇总持仓总盈利比例
-3. 判断是否在-10%到40%的安全区间内</p>
-<p>第五步：选股筛选（14:30）
-1. 排除上市未满250天的股票
-2. 排除科创板、北交所股票
-3. 排除停牌、ST、涨跌停股票
-4. 筛选股价低于10元的股票
-5. 按ROE&gt;15%、ROA&gt;10%进行财务筛选
-6. 按市值从小到大排序，取前10名</p>
-<p>第六步：交易执行（14:30）
-1. 检查波动率条件：方差&lt;0.02且均值&gt;0
-2. 检查盈利条件：总盈利在-10%到40%之间
-3. 满足条件：
-  - 卖出不在新选股列表中的股票
-  - 等分资金买入新选出的股票
-4. 不满足条件：保持现金或减仓等待</p>
-<p>第七步：持仓管理（盘中）
-1. 监控持仓股票的价格波动
-2. 实时计算总盈利状态
-3. 准备应对突发的市场变化</p>
-<p>第八步：盘后复盘（15:00后）
-1. 分析当日交易执行情况
-2. 评估波动率指标的有效性
-3. 检查盈利保护机制的触发情况
-4. 优化选股参数和交易条件</p>
-<p>关键执行要点
-- 严格遵循波动率和盈利双重条件
-- 专注小市值股票的低估值机会
-- 控制持仓数量，避免过度集中
-- 及时止盈止损，保护既有收益
-- 完善波动率监控体系</p>
-<p>风险提示
-该策略依赖小市值因子的有效性，在大小盘风格切换时可能表现不佳。波动率条件的设定需要根据市场环境调整，过于严格可能错过机会。小市值股票的流动性风险需要特别注意，大资金操作时可能影响成交价格。</p></div>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h3 id="15301630">第一步：盘后选股（15:30–16:30）</h3>
+<ol>
+<li>打开同花顺问财，输入筛选语句；  </li>
+<li>导出结果，按“流通市值”排序；  </li>
+<li>选前5只，加入自选股分组“小市值观察”。</li>
+</ol>
+<h3 id="930">第二步：市场环境检查（次日9:30）</h3>
+<ol>
+<li>查中证1000（000852）是否站上20日均线；  </li>
+<li>问财查“今日跌停家数”是否 &lt; 20；  </li>
+<li>若满足，准备买入。</li>
+</ol>
+<h3 id="9351000">第三步：买入执行（9:35–10:00）</h3>
+<ol>
+<li>从“小市值观察”中选3–5只；  </li>
+<li>限价单买入；  </li>
+<li>记录成本、买入日期。</li>
+</ol>
+<h3 id="_2">第四步：持仓监控</h3>
+<ul>
+<li>每日收盘前检查：是否破10日线？是否盈利≥8%？  </li>
+<li>第5日14:50强制清仓。</li>
+</ul>
+<h3 id="_3">第五步：每周调仓</h3>
+<ul>
+<li>每周一重复选股，周二调仓，<strong>不每日操作</strong>。</li>
+</ul>
+<hr />
+<h2 id="_4">⚠️ 风险提示</h2>
+<ul>
+<li>小市值策略在<strong>大盘股主导行情中会持续跑输</strong>；  </li>
+<li><strong>严禁在熊市或小盘股暴跌期使用</strong>；  </li>
+<li><strong>单只股票成交额&lt;2000万时，避免买入</strong>；  </li>
+<li><strong>建议先用模拟盘试运行1个月</strong>。</li>
+</ul>
+<blockquote>
+<p>✅ <strong>一句话总结</strong>：<br />
+<strong>放弃波动率计算和尾盘交易，聚焦“低价+小市值+非亏损+早盘买入+5日清仓”，借助问财筛选+人工排序，普通散户可稳健执行。</strong></p>
+</blockquote></div>
             </div>
         </div>
 

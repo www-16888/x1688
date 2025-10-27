@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>北上资金净买入策略 - 量化策略武器库</title>
+        <title>北上资金净买入策略（简化手动版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">市场中性策略</a>
+                                <a href="../" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../taoli/" class="nav-link">价格套利策略</a>
+                                <a href="../../taoli/" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">北上资金净买入策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">北上资金净买入策略（简化手动版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
@@ -124,129 +124,120 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">北上资金净买入策略</h1>
+<h1 id="_1">北上资金净买入策略（简化手动版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li><strong>一级分类</strong>：资金流向跟踪策略</li>
-<li><strong>二级分类</strong>：北上资金 + 龙头股选择</li>
-<li><strong>核心逻辑</strong>：跟踪北上资金（沪股通、深股通）的净买入行为，选择资金流入最多的龙头股票进行跟随操作。</li>
+<li><strong>一级分类</strong>：资金流向跟踪策略  </li>
+<li><strong>二级分类</strong>：北上资金 + 龙头股选择（简化版）  </li>
+<li><strong>核心逻辑</strong>：基于公开可查的北上资金净买入排名，选取沪股通与深股通中资金流入靠前、质地较好的龙头股票进行跟随操作，辅以基础风控措施。</li>
 </ul>
 <h2 id="2">2. 选股条件</h2>
 <ul>
-<li><strong>数据来源</strong>：北上资金交易数据</li>
-<li><strong>选股范围</strong>：沪股通(310001) + 深股通(310002)</li>
-<li><strong>核心指标</strong>：净买入金额（买入-卖出）</li>
+<li><strong>数据来源</strong>：东方财富网、同花顺等免费平台提供的“沪深港通十大成交股”或“个股资金流向排行”  </li>
+<li><strong>选股范围</strong>：沪股通（310001）与深股通（310002）成分股中当日净买入排名靠前的股票（通常为前10名）  </li>
+<li><strong>核心指标</strong>：当日北上资金净买入金额（平台显示值）</li>
 </ul>
 <h2 id="3">3. 核心筛选流程</h2>
-<p>第一步：数据获取
-- <strong>数据表</strong>：finance.STK_EL_TOP_ACTIVATE
-- <strong>通道标识</strong>：
-  - 310001：沪股通
-  - 310002：深股通
-- <strong>数据字段</strong>：买入金额、卖出金额、股票代码</p>
-<p>第二步：净买入计算
-- <strong>计算公式</strong>：净买入 = 买入金额 - 卖出金额
-- <strong>排序方式</strong>：按净买入金额降序排列
-- <strong>选择数量</strong>：每个通道选择净买入最多的1只股票</p>
-<p>第三步：股票过滤
-- <strong>排除条件</strong>：
-  - 停牌股票
-  - ST/ST股票
-  - 退市股票
-  - 名称包含"ST"、""、"退"的股票</p>
+<p><strong>第一步：数据获取</strong><br />
+- 访问东方财富网【沪深港通】板块（如：https://data.eastmoney.com/hsgt/）<br />
+- 分别查看“沪股通”和“深股通”当日净买入排名（通常展示前10名）  </p>
+<p><strong>第二步：初步选股</strong><br />
+- 沪股通：从净买入前3名中选择1只<br />
+- 深股通：从净买入前3名中选择1只  </p>
+<p><strong>第三步：质量过滤（手动核查）</strong><br />
+- <strong>排除条件</strong>（任一满足即剔除）：
+  - 股票当日停牌
+  - 股票名称含“ST”、“*ST”、“退”
+  - 最近一年净利润为负且营收下滑（可通过免费财报摘要判断）
+  - 市值过小（建议&gt;200亿元，避免小盘股波动风险）
+- 若前3名均被排除，则顺延至第4~5名；若仍无合适标的，该通道当月空仓</p>
 <h2 id="4">4. 买入条件</h2>
 <ul>
 <li><strong>资金信号</strong>：</li>
-<li>北上资金大幅净买入</li>
-<li>沪股通和深股通龙头股</li>
-<li>资金持续流入</li>
+<li>北上资金当日净买入金额显著（如超1亿元）</li>
+<li>股票未处于短期暴涨（如近5日涨幅&gt;30%需谨慎）</li>
 <li><strong>仓位控制</strong>：</li>
-<li>持仓数量：2只股票</li>
-<li>等权重分配资金</li>
-<li>月度调仓频率</li>
+<li>持仓数量：最多2只（沪、深各1只）</li>
+<li>等权重分配可用资金</li>
+<li><strong>调仓频率</strong>：每月第一个交易日执行（替代原“7日”，避免节假日问题）</li>
 </ul>
 <h2 id="5">5. 卖出条件</h2>
 <ul>
 <li><strong>调仓卖出</strong>：</li>
-<li>不在新选股名单中</li>
-<li>非涨停状态可卖出</li>
+<li>股票未进入本月新选股名单</li>
+<li>非涨停状态方可卖出（若涨停则顺延至下一交易日）</li>
 <li><strong>止损卖出</strong>：</li>
-<li>单股亏损超过16%</li>
-<li>强制止损保护</li>
+<li>自买入成本起，<strong>单股浮亏达16%立即卖出</strong></li>
+<li>建议通过券商APP设置“止损条件单”自动触发</li>
 <li><strong>特殊情况</strong>：</li>
-<li>股票被ST或退市</li>
-<li>长期停牌</li>
+<li>股票被ST/*ST或进入退市整理期</li>
+<li>连续停牌超5个交易日</li>
 </ul>
 <h2 id="6">6. 仓位管理</h2>
 <ul>
-<li><strong>持仓限制</strong>：固定2只股票</li>
+<li><strong>持仓限制</strong>：最多2只股票（沪、深各1）  </li>
 <li><strong>资金分配</strong>：</li>
-<li>可用现金等分买入</li>
-<li>动态调整持仓</li>
-<li><strong>调仓机制</strong>：月度定期调仓</li>
+<li>可用现金平均分配至入选股票</li>
+<li>若仅1只入选，则全仓买入该股（或保留部分现金）</li>
+<li><strong>调仓机制</strong>：每月首个交易日收盘前完成调仓</li>
 </ul>
 <h2 id="7">7. 风控管理</h2>
 <ul>
 <li><strong>质量风控</strong>：</li>
-<li>排除问题股票</li>
-<li>确保交易流动性</li>
+<li>人工排除问题股（ST、小市值、业绩恶化）</li>
+<li>优先选择行业龙头或指数成分股</li>
 <li><strong>止损风控</strong>：</li>
-<li>16%强制止损线</li>
-<li>控制单笔亏损</li>
+<li>严格执行16%止损线</li>
+<li>单只股票最大风险敞口≤50%</li>
 <li><strong>执行风控</strong>：</li>
-<li>涨停限制卖出</li>
-<li>避免无效交易</li>
+<li>涨停日不强制调仓卖出</li>
+<li>避免在尾盘最后10分钟下单（防止价格异动）</li>
 </ul>
 <h2 id="8">8. 交易频率</h2>
 <ul>
-<li><strong>选股频率</strong>：每月7日</li>
-<li><strong>止损监控</strong>：每个交易时段</li>
-<li><strong>调仓执行</strong>：按月执行</li>
+<li><strong>选股频率</strong>：每月第一个交易日  </li>
+<li><strong>止损监控</strong>：每个交易日收盘后检查持仓盈亏，或依赖条件单自动执行  </li>
+<li><strong>调仓执行</strong>：每月一次，收盘前完成</li>
 </ul>
 <h2 id="9">9. 策略特点</h2>
-<p>资金流向逻辑：
-- 北上资金作为聪明资金
-- 资金流入预示股价上涨
-- 跟随机构资金操作</p>
-<p>风险控制特点：
-- 严格的止损机制
-- 优质股票筛选
-- 分散持仓管理</p>
-<p>执行效率：
-- 明确的买卖规则
-- 自动化的调仓流程
-- 实时的风险监控</p>
+<p><strong>资金流向逻辑</strong>：<br />
+- 利用北上资金作为“聪明钱”风向标<br />
+- 聚焦流动性好、机构关注的龙头股  </p>
+<p><strong>风险控制特点</strong>：<br />
+- 手动可执行的止损与过滤规则<br />
+- 避免高风险标的，强调基本质地  </p>
+<p><strong>执行效率</strong>：<br />
+- 依赖免费公开数据，无需编程<br />
+- 每月仅需1次集中操作，适合兼职投资者  </p>
 <h2 id="10">10. 手动实操步骤</h2>
-<p>第一步：数据准备
-- 获取北上资金交易数据
-- 计算净买入金额
-- 按通道分别排序</p>
-<p>第二步：龙头股选择
-- 沪股通选择净买入第1名
-- 深股通选择净买入第1名
-- 生成目标股票池</p>
-<p>第三步：质量过滤
-- 检查停牌状态
-- 验证ST状态
-- 确认可交易性</p>
-<p>第四步：持仓调整
-- 卖出不在目标池的持仓
-- 买入新入选股票
-- 等权重分配资金</p>
-<p>第五步：止损监控
-- 实时监控持仓盈亏
-- 触发止损立即卖出
-- 记录止损交易</p>
-<p>第六步：定期调仓
-- 每月固定日期调仓
-- 更新目标股票池
-- 优化持仓结构</p>
-<p>策略优势：
-- 跟随聪明资金操作
-- 严格的风险控制
-- 简单的执行流程
-- 历史表现稳健</p>
-<p>风险提示：北上资金数据存在滞后性，资金流向可能短期波动。建议结合更多基本面指标验证公司质量，注意市场整体风险偏好变化。在北上资金持续流入的市场环境中效果较好。</p></div>
+<p><strong>第一步：每月首个交易日早盘前准备</strong><br />
+- 打开东方财富网“沪深港通资金流向”页面<br />
+- 记录沪股通、深股通当日净买入前5名股票及金额  </p>
+<p><strong>第二步：初步筛选</strong><br />
+- 各通道取前3名，剔除ST、停牌、小市值（&lt;200亿）股票  </p>
+<p><strong>第三步：最终确定目标池</strong><br />
+- 沪股通选1只，深股通选1只（若无可选则空仓）  </p>
+<p><strong>第四步：调仓执行（收盘前完成）</strong><br />
+- 卖出上月持仓中未入选的股票（非涨停前提下）<br />
+- 用可用资金等分买入新入选股票  </p>
+<p><strong>第五步：设置止损</strong><br />
+- 在券商APP为每只新买入股票设置“16%止损条件单”  </p>
+<p><strong>第六步：日常监控</strong><br />
+- 每日收盘后查看持仓是否触发止损<br />
+- 关注公司公告，防范突发ST或退市风险  </p>
+<hr />
+<p><strong>策略优势</strong>：<br />
+- 逻辑透明，规则清晰<br />
+- 依托免费数据，散户可手动执行<br />
+- 风控机制健全，避免重大回撤  </p>
+<p><strong>风险提示</strong>：<br />
+- 免费数据仅覆盖前10名，可能遗漏真实龙头<br />
+- 北上资金存在短期博弈行为，非绝对“聪明”<br />
+- 建议结合行业趋势与估值水平辅助判断<br />
+- 在市场整体下跌或外资流出周期中，策略可能阶段性失效  </p>
+<blockquote>
+<p>💡 <strong>适用人群</strong>：有基本股票知识、能每月花30分钟操作、接受适度信息滞后性的普通散户投资者。</p>
+</blockquote></div>
             </div>
         </div>
 

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>行业宽度轮动策略 - 量化策略武器库</title>
+        <title>行业宽度轮动策略（散户简化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,16 +38,16 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../qushi/" class="nav-link">趋势追踪策略</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">市场中性策略</a>
+                                <a href="../" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../taoli/" class="nav-link">价格套利策略</a>
+                                <a href="../../taoli/" class="nav-link">妖股伏击库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../jiazhi/" class="nav-link">价值投资策略</a>
+                                <a href="../../jiazhi/" class="nav-link">龙头擒拿库</a>
                             </li>
                         </ul>
 
@@ -75,37 +75,45 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业宽度轮动策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业宽度轮动策略（散户简化版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可执行）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 行业选择方法（替代“行业宽度”）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 个股筛选方法（人工可查）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5_4" class="nav-link">5. 买入与卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位与风控</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 行业宽度理论</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工版）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 通达信 / 问财 / 同花顺友好语句</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略优势与风险</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 给散户的建议</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,155 +124,184 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">行业宽度轮动策略</h1>
+<h1 id="_1">行业宽度轮动策略（散户简化版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li>一级分类：行业轮动策略</li>
-<li>二级分类：行业宽度轮动策略</li>
-<li>核心逻辑：基于"行业宽度"指标，识别技术面强势行业，在强势行业中选取表现最佳的个股，通过周度轮动捕捉行业轮动机会，实现行业配置优化。</li>
+<li><strong>一级分类</strong>：行业轮动策略  </li>
+<li><strong>二级分类</strong>：技术面行业强弱轮动  </li>
+<li><strong>核心逻辑</strong>：<br />
+  每周从<strong>5个代表性行业</strong>中，选出<strong>近期整体走势最强的1个行业</strong>，然后在该行业中挑选<strong>5只技术面稳健、未大涨的优质股</strong>，通过<strong>每周调仓</strong>捕捉轮动机会。<br />
+<strong>简化原则</strong>：用“行业指数走势”代替“行业宽度计算”，用“肉眼观察”代替“个股20日均线统计”。</li>
 </ul>
-<h2 id="2">2. 选股条件</h2>
+<hr />
+<h2 id="2">2. 选股条件（人工可执行）</h2>
+<h3 id="5">行业池（固定5个，无需变动）：</h3>
+<table>
+<thead>
+<tr>
+<th>行业</th>
+<th>同花顺行业代码</th>
+<th>行业指数代码（用于观察）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国防军工</td>
+<td>801740</td>
+<td>881144（军工指数）</td>
+</tr>
+<tr>
+<td>食品饮料</td>
+<td>801120</td>
+<td>881121（食品饮料）</td>
+</tr>
+<tr>
+<td>煤炭</td>
+<td>801950</td>
+<td>881131（煤炭）</td>
+</tr>
+<tr>
+<td>银行</td>
+<td>801780</td>
+<td>881155（银行）</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>801770</td>
+<td>881126（通信设备）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>操作提示</strong>：在同花顺输入上述<strong>行业指数代码</strong>（如881144），即可查看该行业整体走势。</p>
+</blockquote>
+<h3 id="_2">股票池限制（人工排除）：</h3>
 <ul>
-<li>选股范围：中证全指（000985.XSHG）成分股</li>
-<li>排除范围：</li>
-<li>科创板、北交所、创业板股票</li>
-<li>ST股及其他退市标签股</li>
-<li>上市未满375天的次新股</li>
-<li>当日停牌、涨跌停股票
-目标行业池（5个行业）：</li>
-<li>801740：国防军工</li>
-<li>801120：食品饮料</li>
-<li>801950：煤炭</li>
-<li>801780：银行</li>
-<li>801770：通信
-行业选择标准：</li>
-<li>行业宽度计算：</li>
-<li>计算行业内股价在20日均线上方的股票比例</li>
-<li>比例越高代表行业技术面越强势</li>
-<li>选择逻辑：</li>
-<li>选择行业宽度最高的1个行业</li>
-<li>在该行业内进一步选股
-个股选择标准：</li>
-<li>技术面筛选：</li>
-<li>计算行业内个股10日涨跌幅</li>
-<li>选择跌幅最小的5只股票（逆向思维）</li>
-<li>或可改为选择涨幅最大的5只股票（趋势思维）</li>
+<li><strong>排除</strong>：ST/*ST、创业板（300开头）、科创板（688开头）、北交所（8开头）、上市&lt;1年新股  </li>
+<li><strong>排除</strong>：当日涨停/跌停、停牌股（开盘前一眼可见）</li>
 </ul>
-<h2 id="3">3. 买入条件</h2>
-<ul>
-<li>交易频率：周度调仓（每周第1个交易日）</li>
-<li>买入规则：</li>
-<li>计算5个目标行业的行业宽度</li>
-<li>选择宽度最高的行业</li>
-<li>在该行业中选择5只目标股票</li>
-<li>等权重分配可用资金</li>
-<li>执行时间：上午9:30执行调仓</li>
-</ul>
-<h2 id="4">4. 卖出条件</h2>
-<ul>
-<li>定期调仓：每周统一调仓</li>
-<li>特殊情况：</li>
-<li>昨日涨停股如打开涨停立即卖出</li>
-<li>不在新选股池中的持仓全部卖出</li>
-<li>调仓逻辑：完全根据行业轮动结果决定去留</li>
-</ul>
-<h2 id="5">5. 仓位管理</h2>
-<ul>
-<li>持仓数量：固定5只股票</li>
-<li>资金分配：严格的等权重分配</li>
-<li>调仓频率：周度调仓，平衡及时性与交易成本</li>
-<li>行业集中：单次只投资1个行业</li>
-</ul>
-<h2 id="6">6. 风控管理</h2>
-<ul>
-<li>行业分散：在5个不同性质行业间轮动</li>
-<li>流动性风控：排除涨跌停股票，确保流动性</li>
-<li>质量风控：排除ST、次新等问题股票</li>
-<li>技术风控：基于技术指标选择强势行业</li>
-<li>监控风控：对涨停股进行特殊监控</li>
-</ul>
-<h2 id="7">7. 行业宽度理论</h2>
-<ul>
-<li>宽度定义：行业内个股技术面同步改善程度</li>
-<li>指标意义：宽度越高代表行业趋势越健康</li>
-<li>轮动逻辑：资金在行业间的有序轮动</li>
-<li>择时作用：识别行业层面的动量效应</li>
-</ul>
-<h2 id="8">8. 手动实操步骤（纯人工交易版）</h2>
-<h3 id="905">第一步：盘前准备（每个交易日9:05）</h3>
+<hr />
+<h2 id="3">3. 行业选择方法（替代“行业宽度”）</h2>
+<h3 id="5_1">✅ 简化逻辑：<strong>用“行业指数5日涨幅”代替“行业宽度”</strong></h3>
+<blockquote>
+<p>理由：行业宽度 = 行业内上涨个股比例，而<strong>行业指数涨幅 ≈ 行业整体强弱的代理指标</strong>，肉眼可查、无需计算。</p>
+</blockquote>
+<h3 id="920">操作步骤（每周一9:20前完成）：</h3>
 <ol>
-<li>持仓管理：</li>
-<li>更新当前持仓列表</li>
-<li>识别昨日涨停的持仓股</li>
-<li>准备调仓分析</li>
+<li>打开<strong>同花顺</strong>，依次输入5个行业指数代码：<br />
+<code>881144</code>（军工）、<code>881121</code>（食品饮料）、<code>881131</code>（煤炭）、<code>881155</code>（银行）、<code>881126</code>（通信）</li>
+<li>查看每个行业指数的 <strong>“5日涨幅”</strong>（在K线图下方或F10中可见）</li>
+<li><strong>选择5日涨幅最大的1个行业</strong> → 即为本周投资方向</li>
 </ol>
-<h3 id="1930">第二步：行业分析（每周第1个交易日9:30）</h3>
+<blockquote>
+<p>🌰 举例：若军工指数5日涨8%，银行涨2%，煤炭跌1% → 选<strong>国防军工</strong></p>
+</blockquote>
+<hr />
+<h2 id="4">4. 个股筛选方法（人工可查）</h2>
+<h3 id="5_2">在选定行业中，按以下规则选5只股票：</h3>
+<h4 id="_3">✅ 筀选条件（三选二即可）：</h4>
 <ol>
-<li>基础股票池：</li>
-<li>获取中证全指成分股</li>
-<li>排除不符合条件的股票</li>
-<li>行业宽度计算：</li>
-<li>获取5个目标行业的成分股</li>
-<li>计算每只股票是否在20日均线上方</li>
-<li>统计每个行业在均线上方的股票比例</li>
-<li>行业选择：</li>
-<li>比较5个行业的宽度指标</li>
-<li>选择宽度最高的行业作为投资方向</li>
+<li><strong>非大涨股</strong>：近5日涨幅 <strong>&lt; 行业指数涨幅</strong>（避免追高）  </li>
+<li><strong>技术稳健</strong>：股价在<strong>20日均线上方</strong>（打开日K线一眼可见）  </li>
+<li><strong>流动性好</strong>：日成交额 &gt; 1亿元（避免小盘股）</li>
 </ol>
-<h3 id="_2">第三步：个股筛选</h3>
+<blockquote>
+<p>💡 <strong>操作技巧</strong>：<br />
+- 在同花顺输入行业代码（如801740），点击“成分股”，按“5日涨幅”排序<br />
+- 从<strong>涨幅中后段</strong>（如排在10~30名）中挑选符合上述条件的股票<br />
+- 优先选<strong>行业龙头</strong>（如军工选中航沈飞、通信选中兴通讯）</p>
+</blockquote>
+<h3 id="5_3">最终名单：选出5只符合条件的股票</h3>
+<hr />
+<h2 id="5_4">5. 买入与卖出条件</h2>
+<h3 id="_4">买入：</h3>
+<ul>
+<li><strong>时间</strong>：每周一 9:30（如遇节假日顺延）  </li>
+<li><strong>方式</strong>：等权重买入5只股票（总资金 ÷ 5）  </li>
+<li><strong>前提</strong>：股票未涨停、可正常交易</li>
+</ul>
+<h3 id="_5">卖出：</h3>
+<ul>
+<li><strong>全部卖出</strong>：上周持仓中<strong>不在本周5只名单内</strong>的股票  </li>
+<li><strong>特殊处理</strong>：  </li>
+<li>若持仓股<strong>周一涨停</strong> → 持有至<strong>周二开盘</strong>，若打开涨停则卖出  </li>
+<li>若继续涨停 → 持有至开板日卖出（最多持有一周）</li>
+</ul>
+<hr />
+<h2 id="6">6. 仓位与风控</h2>
+<ul>
+<li><strong>持仓数量</strong>：固定5只  </li>
+<li><strong>行业集中</strong>：100%资金投入1个行业（接受短期波动）  </li>
+<li><strong>止损纪律</strong>：单只个股<strong>亏损达-10%</strong>，无条件止损  </li>
+<li><strong>不频繁操作</strong>：仅周一调仓，其余时间不交易</li>
+</ul>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工版）</h2>
+<h3 id="900930">📅 每周一操作流程（9:00–9:30）：</h3>
+<h4 id="900910">第一步：看行业强弱（9:00–9:10）</h4>
 <ol>
-<li>行业内选股：</li>
-<li>获取选定行业的所有成分股</li>
-<li>排除不符合条件的股票</li>
-<li>计算10日涨跌幅</li>
-<li>最终选股：</li>
-<li>选择10日跌幅最小的5只股票（逆向）</li>
-<li>或选择10日涨幅最大的5只股票（趋势）</li>
-<li>确保股票可交易（非停牌、涨跌停）</li>
+<li>打开同花顺，依次查5个行业指数的<strong>5日涨幅</strong>：</li>
+<li>881144（军工）</li>
+<li>881121（食品饮料）</li>
+<li>881131（煤炭）</li>
+<li>881155（银行）</li>
+<li>881126（通信）</li>
+<li>记录涨幅，<strong>选涨幅最大的行业</strong></li>
 </ol>
-<h3 id="_3">第四步：调仓执行</h3>
+<h4 id="910925">第二步：选个股（9:10–9:25）</h4>
 <ol>
-<li>持仓清理：</li>
-<li>卖出所有不在新5名单中的持仓</li>
-<li>昨日涨停股如仍涨停可暂时保留</li>
-<li>持仓建立：</li>
-<li>计算每只股票的目标市值（可用资金/5）</li>
-<li>按名单执行买入操作</li>
-<li>确保5只股票等权重配置</li>
+<li>在同花顺输入该行业代码（如801740）</li>
+<li>点击“成分股” → 按“5日涨幅”排序</li>
+<li>从<strong>涨幅中段</strong>（避免前5名）挑选5只：</li>
+<li>股价在20日均线上方（看K线）</li>
+<li>成交额 &gt; 1亿</li>
+<li>非ST、非创业板/科创板</li>
+<li>记录股票代码和名称</li>
 </ol>
-<h3 id="1400">第五步：盘中监控（每日14:00）</h3>
+<h4 id="930">第三步：调仓执行（9:30）</h4>
 <ol>
-<li>涨停股监控：</li>
-<li>检查昨日涨停持仓股是否打开涨停</li>
-<li>如打开涨停立即卖出</li>
-<li>如仍涨停继续持有</li>
+<li><strong>卖出</strong>：上周持仓中不在新名单的股票（涨停则挂单“涨停价卖”）  </li>
+<li><strong>买入</strong>：等分资金买入新5只股票（若某只涨停无法买，则顺延至下一只）</li>
 </ol>
-<h3 id="_4">第六步：持续优化</h3>
-<ol>
-<li>策略回顾：</li>
-<li>分析行业宽度指标的有效性</li>
-<li>优化个股选择标准</li>
-<li>调整行业池构成
-策略逻辑解析：</li>
-<li>行业轮动：捕捉不同行业的周期性机会</li>
-<li>宽度指标：识别行业整体技术面强弱</li>
-<li>逆向思维：在强势行业中选择相对弱势股（均值回归）</li>
-<li>趋势思维：在强势行业中选择强势股（动量延续）</li>
-<li>风险分散：在5个不同行业间轮动
-行业特性分析：</li>
-<li>国防军工：政策驱动，周期性较强</li>
-<li>食品饮料：防御属性，消费刚性</li>
-<li>煤炭：周期行业，资源属性</li>
-<li>银行：价值风格，利率敏感</li>
-<li>通信：成长属性，技术驱动
-交易成本考虑：</li>
-<li>买入佣金：0.03%</li>
-<li>卖出佣金：0.03%</li>
-<li>印花税：0.1%</li>
-<li>最低佣金：5元/笔</li>
-<li>滑点：0%
-风险提示： 该策略在行业风格极端分化时可能表现不佳，因为只投资1个行业。行业宽度指标在震荡市中可能产生错误信号。策略对行业分类的准确性有较高依赖。在个股选择环节，选择跌幅最小的股票（逆向思维）可能面临"弱者恒弱"的风险，而选择涨幅最大的股票（趋势思维）可能面临追高风险。需要投资者对行业轮动有较好的理解。</li>
-</ol></div>
+<h4 id="_6">第四步：盘中监控（可选）</h4>
+<ul>
+<li>14:50检查：是否有持仓股涨停打开？如有，立即卖出</li>
+</ul>
+<hr />
+<h2 id="8">8. 通达信 / 问财 / 同花顺友好语句</h2>
+<h3 id="_7">✅ 同花顺问财选股语句（行业成分股筛选）：</h3>
+<pre><code class="language-text">所属行业=国防军工，非ST，非创业板，非科创板，上市满1年，股价在20日均线上方，5日涨幅&lt;8%，成交额&gt;1亿
+</code></pre>
+<blockquote>
+<p>将“国防军工”替换为其他行业即可。</p>
+</blockquote>
+<h3 id="_8">✅ 通达信行业指数涨幅查看：</h3>
+<ul>
+<li>直接输入指数代码：<code>881144</code>、<code>881121</code> 等  </li>
+<li>按 <code>F5</code> 切换K线，下方显示“5日%”即为5日涨幅</li>
+</ul>
+<hr />
+<h2 id="9">9. 策略优势与风险</h2>
+<h3 id="_9">✅ 优势：</h3>
+<ul>
+<li><strong>逻辑清晰</strong>：强行业 + 稳个股  </li>
+<li><strong>工具免费</strong>：仅需同花顺/问财  </li>
+<li><strong>频率适中</strong>：每周一次，适合上班族  </li>
+<li><strong>纪律明确</strong>：避免情绪化交易</li>
+</ul>
+<h3 id="_10">⚠️ 风险：</h3>
+<ul>
+<li><strong>行业集中风险</strong>：若选错行业，可能单周回撤较大（如-5%~8%）  </li>
+<li><strong>震荡市失效</strong>：行业轮动不明显时，频繁调仓增加摩擦成本  </li>
+<li><strong>龙头滞后</strong>：有时行业指数涨，但成分股分化大，需人工甄别</li>
+</ul>
+<hr />
+<h2 id="10">10. 给散户的建议</h2>
+<ul>
+<li><strong>初始资金建议 ≥ 5万元</strong>：确保5只股票每只可买≥100股，降低佣金占比  </li>
+<li><strong>搭配大盘判断</strong>：若上证指数&lt;2900，可暂停策略，转为持有现金  </li>
+<li><strong>记录交易日志</strong>：用Excel记录每周选的行业、个股、收益，便于复盘</li>
+</ul></div>
             </div>
         </div>
 
