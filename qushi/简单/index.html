@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>布林带通道突破趋势策略（散户实操版 · 同花顺/通达信友好） - 量化策略武器库</title>
+        <title>高股息小市值策略（散户简化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,41 +75,41 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">布林带通道突破趋势策略（散户实操版 · 同花顺/通达信友好）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">高股息小市值策略（散户简化版）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类与核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（完全适配问财语句）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3-t1" class="nav-link">3. 买入条件（T+1合规）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可执行）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简单明确）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位与风控（极简但有效）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6-10" class="nav-link">6. 手动实操步骤（每日10分钟）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 同花顺操作指南（零公式）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 策略优势</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工版）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 风险提示</a>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 通达信 / 同花顺友好支持</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 风险提示与优化建议</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -120,193 +120,147 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">布林带通道突破趋势策略（散户实操版 · 同花顺/通达信友好）</h1>
-<h2 id="1">1. 策略分类与核心逻辑</h2>
+<h1 id="_1">高股息小市值策略（散户简化版）</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li><strong>一级分类</strong>：方向性策略  </li>
-<li><strong>二级分类</strong>：趋势跟踪 + 波动扩张结合  </li>
+<li><strong>一级分类</strong>：基本面+技术面复合策略  </li>
+<li><strong>二级分类</strong>：高股息低股价策略（简化版）  </li>
 <li><strong>核心逻辑</strong>：<br />
-  利用<strong>布林带宽度变化</strong>捕捉趋势启动点，当布林带收缩后突然扩张且价格突破上轨时，通常意味着趋势开始形成。本策略追求顺势介入、稳健持有、严格止损的趋势型收益。</li>
+  每月从<strong>分红稳定、股价便宜（&lt;9元）、市值适中、非高风险板块</strong>的股票中，选出<strong>10只“看得懂、买得起、有分红”的股票</strong>，等权重持有，<strong>每月调仓一次</strong>。<br />
+<strong>不追求暴利，只求“稳稳的幸福”</strong>。</li>
+</ul>
+<blockquote>
+<p>✅ 简化重点：<br />
+- 用“<strong>股息率 &gt; 3%</strong>”代替“全市场前25%”（人工可查阈值）<br />
+- 用“<strong>市值 &lt; 200亿</strong>”代替“按市值排序取最小”（避免极小市值流动性陷阱）<br />
+- 聚焦<strong>主板（60/00开头）</strong>，自动排除科创板/北交所</p>
+</blockquote>
+<hr />
+<h2 id="2">2. 选股条件（人工可执行）</h2>
+<h3 id="_2">✅ 选股范围：</h3>
+<ul>
+<li><strong>仅限主板A股</strong>：股票代码以 <strong>60（沪市）或 00（深市）开头</strong><br />
+  → 自动排除科创板（688）、创业板（300）、北交所（8）</li>
+</ul>
+<h3 id="_3">✅ 排除范围（一眼可见）：</h3>
+<ul>
+<li>ST / *ST 股票（名称带“ST”）  </li>
+<li>当日<strong>涨停 / 跌停 / 停牌</strong>（开盘前行情可见）  </li>
+<li><strong>股价 ≥ 9元</strong>（直接过滤）</li>
+</ul>
+<h3 id="f10">✅ 三大筛选标准（全部可在F10查看）：</h3>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>标准</th>
+<th>查看位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>高股息</strong></td>
+<td>近12个月股息率 ≥ 3%</td>
+<td>同花顺F10 → “分红融资”</td>
+</tr>
+<tr>
+<td><strong>小市值</strong></td>
+<td>总市值 &lt; 200亿元</td>
+<td>F10 → “公司概况” 或 行情界面</td>
+</tr>
+<tr>
+<td><strong>低股价</strong></td>
+<td>当前股价 &lt; 9元</td>
+<td>行情列表直接可见</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>为什么选3%？</strong><br />
+A股中股息率 &gt; 3% 的公司约占前30%，既保证“高分红”，又避免因门槛过高导致样本太少。</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 买入条件</h2>
+<ul>
+<li><strong>调仓时间</strong>：每月<strong>第一个交易日 9:30</strong>  </li>
+<li><strong>持仓数量</strong>：固定 <strong>10只股票</strong>  </li>
+<li><strong>买入方式</strong>：</li>
+<li>等权重分配（总资金 ÷ 10）</li>
+<li>优先选择<strong>行业分散</strong>的股票（避免全买银行或全买地产）</li>
+<li>若某只股票涨停无法买入，则跳过，从备选中补足10只</li>
 </ul>
 <hr />
-<h2 id="2">2. 选股条件（完全适配问财语句）</h2>
-<h3 id="_2">✅ 选股范围</h3>
+<h2 id="4">4. 卖出条件</h2>
 <ul>
-<li>全市场A股（主板为主）</li>
+<li><strong>常规卖出</strong>：调仓日卖出<strong>不在新名单中的股票</strong>  </li>
+<li><strong>涨停保护</strong>：</li>
+<li>若持仓股<strong>昨日涨停</strong>，今日<strong>继续涨停</strong> → 持有  </li>
+<li>若<strong>今日打开涨停</strong> → <strong>14:00前卖出</strong>  </li>
+<li><strong>止损纪律</strong>：单只个股<strong>亏损达 -15%</strong>，立即止损（保护本金）</li>
 </ul>
-<h3 id="_3">❌ 排除股票（同花顺“条件选股”中勾选）</h3>
+<hr />
+<h2 id="5">5. 仓位管理</h2>
 <ul>
-<li>ST/*ST/退市股  </li>
-<li>新股（上市未满250天）  </li>
-<li>流通市值 &lt; 50亿元（F10可查）  </li>
-<li>当日涨停或跌停股（盘后自动过滤）</li>
+<li><strong>总仓位</strong>：通常满仓（除非大盘极度高估）  </li>
+<li><strong>单一个股</strong>：10%（严格等权）  </li>
+<li><strong>调仓频率</strong>：每月1次（降低摩擦成本）  </li>
+<li><strong>行业分散</strong>：尽量覆盖3个以上行业（如银行、电力、交运、化工、公用事业等）</li>
 </ul>
-<h3 id="_4">🔍 技术信号（问财语句实现）</h3>
-<pre><code class="language-text">非ST，非科创板，非创业板，主板，流通市值大于50亿，布林带宽度较前一周缩小至少30%，今日收盘价突破布林带上轨，成交量大于20日均量的1.5倍，MACD红柱持续增长，所属行业近一月涨幅排名前30%
+<hr />
+<h2 id="6">6. 风控管理</h2>
+<ul>
+<li><strong>质量风控</strong>：只选有连续分红记录的公司（F10查“分红年度”）  </li>
+<li><strong>流动性风控</strong>：市值 &gt; 30亿（避免“仙股”），日成交 &gt; 3000万元  </li>
+<li><strong>价格风控</strong>：股价 &lt; 9元，降低单笔风险  </li>
+<li><strong>情绪风控</strong>：不追热点、不炒题材、不碰“看不懂”的公司</li>
+</ul>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工版）</h2>
+<h3 id="900930">📅 每月第一个交易日操作流程（9:00–9:30）</h3>
+<h4 id="900910">第一步：用问财快速初筛（9:00–9:10）</h4>
+<p>在 <strong>同花顺i问财</strong>（https://www.iwencai.com）输入：</p>
+<pre><code class="language-text">主板股票，非ST，股价&lt;9元，总市值&lt;200亿，股息率&gt;3%，上市满1年，近3年有分红
 </code></pre>
 <blockquote>
-<p>✅ <strong>说明</strong>：
-- <strong>布林带宽度较前一周缩小至少30%</strong>：表示近期震荡收敛；
-- <strong>今日收盘价突破布林带上轨</strong>：确认突破；
-- <strong>成交量大于20日均量的1.5倍</strong>：放量突破；
-- <strong>MACD红柱持续增长</strong>：趋势确认；
-- <strong>所属行业近一月涨幅排名前30%</strong>：提升成功率的关键过滤。</p>
+<p>✅ 结果通常为50~150只股票，导出或截图。</p>
 </blockquote>
-<hr />
-<h2 id="3-t1">3. 买入条件（T+1合规）</h2>
-<ul>
-<li><strong>买入时机</strong>：<strong>次日尾盘 14:45–14:55</strong>（避免早盘追高）  </li>
-<li><strong>买入前提</strong>：</li>
-<li>T日满足上述技术信号  </li>
-<li>T+1日<strong>股价仍在布林带上轨上方</strong>  </li>
-<li>T+1日<strong>成交量未显著萎缩</strong>  </li>
-<li><strong>仓位控制</strong>：单只 ≤ 20% 总资金  </li>
-<li><strong>最大持仓</strong>：同时持有 ≤ 3只  </li>
-<li><strong>买入方式</strong>：市价单（尾盘流动性好）</li>
-</ul>
-<blockquote>
-<p>⚠️ <strong>关键改进</strong>：放弃“9:35追突破”，改为<strong>次日尾盘低吸</strong>，大幅提升胜率。</p>
-</blockquote>
-<hr />
-<h2 id="4">4. 卖出条件（简单明确）</h2>
-<table>
-<thead>
-<tr>
-<th>情况</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>止盈</strong></td>
-<td>持有期间<strong>累计涨幅 ≥ 18%</strong>，次日冲高卖出</td>
-</tr>
-<tr>
-<td><strong>止损</strong></td>
-<td><strong>收盘价跌破布林中轨</strong>，次日开盘卖出</td>
-</tr>
-<tr>
-<td><strong>时间止损</strong></td>
-<td>持有满<strong>20个交易日</strong>仍未达18%，第21日开盘清仓</td>
-</tr>
-<tr>
-<td><strong>波动风控</strong></td>
-<td>若布林带带宽增速 &gt; 100%，暂停开新仓</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>✅ <strong>不再依赖复杂加减仓规则</strong>，改用<strong>布林中轨破位</strong>这一清晰信号。</p>
-</blockquote>
-<hr />
-<h2 id="5">5. 仓位与风控（极简但有效）</h2>
-<table>
-<thead>
-<tr>
-<th>项目</th>
-<th>规则</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>单票仓位</td>
-<td>≤ 20%</td>
-</tr>
-<tr>
-<td>最大持仓</td>
-<td>3只</td>
-</tr>
-<tr>
-<td>空仓条件</td>
-<td>上证指数 &lt; MA20 或 市场连板高度 ≤ 2板</td>
-</tr>
-<tr>
-<td>流动性要求</td>
-<td>日成交额 ≥ 3亿元（F10可见）</td>
-</tr>
-<tr>
-<td>组合风控</td>
-<td>账户总回撤 ≥ 5%，暂停开仓1周</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="6-10">6. 手动实操步骤（每日10分钟）</h2>
-<h3 id="15301600">🕒 第一步：盘后选股（15:30–16:00）</h3>
+<h4 id="910925">第二步：人工精筛（9:10–9:25）</h4>
+<p>对问财结果，逐个检查F10：
+1. <strong>是否连续分红</strong>？（近3年至少分2次）<br />
+2. <strong>是否有大额负债或亏损</strong>？（看“主要财务指标”）<br />
+3. <strong>所属行业是否稳健</strong>？（优先选：银行、电力、高速、港口、煤炭、家电等）<br />
+4. <strong>当日是否可交易</strong>？（非涨跌停、非停牌）</p>
+<p><strong>选出10只</strong>，按“行业分散 + 股息率高 + 市值适中”排序。</p>
+<h4 id="930">第三步：调仓执行（9:30）</h4>
 <ol>
-<li>打开 <strong>同花顺 → i问财</strong>  </li>
-<li>输入以下语句并点击“选股”：
-   <code>text
-   非ST，非科创板，非创业板，主板，流通市值大于50亿，布林带宽度较前一周缩小至少30%，今日收盘价突破布林带上轨，成交量大于20日均量的1.5倍，MACD红柱持续增长，所属行业近一月涨幅排名前30%</code></li>
-<li>将符合的加入自选股（最多5只）</li>
+<li><strong>卖出</strong>：不在新名单的持仓（涨停股除外）  </li>
+<li><strong>买入</strong>：等分资金买入新10只  </li>
+<li><strong>记录</strong>：在Excel登记股票、成本、行业、股息率</li>
 </ol>
-<h3 id="14451455">🕒 第二步：次日尾盘决策（14:45–14:55）</h3>
-<ol>
-<li>查看自选股：</li>
-<li>是否仍在布林带上轨上方？  </li>
-<li>成交量是否未显著萎缩？  </li>
-<li>所属板块是否有持续热度？  </li>
-<li>选1–2只最强标的，<strong>市价买入 ≤20%仓位</strong></li>
-</ol>
-<h3 id="t2">🕒 第三步：持有与卖出（T+2日起）</h3>
+<h4 id="14001">第四步：盘中监控（14:00，仅需1分钟）</h4>
 <ul>
-<li>每日收盘检查：是否破布林中轨？是否达18%？是否满20天？  </li>
-<li>按第4节规则执行</li>
-</ul>
-<h3 id="_5">🕒 第四步：每周复盘（周日晚）</h3>
-<ul>
-<li>统计：胜率、平均持有天数、最大回撤  </li>
-<li>若胜率 &lt; 40%，暂停并反思</li>
+<li>检查昨日涨停的持仓是否开板 → 开板即卖</li>
 </ul>
 <hr />
-<h2 id="7">7. 同花顺操作指南（零公式）</h2>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>调出布林带</td>
-<td>K线图按 <strong>BOLL</strong> 键 → 显示布林带上下轨及带宽</td>
-</tr>
-<tr>
-<td>查看布林带宽度</td>
-<td>在K线图右键菜单中选择“布林带参数设置”查看当前带宽</td>
-</tr>
-<tr>
-<td>查看MACD</td>
-<td>K线图按 <strong>MACD</strong> 键 → 显示MACD指标</td>
-</tr>
-<tr>
-<td>查看行业涨幅</td>
-<td>首页 → 行情 → 板块排行 → 近一月涨幅排序</td>
-</tr>
-<tr>
-<td>查看流通市值</td>
-<td>F10 → 基本资料</td>
-</tr>
-</tbody>
-</table>
+<h2 id="8">8. 通达信 / 同花顺友好支持</h2>
+<h3 id="_4">✅ 问财选股语句（直接复制）：</h3>
+<pre><code class="language-text">主板，非ST，股价&lt;9元，总市值&lt;200亿，股息率&gt;3%，近3年有分红，上市满1年
+</code></pre>
 <hr />
-<h2 id="8">8. 策略优势</h2>
+<h2 id="9">9. 风险提示与优化建议</h2>
+<h3 id="_5">⚠️ 风险：</h3>
 <ul>
-<li><strong>完全T+1合规</strong>：买入次日可卖，无制度冲突  </li>
-<li><strong>零计算、零编程</strong>：全靠肉眼+软件默认指标  </li>
-<li><strong>避开假突破高峰</strong>：尾盘低吸，而非早盘追高  </li>
-<li><strong>信号清晰</strong>：布林带收缩后扩张+放量突破，双重确认  </li>
-<li><strong>适合上班族</strong>：每日仅需10分钟</li>
+<li><strong>价值陷阱</strong>：高股息但业绩下滑（如某些地产、零售股）→ 需人工排除  </li>
+<li><strong>小盘流动性差</strong>：极端行情下难卖出 → 控制单只仓位≤10%  </li>
+<li><strong>牛市跑输</strong>：小盘价值股在成长牛市中可能滞涨 → 可搭配大盘判断（如上证&gt;3400时减仓）</li>
 </ul>
-<hr />
-<h2 id="9">9. 风险提示</h2>
+<h3 id="_6">✅ 优化建议：</h3>
 <ul>
-<li><strong>仅在大盘上升趋势中使用</strong>（上证站上MA20）；  </li>
-<li><strong>绝不追高</strong>：高开&gt;5%直接放弃；  </li>
-<li><strong>严格止损</strong>：破布林中轨无条件离场；  </li>
-<li><strong>震荡市空仓</strong>：若市场无主线，宁可错过。</li>
-</ul></div>
+<li><strong>加入“ROE &gt; 5%”</strong>：在F10中看“净资产收益率”，排除亏损或低效公司  </li>
+<li><strong>避开“分红后大跌”股</strong>：若刚分红完且股价破位，暂缓买入  </li>
+<li><strong>设置大盘过滤器</strong>：上证指数 &lt; 2800 时满仓，&gt; 3400 时仓位 ≤ 60%</li>
+</ul>
+<p>-</p></div>
             </div>
         </div>
 

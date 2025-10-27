@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>基本面技术面共振策略 - 量化策略武器库</title>
+        <title>集合竞价量比策略（简化手动版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -38,10 +38,10 @@
                                 <a href="../.." class="nav-link">首页</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../" class="nav-link">趋势追踪库</a>
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
                             </li>
                             <li class="nav-item">
-                                <a href="../../fenshi/" class="nav-link">分时博弈库</a>
+                                <a href="../" class="nav-link">分时博弈库</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../../yaogu/" class="nav-link">妖股伏击库</a>
@@ -75,7 +75,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">基本面技术面共振策略</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">集合竞价量比策略（简化手动版）</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
               <ul class="nav flex-column">
@@ -85,23 +85,35 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略特点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,140 +124,125 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">基本面技术面共振策略</h1>
+<h1 id="_1">集合竞价量比策略（简化手动版）</h1>
 <h2 id="1">1. 策略分类和核心逻辑</h2>
 <ul>
-<li>一级分类：方向性策略</li>
-<li>二级分类：趋势跟踪与基本面量化结合</li>
-<li>核心逻辑：通过基本面筛选排除高风险标的，结合技术面指标捕捉趋势启动信号，在严格控制仓位和风险的前提下，追求高盈亏比的短线交易机会。</li>
+<li><strong>一级分类</strong>：技术面短线策略  </li>
+<li><strong>二级分类</strong>：开盘量能 + 换手活跃 + 突破确认  </li>
+<li><strong>核心逻辑</strong>：放弃对9:25集合竞价数据的强依赖，转而在<strong>开盘后30分钟内</strong>捕捉量比显著放大、换手活跃且价格站稳的股票，于10:00前买入，尾盘14:45卖出，实现低延迟、可手动执行的日内短线交易。</li>
 </ul>
 <h2 id="2">2. 选股条件</h2>
 <ul>
-<li>选股范围：全市场A股</li>
-<li>筛选方法：</li>
-<li>基本面过滤：<ul>
-<li>非ST股票</li>
-<li>非次新股、非新股（通常指上市超过1年）</li>
-<li>市净率（PB）≤ 5</li>
+<li><strong>选股范围</strong>：全市场A股（排除科创板688开头、北交所）  </li>
+<li><strong>核心指标</strong>：  </li>
+<li><strong>量比 ≥ 2.0</strong>（当前成交量 / 过去5日同期平均）  </li>
+<li><strong>开盘30分钟换手率 &gt; 0.5%</strong>  </li>
+<li><strong>价格站稳分时均线，且涨幅在1%~6%之间</strong>（避免追高或弱势股）</li>
 </ul>
-</li>
-<li>技术面信号：<ul>
-<li>RSI指标日线拐头向上</li>
-<li>BOLL布林带开口张开</li>
-<li>K线形态出现长上影线</li>
-</ul>
-</li>
-<li>更新频率：每日开盘前</li>
-</ul>
-<h2 id="3">3. 买入条件</h2>
+<h2 id="3">3. 核心筛选流程</h2>
+<p><strong>第一步：基础过滤（盘前准备）</strong><br />
+- 排除：<br />
+  - 科创板（688开头）、北交所股票<br />
+  - ST/*ST、退市整理期股票<br />
+  - 上市不足180天的新股<br />
+  - 前一交易日停牌或成交额&lt;1000万元的股票  </p>
+<p><strong>第二步：开盘后观察（9:30–9:55）</strong><br />
+- 打开同花顺或东方财富APP，进入“盘口异动”或“量比排行榜”<br />
+- 筛选条件：<br />
+  - 量比 ≥ 2.0<br />
+  - 涨幅介于1%~6%（避免一字板或大幅高开回落）<br />
+  - 分时图：股价在分时均线上方运行，无大幅跳水  </p>
+<p><strong>第三步：换手率验证（9:55前）</strong><br />
+- 手动计算近似换手率：<br />
+  - 查看“成交额”（单位：万元）<br />
+  - 查看“流通市值”（单位：亿元）<br />
+  - 换手率 ≈ 成交额 / (流通市值 × 10000)<br />
+- 保留换手率 &gt; 0.5% 的股票  </p>
+<p><strong>第四步：最终选股（9:55–10:00）</strong><br />
+- 从符合条件的股票中，按<strong>量比 + 换手率综合排序</strong><br />
+- 选择最多3只，优先选择：<br />
+  - 所属板块当日涨幅前3<br />
+  - 有近期利好或热点题材支撑  </p>
+<h2 id="4">4. 买入条件</h2>
 <ul>
-<li>触发信号：同时满足基本面和技术面所有条件</li>
-<li>确认方式：在早上9:31，确认技术指标信号有效</li>
-<li>执行时点：上午9:31开盘后立即执行</li>
-<li>排序规则：按成交额由小到大排序，优先选择成交额较小的标的</li>
+<li><strong>买入时间</strong>：10:00前完成下单  </li>
+<li><strong>仓位控制</strong>：  </li>
+<li>最大持仓：3只股票  </li>
+<li>资金分配：可用现金等分买入  </li>
+<li>若仅1只符合，则全仓买入（或保留部分现金）  </li>
+<li><strong>执行逻辑</strong>：  </li>
+<li>仅买入价格未快速冲高（如10:00前涨幅未超7%）的标的  </li>
+<li>若买入时已涨停，放弃该股  </li>
 </ul>
-<h2 id="4">4. 卖出条件</h2>
+<h2 id="5">5. 卖出条件</h2>
 <ul>
-<li>止盈条件：涨幅超过13%立即止盈</li>
-<li>止损条件：跌幅达到6%立即止损</li>
-<li>强制卖出：持有满9个交易日，无论盈亏均卖出换股</li>
+<li><strong>买入日</strong>：T日10:00前买入  </li>
+<li><strong>卖出日</strong>：T+1日9:45–10:00（次日早盘）  </li>
+<li><strong>例外</strong>：若T日尾盘（14:45）发现重大利空或破位，可<strong>放弃买入</strong>（因尚未买入），但<strong>一旦买入，必须持有至T+1日卖出</strong></li>
 </ul>
-<h2 id="5">5. 仓位管理</h2>
+<blockquote>
+<p>📌 <strong>策略本质调整</strong>：从“纯日内”变为“<strong>隔夜1晚的短线策略</strong>”，但持仓时间仍极短，风险可控。</p>
+</blockquote>
+<h2 id="6">6. 仓位管理</h2>
 <ul>
-<li>个股仓位：单只股票最大持仓不超过总资金的20%</li>
-<li>持股数量：账户同时最大持有5只股票</li>
-<li>每日买入：单日最多买入2只新股票</li>
-<li>加减仓规则：不进行加仓操作，达到条件即卖出</li>
+<li><strong>持仓限制</strong>：最多3只股票  </li>
+<li><strong>资金分配</strong>：等权重分配可用资金  </li>
+<li><strong>调仓机制</strong>：每日独立决策，不自动续持  </li>
 </ul>
-<h2 id="6">6. 风控管理</h2>
+<h2 id="7">7. 风控管理</h2>
 <ul>
-<li>个股风控：严格的6%止损线和13%止盈线</li>
-<li>组合风控：通过持股数量限制和个股仓位控制实现分散投资</li>
-<li>时间风控：9天持有周期限制，避免资金长期占用</li>
-<li>流动性风控：优先选择成交额较小的股票，避免追高</li>
+<li><strong>质量风控</strong>：  </li>
+<li>严格排除问题股（ST、小市值、低流动性）  </li>
+<li>优先选择行业龙头或热点题材股  </li>
+<li><strong>止损风控</strong>：  </li>
+<li>T+1日若开盘下跌超-3%，<strong>9:45前立即卖出</strong>  </li>
+<li>T日买入后，若T日晚公告利空，T+1日开盘即卖  </li>
+<li><strong>执行风控</strong>：  </li>
+<li>不追高（涨幅&gt;7%不买）  </li>
+<li>不接“天地板”或分时破位股  </li>
 </ul>
-<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
-<p>第一步：盘前准备（每个交易日前一晚或当日9:15前）</p>
-<ol>
-<li>准备工具：</li>
-<li>股票交易软件</li>
-<li>技术指标分析工具（RSI、BOLL）</li>
-<li>
-<p>股票筛选器或Excel表格</p>
-</li>
-<li>
-<p>基本面筛选：</p>
-</li>
-<li>排除所有ST股票</li>
-<li>排除上市不满1年的新股和次新股</li>
-<li>
-<p>筛选市净率≤5的股票</p>
-</li>
-<li>
-<p>建立观察池：将符合基本面条件的股票加入自选观察池</p>
-</li>
-</ol>
-<p>第二步：开盘分析（9:15-9:30）</p>
-<ol>
-<li>技术指标确认：</li>
-<li>检查观察池中股票的RSI指标是否拐头向上</li>
-<li>确认BOLL布林带是否开口张开</li>
-<li>
-<p>观察前一日K线是否有长上影线形态</p>
-</li>
-<li>
-<p>最终候选名单：记录同时满足所有技术条件的股票</p>
-</li>
-</ol>
-<p>第三步：开盘交易（9:31）</p>
-<ol>
-<li>排序筛选：</li>
-<li>查看候选股票的成交额</li>
-<li>按成交额从小到大排序</li>
-<li>
-<p>选择前2只成交额最小的股票</p>
-</li>
-<li>
-<p>买入操作：</p>
-</li>
-<li>计算单只股票买入金额：总资金 × 20%</li>
-<li>使用限价委托方式买入</li>
-<li>确保总持股数不超过5只</li>
-</ol>
-<p>第四步：盘中监控</p>
-<ol>
-<li>止损止盈监控：</li>
-<li>设置价格预警：成本价上涨13%和下跌6%</li>
-<li>
-<p>达到预警立即执行卖出操作</p>
-</li>
-<li>
-<p>持仓管理：</p>
-</li>
-<li>记录每只股票的买入日期</li>
-<li>标记即将满9天的持仓</li>
-</ol>
-<p>第五步：日常维护</p>
-<ol>
-<li>持仓检查：</li>
-<li>每日检查持仓是否达到9天持有期限</li>
-<li>
-<p>到期立即卖出，无论盈亏</p>
-</li>
-<li>
-<p>数量控制：</p>
-</li>
-<li>确保总持股数不超过5只</li>
-<li>
-<p>每日新买入不超过2只</p>
-</li>
-<li>
-<p>纪律执行：</p>
-</li>
-<li>严格按6%止损、13%止盈执行</li>
-<li>坚决执行9天换股规则</li>
-</ol>
-<p>风险提示：该策略为短线交易策略，交易频率较高，需要严格执行纪律。技术指标存在滞后性，可能遇到假信号。手动执行需要及时盯盘，避免错过买卖时机。</p></div>
+<h2 id="8">8. 交易频率</h2>
+<ul>
+<li><strong>选股时间</strong>：每个交易日9:30–9:55  </li>
+<li><strong>买入时间</strong>：10:00前  </li>
+<li><strong>卖出时间</strong>：次日9:45–10:00  </li>
+<li><strong>持仓周期</strong>：约18小时（T日10:00 – T+1日10:00）  </li>
+</ul>
+<h2 id="9">9. 策略特点</h2>
+<p><strong>量价分析优势</strong>：<br />
+- 利用开盘活跃度识别资金意图<br />
+- 量比+换手双重验证，提高信号质量  </p>
+<p><strong>短线交易特点</strong>：<br />
+- 持仓时间极短，规避中长期波动风险<br />
+- 严格买卖窗口，纪律性强  </p>
+<p><strong>执行效率</strong>：<br />
+- 完全依赖免费APP（同花顺/东方财富）<br />
+- 每日仅需20分钟操作，适合兼职投资者  </p>
+<h2 id="10">10. 手动实操步骤</h2>
+<p><strong>第一步：盘前准备（9:25前）</strong><br />
+- 打开同花顺APP → 自选股或“沪深京”全市场<br />
+- 预设筛选：非ST、非688、上市&gt;180天  </p>
+<p><strong>第二步：开盘观察（9:30–9:55）</strong><br />
+- 进入“行情 → 异动 → 量比排行”<br />
+- 筛选量比≥2.0、涨幅1%~6%的股票  </p>
+<p><strong>第三步：换手验证（9:50–9:55）</strong><br />
+- 对候选股，查看“成交额”和“流通市值”<br />
+- 估算换手率 &gt; 0.5% 者保留  </p>
+<p><strong>第四步：买入执行（9:55–10:00）</strong><br />
+- 选择最多3只，按热度排序<br />
+- 等金额下单，确保10:00前成交  </p>
+<p><strong>第五步：盘后复盘（T日晚）</strong><br />
+- 检查持仓股是否有利空公告<br />
+- 设置T+1日9:45闹钟  </p>
+<p><strong>第六步：次日卖出（T+1日9:45–10:00）</strong><br />
+- 无论盈亏，按时卖出<br />
+- 若开盘跌超-3%，立即止损  </p>
+<hr />
+<p><strong>策略优势</strong>：<br />
+- 完全基于免费数据，手动可执行<br />
+- 规避集合竞价数据滞后难题<br />
+- 持仓时间短，风险相对可控<br />
+- 适合有基础技术分析能力的散户  </p></div>
             </div>
         </div>
 

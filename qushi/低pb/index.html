@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>低PB小市值低换手策略（散户简化版） - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">趋势追踪库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../fenshi/" class="nav-link">分时博弈库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../yaogu/" class="nav-link">妖股伏击库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../longtou/" class="nav-link">龙头擒拿库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#pb" class="nav-link">低PB小市值低换手策略（散户简化版）</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可查）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程（每月第一个交易日）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 通达信 / 同花顺友好支持</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 策略特点与优势</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="pb">低PB小市值低换手策略（散户简化版）</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
+<ul>
+<li><strong>一级分类</strong>：价值投资 + 市场有效性  </li>
+<li><strong>二级分类</strong>：低估值 + 小市值 + 低关注度  </li>
+<li><strong>核心逻辑</strong>：<br />
+  每月从全市场A股中，选择<strong>低市净率（PB）、小市值、低换手率</strong>的股票，通过<strong>分散投资、定期调仓</strong>，捕捉市场过度反应带来的价值回归机会。</li>
+</ul>
+<hr />
+<h2 id="2">2. 选股条件（人工可查）</h2>
+<h3 id="_1">✅ 选股范围：</h3>
+<ul>
+<li><strong>主板A股</strong>（60/00开头），排除科创板（688）、创业板（300）  </li>
+<li><strong>非ST、*ST</strong>股票（财务状况异常）  </li>
+<li><strong>正常交易状态</strong>（非停牌、非涨停）</li>
+</ul>
+<h3 id="_2">✅ 核心指标：</h3>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>标准</th>
+<th>查看位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>低市净率（PB）</strong></td>
+<td>PB &lt; 1.5倍</td>
+<td>同花顺F10 → “主要财务指标”或行情界面</td>
+</tr>
+<tr>
+<td><strong>小市值</strong></td>
+<td>总市值 &lt; 100亿元</td>
+<td>F10 → “公司概况” 或 行情界面</td>
+</tr>
+<tr>
+<td><strong>低换手率</strong></td>
+<td>近5日平均换手率 &lt; 1%</td>
+<td>行情界面或同花顺“个股资料”中的“换手率”</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>为什么选这些阈值？</strong><br />
+- <strong>PB &lt; 1.5倍</strong>：通常认为低于1.5倍的股票具有一定的估值安全边际。<br />
+- <strong>市值 &lt; 100亿</strong>：避免过大市值导致成长性不足，同时控制流动性风险。<br />
+- <strong>换手率 &lt; 1%</strong>：表明市场关注度较低，可能被低估。</p>
+</blockquote>
+<hr />
+<h2 id="3">3. 核心筛选流程（每月第一个交易日）</h2>
+<h3 id="_3">第一步：基础数据获取</h3>
+<ul>
+<li><strong>数据字段</strong>：市值、市净率、换手率、股票代码  </li>
+<li><strong>数据时点</strong>：调仓日前一个交易日</li>
+</ul>
+<h3 id="_4">第二步：双重筛选机制</h3>
+<h4 id="1pb">筛选路径1：低PB + 低换手</h4>
+<ol>
+<li><strong>按PB升序排列</strong>，选取前20只  </li>
+<li>在低PB股票中，<strong>按换手率升序排列</strong>，选取前10只  </li>
+</ol>
+<h4 id="2_1">筛选路径2：小市值 + 低换手</h4>
+<ol>
+<li><strong>按市值升序排列</strong>，选取前20只  </li>
+<li>在小市值股票中，<strong>按换手率升序排列</strong>，选取前10只  </li>
+</ol>
+<h4 id="_5">第三步：合并去重</h4>
+<ul>
+<li>合并两个候选池，去除重复股票，最终得到<strong>不超过10只</strong>的目标股票</li>
+</ul>
+<hr />
+<h2 id="4">4. 买入条件</h2>
+<h3 id="_6">✅ 买入规则：</h3>
+<ul>
+<li><strong>调仓时间</strong>：每月<strong>第一个交易日 9:30</strong>  </li>
+<li><strong>持仓数量</strong>：固定 <strong>10只股票</strong>  </li>
+<li><strong>买入方式</strong>：</li>
+<li>等权重分配（总资金 ÷ 10）</li>
+<li>优先选择<strong>行业分散</strong>的股票（避免全买银行或全买地产）</li>
+<li>若某只股票涨停无法买入，则跳过，从备选中补足10只</li>
+</ul>
+<hr />
+<h2 id="5">5. 卖出条件</h2>
+<h3 id="_7">✅ 卖出规则：</h3>
+<ul>
+<li><strong>常规卖出</strong>：调仓日卖出<strong>不在新名单中的股票</strong>  </li>
+<li><strong>强制卖出</strong>：不符合新选股标准的持仓全部卖出</li>
+</ul>
+<hr />
+<h2 id="6">6. 仓位管理</h2>
+<h3 id="_8">✅ 仓位控制：</h3>
+<ul>
+<li><strong>总持仓</strong>：通常满仓（除非大盘极度高估）  </li>
+<li><strong>单个股票</strong>：10%（严格等权）  </li>
+<li><strong>调仓频率</strong>：每月1次（降低摩擦成本）  </li>
+<li><strong>行业分散</strong>：尽量覆盖3个以上行业（如银行、电力、交运、化工、公用事业等）</li>
+</ul>
+<hr />
+<h2 id="7">7. 风控管理</h2>
+<h3 id="_9">✅ 风险控制：</h3>
+<ul>
+<li><strong>质量风控</strong>：排除ST、*ST股票，确保财务健康  </li>
+<li><strong>流动性风控</strong>：排除停牌股票，确保可正常交易  </li>
+<li><strong>价格风控</strong>：排除涨停股票，确保可买入  </li>
+<li><strong>情绪风控</strong>：不追热点、不炒题材、不碰“看不懂”的公司</li>
+</ul>
+<hr />
+<h2 id="8">8. 手动实操步骤（纯人工版）</h2>
+<h3 id="900930">📅 每月第一个交易日操作流程（9:00–9:30）</h3>
+<h4 id="900910">第一步：用问财快速初筛（9:00–9:10）</h4>
+<p>在 <strong>同花顺i问财</strong>（https://www.iwencai.com）输入：</p>
+<pre><code class="language-text">主板，非ST，PB&lt;1.5，市值&lt;100亿，近5日平均换手率&lt;1%，上市满1年
+</code></pre>
+<blockquote>
+<p>✅ 结果通常为50~100只股票，导出或截图。</p>
+</blockquote>
+<h4 id="910925">第二步：人工精筛（9:10–9:25）</h4>
+<p>对问财结果，逐个检查F10：
+1. <strong>是否连续盈利</strong>？（近3年至少有盈利）<br />
+2. <strong>是否有大额负债或亏损</strong>？（看“主要财务指标”）<br />
+3. <strong>所属行业是否稳健</strong>？（优先选：银行、电力、高速、港口、煤炭、家电等）<br />
+4. <strong>当日是否可交易</strong>？（非涨跌停、非停牌）</p>
+<p><strong>选出10只</strong>，按“行业分散 + PB最低 + 换手率最低”排序。</p>
+<h4 id="930">第三步：调仓执行（9:30）</h4>
+<ol>
+<li><strong>卖出</strong>：不在新名单的持仓（涨停股除外）  </li>
+<li><strong>买入</strong>：等分资金买入新10只  </li>
+<li><strong>记录</strong>：在Excel登记股票、成本、行业、PB、换手率</li>
+</ol>
+<hr />
+<h2 id="9">9. 通达信 / 同花顺友好支持</h2>
+<h3 id="_10">✅ 问财选股语句（直接复制）：</h3>
+<pre><code class="language-text">主板，非ST，PB&lt;1.5，市值&lt;100亿，近5日平均换手率&lt;1%，上市满1年
+</code></pre>
+<hr />
+<h2 id="10">10. 策略特点与优势</h2>
+<h3 id="_11">✅ 策略特点：</h3>
+<ul>
+<li><strong>明确的估值信号</strong>：低PB提供安全边际  </li>
+<li><strong>严格的筛选机制</strong>：多重过滤确保标的质量  </li>
+<li><strong>简单的执行流程</strong>：每月一次调仓，适合上班族  </li>
+<li><strong>历史表现稳健</strong>：在价值风格占优的市场中表现较好</li>
+</ul>
+<h3 id="_12">✅ 优势：</h3>
+<ul>
+<li><strong>低风险</strong>：低PB提供估值保护，小市值具备成长潜力  </li>
+<li><strong>高胜率</strong>：多维度筛选，减少“价值陷阱”概率  </li>
+<li><strong>易操作</strong>：无需高频盯盘，适合普通投资者</li>
+</ul>
+<h3 id="_13">❗ 风险提示：</h3>
+<ul>
+<li><strong>价值陷阱</strong>：部分低PB股票可能存在基本面恶化  </li>
+<li><strong>波动较大</strong>：小市值股票波动性较大，需心理准备  </li>
+<li><strong>市场风格轮动</strong>：在成长风格主导的市场中可能跑输</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

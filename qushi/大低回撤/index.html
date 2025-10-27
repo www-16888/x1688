@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>中小盘红利稳健策略（散户手动简化版） - 量化策略武器库</title>
+        <title>大容量低回撤投资策略（散户简化版） - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,13 +75,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">中小盘红利稳健策略（散户手动简化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">大容量低回撤投资策略（散户简化版）</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略的风险等级、分类和策略核心逻辑</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可查、工具可筛）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -105,11 +105,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">交易成本参考（按10万元本金估算）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">风险提示</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">关键执行要点</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -120,137 +116,128 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">中小盘红利稳健策略（散户手动简化版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<p><strong>一级分类</strong>：基本面量化策略（简化执行版）<br />
-<strong>二级分类</strong>：中小盘红利稳健策略（低频手动版）<br />
-<strong>核心逻辑</strong>：聚焦财务健康、有分红记录的中小盘股票，通过季度调仓、严格止损、季节性避险（1月、4月不新开仓）和货币基金过渡，在控制回撤的前提下，追求长期稳健的绝对收益与适度超额收益。</p>
+<h1 id="_1">大容量低回撤投资策略（散户简化版）</h1>
+<h2 id="1">1. 策略的风险等级、分类和策略核心逻辑</h2>
+<ul>
+<li><strong>风险等级</strong>：R2–R3（稳健偏保守）  </li>
+<li><strong>策略分类</strong>：价值投资策略 / 基本面筛选策略  </li>
+<li><strong>策略核心逻辑</strong>：<br />
+  聚焦<strong>盈利稳定、估值合理、股价波动小</strong>的优质公司，避开高估值、高波动、业绩差的股票。<br />
+  通过<strong>半年调仓 + 持仓分散 + 止盈纪律</strong>，在控制回撤的前提下获取长期稳健收益。<br />
+<strong>核心理念</strong>：买“便宜的好公司”，不追热点，不碰妖股。</li>
+</ul>
 <hr />
-<h2 id="2">2. 选股条件</h2>
-<p><strong>选股范围</strong>：<br />
-- 中证1000指数或国证2000指数成分股（代表中小盘）<br />
-- 或在同花顺/东方财富中筛选“中小市值”标签股票  </p>
-<p><strong>排除范围</strong>：<br />
-- 科创板、创业板、北交所股票（可选，若接受可保留）<br />
-- ST/*ST/退市整理股<br />
-- 上市未满1年（365天）的新股<br />
-- 股价 &gt; 50元<br />
-- 近三年从未分红（年度分红记录为“不分配不转增”）</p>
-<p><strong>基本面筛选（简化版）</strong>：<br />
-- 最近一年归母净利润 &gt; 0<br />
-- 最近一年ROE &gt; 0<br />
-- 最近一年营业收入 &gt; 1亿元  </p>
-<p><strong>红利筛选</strong>：<br />
-- 近三年至少有一次现金分红（不要求连续）<br />
-- 优先选择分红率（股息率）&gt; 1%的股票（非强制，仅排序参考）</p>
-<p><strong>核心排序</strong>：<br />
-- 按总市值从小到大排序，优先选择100亿～500亿区间股票（兼顾流动性与成长性）</p>
+<h2 id="2">2. 选股条件（人工可查、工具可筛）</h2>
+<ul>
+<li><strong>选股范围</strong>：沪深300成分股 或 中证红利指数成分股（质量高、流动性好、数据全）  </li>
+<li><strong>基础池</strong>：正常交易、非ST、非*ST、上市满1年以上  </li>
+<li><strong>筛选条件（四看原则）</strong>：</li>
+<li><strong>看盈利</strong>：近3年净利润为正，且销售毛利率 &gt; 20%（行业对比更佳）  </li>
+<li><strong>看估值</strong>：市盈率（PE_TTM）&lt; 15，且市净率（PB）&lt; 1.8  </li>
+<li><strong>看波动</strong>：近1年股价最大回撤 &lt; 30%（对比沪深300）  </li>
+<li><strong>看分红</strong>：近3年有分红记录（体现现金流和股东回报意识）</li>
+</ul>
+<blockquote>
+<p>✅ <strong>无需计算</strong>：上述数据在<strong>同花顺F10、东方财富APP、雪球个股页</strong>均可直接查看。</p>
+</blockquote>
 <hr />
 <h2 id="3">3. 买入条件</h2>
-<p><strong>调仓频率</strong>：<strong>每季度调仓一次</strong>（3月、6月、9月、12月的第一个交易日）  </p>
-<p><strong>买入前提</strong>：<br />
-- <strong>1月、4月不新建仓</strong>（可持有已有仓位，但不买入新股票）<br />
-- 资金闲置时，持有货币ETF（如511880）或场外货币基金  </p>
-<p><strong>买入规则</strong>：<br />
-- 先剔除不再符合条件的持仓<br />
-- 从新选股池中选出5只股票<br />
-- <strong>等分资金买入</strong>（每只约20%仓位）<br />
-- 若当季无合适标的（如全市场估值过高），可继续持有货币基金</p>
+<ul>
+<li><strong>买入时机</strong>：每年<strong>6月第一个交易日</strong> 和 <strong>12月第一个交易日</strong>（半年调仓）  </li>
+<li><strong>买入条件</strong>：</li>
+<li>股票满足上述“四看”条件  </li>
+<li><strong>不在最近6个月内持仓过</strong>（避免反复买卖）  </li>
+<li>当日<strong>非涨停、非跌停</strong>（避免追高或接飞刀）  </li>
+<li><strong>买入方式</strong>：</li>
+<li><strong>等权重买入</strong>：总资金 ÷ 目标持股数（建议10~15只）  </li>
+<li><strong>按优先级买入</strong>：优先选分红稳定、行业龙头、毛利率更高的公司  </li>
+<li><strong>分批建仓</strong>（可选）：若大盘处于高位（如上证&gt;3400），可分2天买入</li>
+</ul>
 <hr />
 <h2 id="4">4. 卖出条件</h2>
-<p><strong>定期调仓</strong>：<br />
-- 每季度调仓日评估持仓，不符合条件者卖出  </p>
-<p><strong>风险卖出</strong>：<br />
-- <strong>个股止损</strong>：从买入成本起算，<strong>亏损 ≥ 10%</strong> 时立即卖出（建议使用券商“条件单”自动执行）<br />
-- <strong>个股止盈</strong>：盈利 ≥ 80% 可分批止盈（非强制，视市场情绪灵活处理）<br />
-- <strong>风险事件</strong>：被ST、退市风险警示、重大财务造假等，次日开盘卖出  </p>
-<p><strong>空仓机制</strong>：<br />
-- <strong>1月、4月不新开仓</strong>，但已有持仓可继续持有至季度调仓日<br />
-- 若季度调仓日在1月或4月，则仅评估持仓，不新增买入</p>
+<ul>
+<li><strong>定期调仓</strong>：半年调仓日卖出不符合新条件的股票  </li>
+<li><strong>止盈卖出</strong>：</li>
+<li>单只个股<strong>累计盈利 ≥ 30%</strong>，可考虑卖出一半，留一半博趋势  </li>
+<li>若盈利回撤超50%（如从+40%跌到+20%），则全部止盈  </li>
+<li><strong>止损卖出</strong>：</li>
+<li>股价跌破买入价 <strong>-15%</strong>，无条件止损  </li>
+<li>公司出现<strong>业绩暴雷、被ST、分红中断</strong>等基本面恶化信号，立即卖出  </li>
+<li><strong>不参与涨停博弈</strong>：若持仓股突然连续涨停（非基本面驱动），<strong>第二个涨停板打开时卖出</strong></li>
+</ul>
 <hr />
 <h2 id="5">5. 仓位管理</h2>
-<p><strong>持仓数量</strong>：<strong>固定5只股票</strong>（便于记忆与管理）  </p>
-<p><strong>调整逻辑</strong>：<br />
-- 不动态调整数量，但可通过<strong>季度调仓</strong>自然优化组合<br />
-- 若因止损卖出导致持仓 &lt; 5只，在下一个调仓日补足，<strong>不盘中补仓</strong>（避免情绪化交易）</p>
-<p><strong>资金分配</strong>：<br />
-- 初始建仓：每只股票分配约20%总权益资金<br />
-- 后续调仓：重新等分可用资金  </p>
-<p><strong>补仓机制</strong>：<br />
-- <strong>无盘中补仓</strong>。因止损卖出后，资金暂持货币基金，待季度调仓日统一再配置</p>
+<ul>
+<li><strong>持仓数量</strong>：10~15只（兼顾分散与可操作性）  </li>
+<li><strong>仓位比例</strong>：</li>
+<li>单一个股：6%~10%（等权重）  </li>
+<li>总仓位：  <ul>
+<li>大盘PE&lt;12 或 沪指&lt;3000 → 满仓  </li>
+<li>大盘PE&gt;18 或 沪指&gt;3400 → 仓位≤70%，留现金  </li>
+</ul>
+</li>
+<li><strong>动态调整</strong>：仅在调仓日调整，平时不频繁操作</li>
+</ul>
 <hr />
 <h2 id="6">6. 风控管理</h2>
-<p><strong>月份风控</strong>：<br />
-- 1月（年报暴雷高发）、4月（一季报+年报密集期）<strong>不新开仓</strong>，规避信息不对称风险  </p>
-<p><strong>个股风控</strong>：<br />
-- 严格排除ST、无分红、财务亏损股<br />
-- 股价≤50元控制单一个股波动风险  </p>
-<p><strong>价格风控</strong>：<br />
-- 10%硬性止损线，防止深度套牢  </p>
-<p><strong>交易风控</strong>：<br />
-- 使用券商“条件单”实现自动止损，减少情绪干扰  </p>
-<p><strong>市场风控</strong>：<br />
-- 若中小板指数（399101）或中证1000单月跌幅 &gt; 10%，下季度调仓时可主动减少股票仓位（如只买3只），但非强制</p>
+<ul>
+<li><strong>分散风控</strong>：10~15只跨行业（避免全买银行或全买消费）  </li>
+<li><strong>质量风控</strong>：只选有持续盈利和分红的公司  </li>
+<li><strong>估值风控</strong>：PE&gt;20 或 PB&gt;2 的股票一律不碰  </li>
+<li><strong>情绪风控</strong>：不追热点、不炒题材、不听消息  </li>
+<li><strong>止损纪律</strong>：-15%硬止损，保护本金第一</li>
+</ul>
 <hr />
 <h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
-<h3 id="_2">第一步：季度准备（每季度末周末）</h3>
+<h3 id="530-1130">第一步：调仓日前准备（5月30日 / 11月30日）</h3>
+<ol>
+<li>打开<strong>同花顺/东方财富</strong>，进入“沪深300”或“中证红利”成分股列表  </li>
+<li>导出或截图成分股名单（约300只）</li>
+</ol>
+<h3 id="i">第二步：初筛（用问财/i问财快速过滤）</h3>
+<p>在 <strong>同花顺i问财</strong>（https://www.iwencai.com）输入以下语句（任选其一）：</p>
+<h4 id="_2">✅ 问财选股语句（直接复制粘贴）：</h4>
+<pre><code class="language-text">沪深300成分股，非ST，上市满1年，市盈率&lt;15，市净率&lt;1.8，毛利率&gt;20%，近3年净利润为正，近3年有分红
+</code></pre>
+<p>或</p>
+<pre><code class="language-text">中证红利成分股，PE&lt;15，PB&lt;1.8，毛利率&gt;20%，非ST，近一年最大回撤&lt;30%
+</code></pre>
+<blockquote>
+<p>💡 结果通常为30~60只股票，人工再精筛。</p>
+</blockquote>
+<h3 id="f10">第三步：人工精筛（肉眼观察F10）</h3>
+<p>对问财筛选出的股票，逐个打开<strong>F10资料</strong>，检查：
+- 是否近3年都分红？<br />
+- 是否有大额商誉或应收账款激增？（警惕财务风险）<br />
+- 所属行业是否处于下行周期？（如地产、教培等回避）<br />
+- 近1年股价是否平稳？（避免“过山车”个股）</p>
+<p><strong>最终选出10~15只</strong>，按“行业分散+龙头优先”原则确定。</p>
+<h3 id="61-121-930">第四步：调仓日操作（6月1日 / 12月1日 9:30）</h3>
+<ol>
+<li><strong>卖出</strong>：不在新名单中的持仓股（涨停则顺延至开板日）  </li>
+<li><strong>买入</strong>：等分资金买入新名单股票（避开近6个月持有过的）  </li>
+<li><strong>记录</strong>：在Excel登记买入日期、成本、行业</li>
+</ol>
+<h3 id="_3">第五步：日常监控（无需盯盘）</h3>
 <ul>
-<li>回顾当前持仓表现  </li>
-<li>检查是否有触发止损但未卖出的股票  </li>
-<li>下载最新中证1000/国证2000成分股名单（或用同花顺选股器）</li>
+<li>每月查看一次持仓股F10，关注<strong>季度财报发布</strong>  </li>
+<li>若个股触发止盈/止损条件，在<strong>收盘前5分钟</strong>手动操作  </li>
+<li>其余时间<strong>不看盘、不操作</strong></li>
 </ul>
-<h3 id="930">第二步：选股执行（调仓日9:30前）</h3>
+<h3 id="_4">第六步：半年复盘</h3>
 <ul>
-<li>在同花顺/东方财富使用选股器，设置条件：</li>
-<li>市值10亿～1000亿  </li>
-<li>股价 ≤ 50元  </li>
-<li>净利润 &gt; 0、ROE &gt; 0、营收 &gt; 1亿  </li>
-<li>近三年有分红  </li>
-<li>非ST、非次新（上市&gt;1年）</li>
-<li>从结果中按市值从小到大选前10只，人工复核分红和财报质量</li>
-<li>最终确定5只买入标的</li>
-</ul>
-<h3 id="10001450">第三步：盘中/盘后交易（调仓日10:00–14:50）</h3>
-<ul>
-<li>卖出不符合条件的旧持仓  </li>
-<li>买入新入选的5只股票（等金额）  </li>
-<li>设置每只股票的<strong>10%止损条件单</strong>（买入价×0.9）  </li>
-<li>剩余资金买入货币ETF（511880）</li>
-</ul>
-<h3 id="_3">第四步：日常监控（非调仓日）</h3>
-<ul>
-<li>每日收盘后花2分钟查看持仓是否触发止损（或依赖条件单自动执行）  </li>
-<li>关注是否有ST风险或重大负面新闻  </li>
-<li><strong>不因短期波动调整持仓</strong></li>
-</ul>
-<h3 id="14">第五步：1月/4月特别处理</h3>
-<ul>
-<li>不执行买入操作  </li>
-<li>持有现有股票或货币基金  </li>
-<li>可利用空仓期复盘策略、学习财报</li>
-</ul>
-<h3 id="_4">第六步：纪律维护</h3>
-<ul>
-<li><strong>严格执行季度调仓</strong>，不临时加仓/换股  </li>
-<li><strong>坚决执行10%止损</strong>，不“再等等”  </li>
-<li><strong>1月、4月不开新仓</strong>，哪怕市场大涨  </li>
-<li>每年回顾一次策略有效性，但不频繁修改规则</li>
+<li>统计组合收益 vs 沪深300  </li>
+<li>检查哪些因子失效（如低PE股跑输）  </li>
+<li>微调选股条件（如将PE上限从15调到18）</li>
 </ul>
 <hr />
-<h2 id="10">交易成本参考（按10万元本金估算）</h2>
+<h2 id="_5">关键执行要点</h2>
 <ul>
-<li>买入佣金：0.025%（最低5元）  </li>
-<li>卖出佣金+印花税：0.125%  </li>
-<li>年交易次数：约10～15笔（5只×2次/年 + 止损）  </li>
-<li><strong>年化交易成本 ≈ 1.5%～2%</strong>，远低于原策略</li>
-</ul>
-<hr />
-<h2 id="_5">风险提示</h2>
-<ul>
-<li>中小盘股波动性仍高于大盘蓝筹，最大回撤可能达20%～30%；  </li>
-<li>红利因子在科技成长风格主导的牛市中可能阶段性跑输；  </li>
-<li>1月、4月空仓可能错过春季行情，但长期看有助于规避财报暴雷；  </li>
-<li><strong>策略成败关键在于纪律执行，而非选股精度</strong>。</li>
+<li>✅ <strong>只用免费工具</strong>：同花顺、问财、F10足够  </li>
+<li>✅ <strong>不计算、不编程</strong>：所有数据肉眼可见  </li>
+<li>✅ <strong>低频操作</strong>：每年仅2次调仓，适合上班族  </li>
+<li>✅ <strong>严守纪律</strong>：不因“感觉要涨”而提前买入  </li>
+<li>✅ <strong>行业分散</strong>：金融、消费、制造、公用事业等至少覆盖3个行业</li>
 </ul></div>
             </div>
         </div>

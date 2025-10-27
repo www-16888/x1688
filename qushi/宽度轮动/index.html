@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>行业宽度轮动策略（散户简化版） - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">趋势追踪库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../fenshi/" class="nav-link">分时博弈库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../yaogu/" class="nav-link">妖股伏击库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../longtou/" class="nav-link">龙头擒拿库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业宽度轮动策略（散户简化版）</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可执行）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 行业选择方法（替代“行业宽度”）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 个股筛选方法（人工可查）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5_4" class="nav-link">5. 买入与卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位与风控</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 通达信 / 问财 / 同花顺友好语句</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略优势与风险</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 给散户的建议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">行业宽度轮动策略（散户简化版）</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
+<ul>
+<li><strong>一级分类</strong>：行业轮动策略  </li>
+<li><strong>二级分类</strong>：技术面行业强弱轮动  </li>
+<li><strong>核心逻辑</strong>：<br />
+  每周从<strong>5个代表性行业</strong>中，选出<strong>近期整体走势最强的1个行业</strong>，然后在该行业中挑选<strong>5只技术面稳健、未大涨的优质股</strong>，通过<strong>每周调仓</strong>捕捉轮动机会。<br />
+<strong>简化原则</strong>：用“行业指数走势”代替“行业宽度计算”，用“肉眼观察”代替“个股20日均线统计”。</li>
+</ul>
+<hr />
+<h2 id="2">2. 选股条件（人工可执行）</h2>
+<h3 id="5">行业池（固定5个，无需变动）：</h3>
+<table>
+<thead>
+<tr>
+<th>行业</th>
+<th>同花顺行业代码</th>
+<th>行业指数代码（用于观察）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国防军工</td>
+<td>801740</td>
+<td>881144（军工指数）</td>
+</tr>
+<tr>
+<td>食品饮料</td>
+<td>801120</td>
+<td>881121（食品饮料）</td>
+</tr>
+<tr>
+<td>煤炭</td>
+<td>801950</td>
+<td>881131（煤炭）</td>
+</tr>
+<tr>
+<td>银行</td>
+<td>801780</td>
+<td>881155（银行）</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>801770</td>
+<td>881126（通信设备）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>操作提示</strong>：在同花顺输入上述<strong>行业指数代码</strong>（如881144），即可查看该行业整体走势。</p>
+</blockquote>
+<h3 id="_2">股票池限制（人工排除）：</h3>
+<ul>
+<li><strong>排除</strong>：ST/*ST、创业板（300开头）、科创板（688开头）、北交所（8开头）、上市&lt;1年新股  </li>
+<li><strong>排除</strong>：当日涨停/跌停、停牌股（开盘前一眼可见）</li>
+</ul>
+<hr />
+<h2 id="3">3. 行业选择方法（替代“行业宽度”）</h2>
+<h3 id="5_1">✅ 简化逻辑：<strong>用“行业指数5日涨幅”代替“行业宽度”</strong></h3>
+<blockquote>
+<p>理由：行业宽度 = 行业内上涨个股比例，而<strong>行业指数涨幅 ≈ 行业整体强弱的代理指标</strong>，肉眼可查、无需计算。</p>
+</blockquote>
+<h3 id="920">操作步骤（每周一9:20前完成）：</h3>
+<ol>
+<li>打开<strong>同花顺</strong>，依次输入5个行业指数代码：<br />
+<code>881144</code>（军工）、<code>881121</code>（食品饮料）、<code>881131</code>（煤炭）、<code>881155</code>（银行）、<code>881126</code>（通信）</li>
+<li>查看每个行业指数的 <strong>“5日涨幅”</strong>（在K线图下方或F10中可见）</li>
+<li><strong>选择5日涨幅最大的1个行业</strong> → 即为本周投资方向</li>
+</ol>
+<blockquote>
+<p>🌰 举例：若军工指数5日涨8%，银行涨2%，煤炭跌1% → 选<strong>国防军工</strong></p>
+</blockquote>
+<hr />
+<h2 id="4">4. 个股筛选方法（人工可查）</h2>
+<h3 id="5_2">在选定行业中，按以下规则选5只股票：</h3>
+<h4 id="_3">✅ 筀选条件（三选二即可）：</h4>
+<ol>
+<li><strong>非大涨股</strong>：近5日涨幅 <strong>&lt; 行业指数涨幅</strong>（避免追高）  </li>
+<li><strong>技术稳健</strong>：股价在<strong>20日均线上方</strong>（打开日K线一眼可见）  </li>
+<li><strong>流动性好</strong>：日成交额 &gt; 1亿元（避免小盘股）</li>
+</ol>
+<blockquote>
+<p>💡 <strong>操作技巧</strong>：<br />
+- 在同花顺输入行业代码（如801740），点击“成分股”，按“5日涨幅”排序<br />
+- 从<strong>涨幅中后段</strong>（如排在10~30名）中挑选符合上述条件的股票<br />
+- 优先选<strong>行业龙头</strong>（如军工选中航沈飞、通信选中兴通讯）</p>
+</blockquote>
+<h3 id="5_3">最终名单：选出5只符合条件的股票</h3>
+<hr />
+<h2 id="5_4">5. 买入与卖出条件</h2>
+<h3 id="_4">买入：</h3>
+<ul>
+<li><strong>时间</strong>：每周一 9:30（如遇节假日顺延）  </li>
+<li><strong>方式</strong>：等权重买入5只股票（总资金 ÷ 5）  </li>
+<li><strong>前提</strong>：股票未涨停、可正常交易</li>
+</ul>
+<h3 id="_5">卖出：</h3>
+<ul>
+<li><strong>全部卖出</strong>：上周持仓中<strong>不在本周5只名单内</strong>的股票  </li>
+<li><strong>特殊处理</strong>：  </li>
+<li>若持仓股<strong>周一涨停</strong> → 持有至<strong>周二开盘</strong>，若打开涨停则卖出  </li>
+<li>若继续涨停 → 持有至开板日卖出（最多持有一周）</li>
+</ul>
+<hr />
+<h2 id="6">6. 仓位与风控</h2>
+<ul>
+<li><strong>持仓数量</strong>：固定5只  </li>
+<li><strong>行业集中</strong>：100%资金投入1个行业（接受短期波动）  </li>
+<li><strong>止损纪律</strong>：单只个股<strong>亏损达-10%</strong>，无条件止损  </li>
+<li><strong>不频繁操作</strong>：仅周一调仓，其余时间不交易</li>
+</ul>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工版）</h2>
+<h3 id="900930">📅 每周一操作流程（9:00–9:30）：</h3>
+<h4 id="900910">第一步：看行业强弱（9:00–9:10）</h4>
+<ol>
+<li>打开同花顺，依次查5个行业指数的<strong>5日涨幅</strong>：</li>
+<li>881144（军工）</li>
+<li>881121（食品饮料）</li>
+<li>881131（煤炭）</li>
+<li>881155（银行）</li>
+<li>881126（通信）</li>
+<li>记录涨幅，<strong>选涨幅最大的行业</strong></li>
+</ol>
+<h4 id="910925">第二步：选个股（9:10–9:25）</h4>
+<ol>
+<li>在同花顺输入该行业代码（如801740）</li>
+<li>点击“成分股” → 按“5日涨幅”排序</li>
+<li>从<strong>涨幅中段</strong>（避免前5名）挑选5只：</li>
+<li>股价在20日均线上方（看K线）</li>
+<li>成交额 &gt; 1亿</li>
+<li>非ST、非创业板/科创板</li>
+<li>记录股票代码和名称</li>
+</ol>
+<h4 id="930">第三步：调仓执行（9:30）</h4>
+<ol>
+<li><strong>卖出</strong>：上周持仓中不在新名单的股票（涨停则挂单“涨停价卖”）  </li>
+<li><strong>买入</strong>：等分资金买入新5只股票（若某只涨停无法买，则顺延至下一只）</li>
+</ol>
+<h4 id="_6">第四步：盘中监控（可选）</h4>
+<ul>
+<li>14:50检查：是否有持仓股涨停打开？如有，立即卖出</li>
+</ul>
+<hr />
+<h2 id="8">8. 通达信 / 问财 / 同花顺友好语句</h2>
+<h3 id="_7">✅ 同花顺问财选股语句（行业成分股筛选）：</h3>
+<pre><code class="language-text">所属行业=国防军工，非ST，非创业板，非科创板，上市满1年，股价在20日均线上方，5日涨幅&lt;8%，成交额&gt;1亿
+</code></pre>
+<blockquote>
+<p>将“国防军工”替换为其他行业即可。</p>
+</blockquote>
+<h3 id="_8">✅ 通达信行业指数涨幅查看：</h3>
+<ul>
+<li>直接输入指数代码：<code>881144</code>、<code>881121</code> 等  </li>
+<li>按 <code>F5</code> 切换K线，下方显示“5日%”即为5日涨幅</li>
+</ul>
+<hr />
+<h2 id="9">9. 策略优势与风险</h2>
+<h3 id="_9">✅ 优势：</h3>
+<ul>
+<li><strong>逻辑清晰</strong>：强行业 + 稳个股  </li>
+<li><strong>工具免费</strong>：仅需同花顺/问财  </li>
+<li><strong>频率适中</strong>：每周一次，适合上班族  </li>
+<li><strong>纪律明确</strong>：避免情绪化交易</li>
+</ul>
+<h3 id="_10">⚠️ 风险：</h3>
+<ul>
+<li><strong>行业集中风险</strong>：若选错行业，可能单周回撤较大（如-5%~8%）  </li>
+<li><strong>震荡市失效</strong>：行业轮动不明显时，频繁调仓增加摩擦成本  </li>
+<li><strong>龙头滞后</strong>：有时行业指数涨，但成分股分化大，需人工甄别</li>
+</ul>
+<hr />
+<h2 id="10">10. 给散户的建议</h2>
+<ul>
+<li><strong>初始资金建议 ≥ 5万元</strong>：确保5只股票每只可买≥100股，降低佣金占比  </li>
+<li><strong>搭配大盘判断</strong>：若上证指数&lt;2900，可暂停策略，转为持有现金  </li>
+<li><strong>记录交易日志</strong>：用Excel记录每周选的行业、个股、收益，便于复盘</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

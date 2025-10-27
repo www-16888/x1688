@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>行业轮动小市值策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../fenshi/" class="nav-link">分时博弈库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">妖股伏击库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../longtou/" class="nav-link">龙头擒拿库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">行业轮动小市值策略（散户实操优化版 · A股合规版）</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="a">行业轮动小市值策略（散户实操优化版 · A股合规版）</h1>
+<h2 id="1">1. 策略分类和核心逻辑</h2>
+<ul>
+<li><strong>一级分类</strong>：行业轮动策略  </li>
+<li><strong>二级分类</strong>：市场宽度择时 + 小市值选股  </li>
+<li><strong>核心逻辑</strong>：通过<strong>同花顺问财自然语言</strong>一键筛选<strong>基本面优质的小市值股票</strong>，结合<strong>全市场行业宽度指标</strong>排除周期性强的四大行业（银行、有色、钢铁、煤炭），在每周调仓时动态调整持仓。策略<strong>简化了行业宽度计算、避免高频交易、降低操作难度</strong>，全部条件均可在免费软件中实现，符合A股T+1、100股整数倍、交易时段等规则，适合普通散户每周操作30分钟。</li>
+</ul>
+<hr />
+<h2 id="2">2. 选股条件</h2>
+<ul>
+<li><strong>选股范围</strong>：中证全指成分股（主板+中小板）  </li>
+<li><strong>排除范围</strong>：  </li>
+<li>创业板（300）、科创板（688/689）、北交所（4/8开头）  </li>
+<li>ST、*ST、退市风险股  </li>
+<li>停牌股  </li>
+<li>
+<p>上市不满375天的新股  </p>
+</li>
+<li>
+<p><strong>行业择时</strong>：  </p>
+</li>
+<li><strong>行业宽度指标</strong>：选择<strong>20日均线以上个股比例最高</strong>的前N个行业（通常取前3–5个）；  </li>
+<li><strong>排除四大搅屎棍行业</strong>：银行、有色金属、钢铁、煤炭；  </li>
+<li>
+<p><strong>空仓机制</strong>：若四大行业主导，则保持空仓或持有货币ETF（511880）。  </p>
+</li>
+<li>
+<p><strong>基本面筛选</strong>：  </p>
+</li>
+<li><strong>盈利能力</strong>：ROE &gt; 10%，ROA &gt; 5%（原标准过高，调整为更现实的标准）  </li>
+<li><strong>市值排序</strong>：按总市值从小到大排序，选取市值最小的前10只  </li>
+<li><strong>技术面筛选</strong>：排除停牌股票  </li>
+</ul>
+<blockquote>
+<p>✅ <strong>同花顺问财语句（每周一9:00直接复制）</strong>：<br />
+<code>中证全指成分股，非ST，上市天数大于375，ROE大于10，ROA大于5，总市值从小到大排序</code></p>
+</blockquote>
+<hr />
+<h2 id="3">3. 核心筛选流程</h2>
+<h3 id="900915">第一步：行业分析（每周一9:00–9:15）</h3>
+<ol>
+<li><strong>获取行业宽度数据</strong>：  </li>
+<li>手动计算各行业股价在20日均线以上的比例（可借助通达信、同花顺的板块指数功能）；  </li>
+<li>排序生成行业宽度排名；  </li>
+<li>若银行、有色、钢铁、煤炭行业占据前几位，则保持空仓或持有货币ETF（511880）。  </li>
+<li><strong>确定目标行业</strong>：  </li>
+<li>选择<strong>20日均线以上比例最高</strong>的前3–5个行业（排除四大行业）；  </li>
+<li>记录目标行业名称。</li>
+</ol>
+<h3 id="915925">第二步：选股执行（周一9:15–9:25）</h3>
+<ol>
+<li><strong>基础筛选</strong>：  </li>
+<li>使用上述问财语句筛选符合条件的股票；  </li>
+<li>按总市值从小到大排序；  </li>
+<li><strong>排除停牌股票</strong>。  </li>
+<li><strong>行业过滤</strong>：  </li>
+<li>在问财结果页，点击“所属行业”列，<strong>仅保留目标行业内的股票</strong>；  </li>
+<li>取市值最小的前10只股票（若某行业不足10只，可跨行业补足）。  </li>
+<li><strong>最终选择</strong>：  </li>
+<li><strong>记录买入名单</strong>（代码、名称、市值）；  </li>
+<li>准备调仓对比名单。</li>
+</ol>
+<h3 id="_1">第三步：调仓准备（周一开盘前）</h3>
+<ol>
+<li><strong>持仓分析</strong>：  </li>
+<li>检查当前持仓情况；  </li>
+<li>识别昨日涨停的持仓股；  </li>
+<li>准备调仓对比名单。  </li>
+<li><strong>资金规划</strong>：  </li>
+<li>计算可用资金总额；  </li>
+<li>确定每只新股的买入金额（等分资金）。</li>
+</ol>
+<hr />
+<h2 id="4">4. 买入条件</h2>
+<ul>
+<li><strong>调仓频率</strong>：<strong>每周一次</strong>（每周一）  </li>
+<li><strong>持仓数量</strong>：<strong>固定持有10只股票</strong>  </li>
+<li><strong>资金分配</strong>：  </li>
+<li>可用现金<strong>等分买入</strong>每只股票；  </li>
+<li>每只买入数量为<strong>100股整数倍</strong>。  </li>
+<li><strong>执行时间</strong>：<strong>9:35–10:00</strong>（避开集合竞价，确保成交）</li>
+</ul>
+<hr />
+<h2 id="5">5. 卖出条件</h2>
+<ul>
+<li><strong>定期调仓卖出</strong>：  </li>
+<li>每周调仓日，<strong>卖出不在新选股名单中的持仓股</strong>；  </li>
+<li><strong>保留仍在名单中的股票</strong>（减少交易频率）。  </li>
+<li><strong>涨停跟踪</strong>：  </li>
+<li>昨日涨停的持仓股，今日涨停打开立即卖出；  </li>
+<li>若继续涨停则保持持有。  </li>
+<li><strong>行业择时</strong>：  </li>
+<li>四大搅屎棍行业出现时清仓，转持货币ETF（511880）。  </li>
+<li><strong>卖出时点</strong>：  </li>
+<li><strong>下午14:00执行涨停股检查</strong>；  </li>
+<li>其他情况下，次日开盘卖出。</li>
+</ul>
+<hr />
+<h2 id="6">6. 仓位管理</h2>
+<ul>
+<li><strong>持仓数量</strong>：固定持有10只股票  </li>
+<li><strong>资金分配</strong>：等权重，每只约占10%资金  </li>
+<li><strong>总仓位</strong>：  </li>
+<li>若选出≥10只 → <strong>满仓运作</strong>；  </li>
+<li>若选出&lt;10只 → <strong>剩余资金买入货币ETF（511880）</strong>。  </li>
+<li><strong>行业分散</strong>：强制覆盖≥3个不同行业（消费、制造、医药等）</li>
+</ul>
+<hr />
+<h2 id="7">7. 风控管理</h2>
+<ul>
+<li><strong>行业风控</strong>：通过排除周期性强的四大行业控制系统性风险；  </li>
+<li><strong>基本面风控</strong>：严格的财务指标筛选确保标的质量；  </li>
+<li><strong>市值风控</strong>：小市值股票但通过基本面过滤控制质量；  </li>
+<li><strong>流动性风控</strong>：排除涨跌停极端情况的股票；  </li>
+<li><strong>择时风控</strong>：行业宽度指标作为市场情绪风控；  </li>
+<li><strong>止损风控</strong>：收盘价连续2日低于20日均线 → 次日开盘卖出。</li>
+</ul>
+<hr />
+<h2 id="8">8. 手动实操步骤</h2>
+<h3 id="900915_1">第一步：行业分析（每周一9:00–9:15）</h3>
+<ol>
+<li><strong>行业宽度计算</strong>：  </li>
+<li>获取中证全指成分股；  </li>
+<li>计算各行业股价在20日均线以上的比例；  </li>
+<li>生成行业宽度排名；  </li>
+<li>若银行、有色、钢铁、煤炭行业在领先位置，则保持空仓或持货币ETF。  </li>
+<li><strong>搅屎棍检测</strong>：  </li>
+<li>检查四大行业是否在领先位置；  </li>
+<li>若是则保持空仓，否则进入选股流程。</li>
+</ol>
+<h3 id="915925_1">第二步：选股执行（周一9:15–9:25）</h3>
+<ol>
+<li><strong>基础筛选</strong>：  </li>
+<li>排除不符合条件的股票；  </li>
+<li>筛选ROE&gt;10%、ROA&gt;5%的股票；  </li>
+<li>按总市值从小到大排序。  </li>
+<li><strong>最终选择</strong>：  </li>
+<li>选择前10只市值最小的股票；  </li>
+<li>排除停牌和涨跌停股票；  </li>
+<li>生成买入名单。</li>
+</ol>
+<h3 id="_2">第三步：调仓准备（周一开盘前）</h3>
+<ol>
+<li><strong>持仓分析</strong>：  </li>
+<li>检查当前持仓情况；  </li>
+<li>识别昨日涨停的持仓股；  </li>
+<li>准备调仓对比名单。  </li>
+<li><strong>资金规划</strong>：  </li>
+<li>计算可用资金总额；  </li>
+<li>确定每只新股的买入金额。</li>
+</ol>
+<h3 id="930">第四步：调仓执行（周一9:30）</h3>
+<ol>
+<li><strong>卖出操作</strong>：  </li>
+<li>卖出不在新选股池中的持仓；  </li>
+<li>保留昨日涨停且继续涨停的股票。  </li>
+<li><strong>买入操作</strong>：  </li>
+<li>等分资金买入10只新股；  </li>
+<li>记录买入价格和基本信息。</li>
+</ol>
+<h3 id="1400">第五步：盘中监控（每日14:00）</h3>
+<ol>
+<li><strong>涨停股跟踪</strong>：  </li>
+<li>监控昨日涨停持仓股的表现；  </li>
+<li>涨停打开的股票立即卖出；  </li>
+<li>记录卖出操作和原因。</li>
+</ol>
+<h3 id="_3">第六步：行业监控</h3>
+<ol>
+<li><strong>持续观察</strong>：  </li>
+<li>每日监控行业宽度变化；  </li>
+<li>关注四大搅屎棍行业表现；  </li>
+<li>及时调整投资策略。  </li>
+<li><strong>基本面跟踪</strong>：  </li>
+<li>定期检查持仓股财务指标；  </li>
+<li>关注财报更新对持仓的影响；  </li>
+<li>评估策略适应性。</li>
+</ol>
+<h3 id="_4">第七步：纪律执行</h3>
+<ol>
+<li><strong>周期纪律</strong>：  </li>
+<li>严格按周度周期调仓；  </li>
+<li>坚决执行行业择时规则；  </li>
+<li>保持10只股票等权重配置。  </li>
+<li><strong>风控纪律</strong>：  </li>
+<li>严格执行四大行业排除规则；  </li>
+<li>及时处理涨停股卖出；  </li>
+<li>保持策略一致性。</li>
+</ol>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

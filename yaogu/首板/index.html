@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>首板混合策略（散户实操优化版） - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../fenshi/" class="nav-link">分时博弈库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">妖股伏击库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../longtou/" class="nav-link">龙头擒拿库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板混合策略（散户实操优化版）</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略的风险等级、分类和策略核心逻辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（明确+可执行）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">⚠️ 风险提示（散户特别注意）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">首板混合策略（散户实操优化版）</h1>
+<h2 id="1">1. 策略的风险等级、分类和策略核心逻辑</h2>
+<ul>
+<li><strong>风险等级</strong>：R4（积极型）——较原版略降，因简化条件、减少持仓、强化止损  </li>
+<li><strong>策略分类</strong>：事件驱动策略 / 首板混合策略（简化版）  </li>
+<li><strong>策略核心逻辑</strong>：聚焦<strong>昨日首次涨停</strong>的股票，在次日开盘后根据<strong>低开、高开、弱转强</strong>三种典型模式中的<strong>可识别信号</strong>，选择1–2只最符合条件的标的介入。利用涨停惯性博弈当日冲高收益，通过<strong>尾盘强制清仓+跌破均线止损</strong>控制风险。<strong>核心是“看得见、算得清、买得进、卖得出”</strong>。</li>
+</ul>
+<hr />
+<h2 id="2">2. 选股条件（适配普通软件）</h2>
+<ul>
+<li><strong>选股范围</strong>：A股主板 + 创业板（<strong>排除科创板688/689、北交所4/8开头、ST/*ST、停牌股、上市&lt;50天新股</strong>）  </li>
+<li><strong>基础池</strong>：<strong>昨日首次涨停</strong>（昨日涨停，前日未涨停）  </li>
+</ul>
+<h3 id="_2">三种模式（简化可执行版）：</h3>
+<h4 id="a">A. 首板低开模式（推荐优先）</h4>
+<ol>
+<li><strong>价格位置</strong>：当前价 ≤ 60日最高价 × 0.5（即处于60日相对低位）  </li>
+<li><strong>成交额</strong>：昨日成交额 ≥ 1亿元  </li>
+<li><strong>开盘幅度</strong>：<strong>低开3%–4.5%</strong>（开盘价 ∈ [昨日收盘价×0.955, 昨日收盘价×0.97]）  </li>
+</ol>
+<h4 id="b">B. 首板高开模式（谨慎参与）</h4>
+<ol>
+<li><strong>成交额</strong>：昨日成交额 5亿–20亿元  </li>
+<li><strong>市值范围</strong>：总市值 70亿–520亿元（F10可查）  </li>
+<li><strong>开盘幅度</strong>：<strong>高开0%–6%</strong>  </li>
+<li><strong>量能确认</strong>：集合竞价成交量 &gt; 昨日同期（9:15–9:25）的<strong>3倍</strong>（可用“量比 &gt; 3”近似判断）  </li>
+</ol>
+<h4 id="c-k">C. 弱转强模式（需K线辅助）</h4>
+<ol>
+<li><strong>前日K线</strong>：昨日涨停，<strong>前日收阴线</strong>（收盘价 &lt; 开盘价）  </li>
+<li><strong>短期涨幅</strong>：近3日累计涨幅 ≤ 28%（大致判断：未连续大涨）  </li>
+<li><strong>成交额</strong>：昨日成交额 3亿–19亿元  </li>
+<li><strong>开盘表现</strong>：<strong>高开 -2% 至 +6%</strong>，且<strong>量比 &gt; 3</strong></li>
+</ol>
+<blockquote>
+<p>✅ <strong>同花顺问财语句（盘后筛选“昨日首板池”）</strong>：<br />
+<code>昨日涨停，前日未涨停，非ST，主板或创业板，上市天数&gt;50，代码不以688、689、4、8开头</code><br />
+（注：三种模式的具体条件需盘中人工核对，无法全自动）</p>
+<p>✅ <strong>通达信首板识别公式（保存为选股）</strong>：<br />
+<code>pascal
+ZT_YESTER := C/REF(C,1) &gt;= 1.095 AND C = H;     { 昨日涨停 }
+NOT_ZT_BEFORE := REF(C,2)/REF(C,1) &lt; 1.095;    { 前日未涨停 }
+NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
+MAIN_OR_GEM := CODELIKE('60') OR CODELIKE('00') OR CODELIKE('30');
+NOT_NEW := FINANCE(42) &gt; 50;
+ZT_YESTER AND NOT_ZT_BEFORE AND NOT_ST AND MAIN_OR_GEM AND NOT_NEW;</code></p>
+</blockquote>
+<hr />
+<h2 id="3">3. 买入条件</h2>
+<ul>
+<li><strong>买入时机</strong>：<strong>9:26–9:35之间</strong>（集合竞价结束后，避开瞬时波动）  </li>
+<li><strong>买入方式</strong>：  </li>
+<li><strong>最多选2只</strong>股票（大幅降低操作难度）  </li>
+<li><strong>等分可用资金</strong>（如总资金6万，买2只则各3万）  </li>
+<li><strong>限价单买入</strong>：价格设为<strong>开盘价或当前买一价</strong>（避免市价单滑点）  </li>
+<li><strong>单笔≥100股</strong>（符合交易规则）  </li>
+<li><strong>买入顺序</strong>：优先低开模式 → 弱转强 → 高开模式（按风险从低到高）</li>
+</ul>
+<hr />
+<h2 id="4">4. 卖出条件（明确+可执行）</h2>
+<ul>
+<li><strong>止盈卖出</strong>：  </li>
+<li><strong>当日涨停且封单稳定</strong> → 可持有至尾盘，但<strong>14:50仍未封死则卖出</strong>  </li>
+<li>
+<p><strong>盘中盈利 ≥ 3%</strong> 且出现<strong>冲高回落（5分钟内跌1.5%）</strong> → 卖出  </p>
+</li>
+<li>
+<p><strong>止损卖出</strong>：  </p>
+</li>
+<li><strong>盘中跌破5日均线</strong>（看分时图叠加5日线）→ <strong>立即止损</strong>  </li>
+<li>
+<p><strong>亏损 ≥ 4%</strong> → 当日或次日开盘坚决止损  </p>
+</li>
+<li>
+<p><strong>强制清仓</strong>：  </p>
+</li>
+<li><strong>14:50</strong>：所有<strong>未涨停</strong>的持仓<strong>全部卖出</strong>（无论盈亏）  </li>
+</ul>
+<blockquote>
+<p>📌 <strong>工具支持</strong>：<br />
+- 同花顺分时图可叠加“5日均线”；<br />
+- 设置手机闹钟：14:50 提醒清仓。</p>
+</blockquote>
+<hr />
+<h2 id="5">5. 仓位管理</h2>
+<ul>
+<li><strong>最大持仓数</strong>：<strong>2只</strong>（原策略无限制，散户难以兼顾）  </li>
+<li><strong>单股仓位</strong>：≤ 总资金的50%  </li>
+<li><strong>总仓位</strong>：有信号则操作，无信号则空仓  </li>
+<li><strong>换仓频率</strong>：每日清仓，次日重新选股，<strong>不隔夜持仓（除非涨停）</strong></li>
+</ul>
+<hr />
+<h2 id="6">6. 风控管理</h2>
+<ul>
+<li><strong>模式风控</strong>：三种模式中只选1–2种执行，避免信息过载  </li>
+<li><strong>技术风控</strong>：5日均线 + 4%硬止损 + 尾盘清仓三重保险  </li>
+<li><strong>流动性风控</strong>：通过成交额（≥1亿）确保可买卖  </li>
+<li><strong>市值风控</strong>：排除极小盘（&lt;30亿）和超级大盘（&gt;600亿）  </li>
+<li><strong>时间风控</strong>：14:50强制检查，杜绝“幻想持仓”</li>
+</ul>
+<hr />
+<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h3 id="15301630">第一步：盘后准备（15:30–16:30）</h3>
+<ol>
+<li>打开<strong>同花顺问财</strong>，输入：<br />
+<code>昨日涨停，前日未涨停，非ST，主板或创业板，上市天数&gt;50</code>  </li>
+<li>导出结果（约20–50只），保存为“首板观察池”  </li>
+<li>对每只股票：  </li>
+<li>查F10：确认总市值、流通市值、上市天数  </li>
+<li>看K线：确认前日是否阴线（弱转强用）  </li>
+<li>记录昨日成交额、60日最高价  </li>
+</ol>
+<h3 id="915925">第二步：盘前复核（9:15–9:25）</h3>
+<ol>
+<li>打开“首板观察池”自选股  </li>
+<li>查看集合竞价结果：  </li>
+<li>记录每只股<strong>开盘涨幅</strong>  </li>
+<li>估算<strong>量比</strong>（竞价成交量 vs 昨日9:25时成交量，问财或行情页可见）  </li>
+<li>按模式分类：  </li>
+<li><strong>低开3%–4.5% + 成交≥1亿 + 60日低位</strong> → 标记A  </li>
+<li><strong>高开0–6% + 成交5–20亿 + 量比&gt;3</strong> → 标记B  </li>
+<li><strong>前日阴线 + 高开-2%~6% + 成交3–19亿</strong> → 标记C  </li>
+</ol>
+<h3 id="926935">第三步：开盘买入（9:26–9:35）</h3>
+<ol>
+<li>从A/B/C中选出<strong>最多2只</strong>最符合条件的股票  </li>
+<li>计算每只买入金额（总资金 ÷ 股数）  </li>
+<li><strong>限价单买入</strong>（价格=开盘价），成交后记录成本  </li>
+</ol>
+<h3 id="9351450">第四步：盘中监控（9:35–14:50）</h3>
+<ul>
+<li>每30分钟检查：  </li>
+<li>是否跌破5日均线？  </li>
+<li>是否盈利≥3%后回落？  </li>
+<li>是否涨停？封单是否稳定？  </li>
+</ul>
+<h3 id="1450">第五步：尾盘清仓（14:50）</h3>
+<ul>
+<li><strong>所有未涨停持仓，全部卖出</strong>  </li>
+<li>涨停股若封单减少、有开板迹象，也建议卖出  </li>
+</ul>
+<h3 id="1500">第六步：盘后复盘（15:00后）</h3>
+<ul>
+<li>更新交易日志：<br />
+  | 日期 | 股票 | 模式 | 买入价 | 卖出价 | 持有天数 | 盈亏% | 成败原因 |  </li>
+<li>每周统计：各模式胜率、平均收益、最大回撤  </li>
+<li><strong>连续2日亏损，暂停策略1天</strong></li>
+</ul>
+<hr />
+<h2 id="_3">⚠️ 风险提示（散户特别注意）</h2>
+<ul>
+<li>该策略仍属<strong>高风险短线交易</strong>，单日亏损可达4%–6%；  </li>
+<li><strong>“弱转强”和“高开模式”对量比、K线判断要求高，新手建议只做“低开模式”</strong>；  </li>
+<li><strong>14:50强制清仓是保命纪律，不可因“可能回封”而犹豫</strong>；  </li>
+<li><strong>强烈建议先用模拟盘或≤10%资金试运行20个交易日</strong>，验证执行力后再加大投入。</li>
+</ul>
+<blockquote>
+<p>✅ <strong>一句话总结</strong>：<br />
+<strong>“首板+三选一模式+最多2只+14:50清仓”是散户可行核心。借助问财筛首板池+人工核对开盘数据，普通投资者可有限执行，但必须严守止损与仓位纪律。</strong></p>
+</blockquote></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
