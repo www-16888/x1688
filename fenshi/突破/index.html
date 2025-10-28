@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>N字反攻突破策略（散户手动实操版） - 量化策略武器库</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">量化策略武器库</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../qushi/" class="nav-link">趋势追踪库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../" class="nav-link">分时博弈库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../yaogu/" class="nav-link">妖股伏击库</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../longtou/" class="nav-link">龙头擒拿库</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#n" class="nav-link">N字反攻突破策略（散户手动实操版）</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">一、策略分类</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#t" class="nav-link">二、选股条件（T日盘中观察）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#t-14451455" class="nav-link">三、买入条件（T日 14:45–14:55）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#t1" class="nav-link">四、卖出条件（T+1日）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">五、仓位管理</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">六、手动实操步骤（每日流程）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">⚠️ 风险提示</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="n">N字反攻突破策略（散户手动实操版）</h1>
+<hr />
+<h2 id="_1">一、策略分类</h2>
+<ul>
+<li><strong>策略类型</strong>：短线T+1博弈（隔夜持仓）  </li>
+<li><strong>适用市场环境</strong>：  </li>
+<li>情绪平稳或上升期；  </li>
+<li>题材有<strong>二次发酵迹象</strong>（如政策延续、龙头反包）；  </li>
+<li>个股处于<strong>上升趋势中</strong>（非下跌反弹）  </li>
+<li><strong>核心逻辑</strong>：<br />
+  股价早盘冲高试盘，午后蓄势后放量突破早盘高点，形成“N字”结构，表明多头再次发力，次日往往有冲高溢价。  </li>
+</ul>
+<hr />
+<h2 id="t">二、选股条件（T日盘中观察）</h2>
+<h3 id="_2">前提：聚焦“趋势股”或“题材活跃股”</h3>
+<h4 id="1t">步骤1：建立观察池（T日早盘前）</h4>
+<p>在<strong>同花顺问财</strong>输入：</p>
+<pre><code class="language-text">近5日涨幅&gt;5%，非ST，非北交所，所属概念板块近3日有涨停，流通市值50–300亿
+</code></pre>
+<blockquote>
+<p>💡 或直接从“昨日涨停未连板”“5日均线向上”个股中筛选。</p>
+</blockquote>
+<h4 id="2t">步骤2：T日盘中人工确认（需同时满足）</h4>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>判断方式（同花顺APP）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 早盘有冲高</td>
+<td><strong>10:00前</strong>出现明显高点（H），涨幅 ≥ 3%（分时图可见陡升）</td>
+</tr>
+<tr>
+<td>2. 长时间横盘</td>
+<td>10:00–13:30 股价在 <strong>H点下方2%以内</strong> 震荡（肉眼观察未大幅跌破）</td>
+</tr>
+<tr>
+<td>3. 午后放量突破</td>
+<td><strong>13:30后</strong>股价<strong>放量突破H点</strong>，且<strong>量柱明显高于上午</strong>（肉眼可见“突然放大”）</td>
+</tr>
+<tr>
+<td>4. 突破时未暴涨</td>
+<td>突破H点时，<strong>当日总涨幅 &lt; 7%</strong>（留有次日溢价空间）</td>
+</tr>
+<tr>
+<td>5. 板块未退潮</td>
+<td>所属板块当日<strong>未领跌</strong>，最好有其他个股跟涨</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="t-14451455">三、买入条件（T日 14:45–14:55）</h2>
+<p><strong>仅当上述5项条件满足，且尾盘站稳H点上方时，方可买入</strong>：</p>
+<ul>
+<li>✅ 14:45时股价<strong>仍高于H点</strong>（未假突破后回落）；</li>
+<li>✅ 下午成交量<strong>显著高于上午</strong>（全天呈“早冲高+午蓄势+尾放量”结构）；</li>
+<li>✅ 所属板块<strong>保持活跃</strong>（未集体跳水）；</li>
+<li>❌ 若14:45前已跌破H点，或突破后无量 → <strong>放弃</strong>。</li>
+</ul>
+<blockquote>
+<p>📌 买入方式：<br />
+- <strong>14:45–14:55市价单手动买入</strong>；<br />
+- <strong>单票仓位 ≤ 15%</strong>（因涉及突破，需防范假信号）。</p>
+<p>💡 <strong>若有底仓</strong>：可于突破时T+0做T（高抛低吸），但本策略主逻辑面向<strong>无底仓散户</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="t1">四、卖出条件（T+1日）</h2>
+<blockquote>
+<p>⚠️ <strong>A股T+1规则：T日买入，T+1日9:30起可卖出</strong></p>
+</blockquote>
+<h3 id="_3">✅ 止盈：</h3>
+<ul>
+<li><strong>高开 ≥ 2%</strong>，冲高不破T日高点 → <strong>9:45–10:15分批卖出</strong>；</li>
+<li><strong>平开后快速冲高</strong>（+3%以上）→ 冲高回落破分时均线即卖；</li>
+<li><strong>若T+1日涨停</strong> → 持有，但<strong>开板立即清仓</strong>。</li>
+</ul>
+<h3 id="_4">❌ 止损：</h3>
+<ul>
+<li><strong>低开 ≤ -2% 且30分钟内无法翻红</strong> → 止损；</li>
+<li><strong>反弹不过T日H点（早盘高点）</strong> → 止损；</li>
+<li><strong>所属板块T+1日走弱</strong> → 优先离场。</li>
+</ul>
+<blockquote>
+<p>📌 原则：<strong>T+1日必须清仓，不赌连板</strong>（除非是龙头且情绪极强）。</p>
+</blockquote>
+<hr />
+<h2 id="_5">五、仓位管理</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单票仓位</td>
+<td>≤ <strong>15%</strong></td>
+</tr>
+<tr>
+<td>每日最多操作</td>
+<td><strong>1只</strong> 股票</td>
+</tr>
+<tr>
+<td>每周操作频率</td>
+<td>≤ <strong>2次</strong>（高质量N字结构不多）</td>
+</tr>
+<tr>
+<td>空仓条件</td>
+<td>- 大盘单边下跌<br>- 题材无持续性（一日游）<br>- 个股处于下降趋势</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_6">六、手动实操步骤（每日流程）</h2>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>操作</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T日早盘前</strong></td>
+<td>用问财筛选趋势/题材股，加入自选股</td>
+<td>问财 + 同花顺</td>
+</tr>
+<tr>
+<td><strong>T日 9:30–10:00</strong></td>
+<td>关注自选股是否早盘冲高（记下H点位置）</td>
+<td>分时图</td>
+</tr>
+<tr>
+<td><strong>T日 10:00–13:30</strong></td>
+<td>观察是否在H点附近横盘（不破位）</td>
+<td>分时图</td>
+</tr>
+<tr>
+<td><strong>T日 13:30–14:30</strong></td>
+<td>留意是否放量突破H点</td>
+<td>分时图 + 成交量柱</td>
+</tr>
+<tr>
+<td><strong>T日 14:45</strong></td>
+<td>确认：是否站稳H点？量能是否持续？板块是否强？</td>
+<td>同花顺APP</td>
+</tr>
+<tr>
+<td><strong>T日 14:45–14:55</strong></td>
+<td>信号成立 → 手动买入；否则放弃</td>
+<td>券商交易软件</td>
+</tr>
+<tr>
+<td><strong>T+1日 9:30–10:30</strong></td>
+<td>严格执行止盈/止损，<strong>必须卖出</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>每周复盘</strong></td>
+<td>记录：H点是否有效？突破是否放量？次日溢价如何？</td>
+<td>笔记本</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">⚠️ 风险提示</h2>
+<ul>
+<li><strong>假突破常见</strong>：尤其在无量或板块退潮时，突破后次日低开；</li>
+<li><strong>避免高位N字</strong>：若个股已连续大涨（如5日涨30%+），慎用；</li>
+<li><strong>震荡市有效，单边下跌市失效</strong>；</li>
+<li><strong>切勿用于无逻辑的跟风股</strong>，只做趋势或题材核心。</li>
+</ul>
+<hr /></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
