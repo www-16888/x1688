@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>短线均线突破策略（散户实操版 · 同花顺/通达信友好） - 量化策略武器库</title>
+        <title>短线均线突破策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,45 +75,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">短线均线突破策略（散户实操版 · 同花顺/通达信友好）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">短线均线突破策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类与核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股范围与排除规则（同花顺操作）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 技术信号（全部使用软件内置指标）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4-t1" class="nav-link">4. 买入条件（T+1合规）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件（次日或持有期内）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位与风控</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位与风控（散户友好）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7-10" class="nav-link">7. 手动实操步骤（每日10分钟完成）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 同花顺/通达信指标调用指南</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略优势</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 风险提示</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5-10" class="nav-link">5. 手动实操步骤（每日10分钟完成）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,17 +104,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">短线均线突破策略（散户实操版 · 同花顺/通达信友好）</h1>
-<h2 id="1">1. 策略分类与核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：技术面短线策略  </li>
-<li><strong>二级分类</strong>：均线系统 + 量价配合（T+1低频版）  </li>
-<li><strong>核心逻辑</strong>：<br />
-  利用<strong>5日与10日均线死叉后快速金叉</strong>、<strong>MACD低位金叉</strong>、<strong>放量回升</strong>三大信号，捕捉短期调整结束后的反弹机会。<br />
-<strong>买入后持有1–3天，不日内交易，次日可卖</strong>。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股范围与排除规则（同花顺操作）</h2>
+<h1 id="_1">短线均线突破策略</h1>
+<h2 id="1">1. 选股</h2>
 <h3 id="_2">✅ 选股范围</h3>
 <ul>
 <li>全市场A股（主板为主）</li>
@@ -153,7 +124,7 @@
 首页 → 选股 → 条件选股 → 基础条件 → 勾选“非ST”、“非创业板”、“非科创板”、“上市满250天”</p>
 </blockquote>
 <hr />
-<h2 id="3">3. 技术信号（全部使用软件内置指标）</h2>
+<h3 id="_4">技术信号（全部使用软件内置指标）</h3>
 <h3 id="1ma">信号1：均线系统调整（使用MA指标）</h3>
 <ul>
 <li>打开个股K线图，调出 <strong>MA5、MA10、MA20、MA30</strong>（默认参数即可）  </li>
@@ -165,7 +136,7 @@
 <p>✅ <strong>判断方法</strong>：肉眼观察K线图，无需计算。死叉/金叉看均线交叉点。</p>
 </blockquote>
 <hr />
-<h3 id="2macdmacd">信号2：MACD低位金叉（使用MACD指标）</h3>
+<h3 id="macdmacd">MACD低位金叉（使用MACD指标）</h3>
 <ul>
 <li>调出MACD指标（默认参数：12,26,9）  </li>
 <li><strong>DIF 与 DEA 均在0轴上方</strong>  </li>
@@ -176,7 +147,7 @@
 <p>✅ <strong>判断方法</strong>：只要看到MACD在0轴上、红柱初现，即视为有效。</p>
 </blockquote>
 <hr />
-<h3 id="3vol">信号3：量能配合（使用VOL指标）</h3>
+<h3 id="vol">量能配合（使用VOL指标）</h3>
 <ul>
 <li>观察成交量柱：<strong>昨日缩量下跌，今日放量上涨</strong>  </li>
 <li><strong>今日成交量 &gt; 前5日平均成交量</strong>（肉眼判断：今日量柱明显高于前几天）</li>
@@ -185,13 +156,13 @@
 <p>✅ <strong>无需计算均线</strong>，只要“今天比前几天明显放量”即可。</p>
 </blockquote>
 <hr />
-<h3 id="4">信号4：价格形态</h3>
+<h3 id="_5">价格形态</h3>
 <ul>
 <li><strong>前日下跌，今日上涨</strong>（形成“阳包阴”或止跌阳线）  </li>
 <li><strong>今日收盘价 &gt; 昨日最高价</strong>（强势反包，加分项，非必须）</li>
 </ul>
 <hr />
-<h2 id="4-t1">4. 买入条件（T+1合规）</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>买入时机</strong>：<strong>尾盘14:45–14:55</strong>（避免盘中诱多）  </li>
 <li><strong>买入前提</strong>：</li>
@@ -207,24 +178,24 @@
 <p>⚠️ <strong>注意</strong>：今日买入，最早<strong>明日9:30才能卖出</strong>（T+1规则）</p>
 </blockquote>
 <hr />
-<h2 id="5">5. 卖出条件（次日或持有期内）</h2>
-<h3 id="_4">✅ 止盈卖出（满足任一即卖）：</h3>
+<h2 id="3">3. 卖出条件</h2>
+<h3 id="_6">✅ 止盈卖出（满足任一即卖）：</h3>
 <ul>
 <li>持有第2日：<strong>冲高+5%以上</strong>，可分批止盈  </li>
 <li>持有第3日：无论盈亏，<strong>收盘前清仓</strong>（避免过夜不确定性）  </li>
 <li>股价<strong>再次涨停</strong>：次日冲高卖出（不板上持股）</li>
 </ul>
-<h3 id="_5">✅ 止损卖出（硬性纪律）：</h3>
+<h3 id="_7">✅ 止损卖出（硬性纪律）：</h3>
 <ul>
 <li>从买入成本起算，<strong>亏损 ≥ 6%</strong>，次日开盘立即卖出  </li>
 <li>若次日<strong>低开低走、无反抽</strong>，可在10:00前止损</li>
 </ul>
-<h3 id="_6">✅ 技术破位卖出：</h3>
+<h3 id="_8">✅ 技术破位卖出：</h3>
 <ul>
 <li>次日<strong>收盘跌破MA10</strong>，无论盈亏，第3日开盘卖出</li>
 </ul>
 <hr />
-<h2 id="6">6. 仓位与风控（散户友好）</h2>
+<h2 id="4">4. 仓位与风控</h2>
 <table>
 <thead>
 <tr>
@@ -256,7 +227,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="7-10">7. 手动实操步骤（每日10分钟完成）</h2>
+<h2 id="5-10">5. 手动实操步骤（每日10分钟完成）</h2>
 <h3 id="15301600">🕒 第一步：盘后选股（15:30–16:00）</h3>
 <ol>
 <li>打开同花顺 → 选股 → 条件选股  </li>
@@ -281,64 +252,12 @@
 <li>按第5节规则执行止盈/止损  </li>
 <li>卖出后更新自选股</li>
 </ul>
-<h3 id="_7">🕒 第四步：每周复盘（周日晚）</h3>
+<h3 id="_9">🕒 第四步：每周复盘（周日晚）</h3>
 <ul>
 <li>回顾本周交易：胜率、平均盈亏比  </li>
 <li>若连续2周亏损，暂停1周</li>
 </ul>
-<hr />
-<h2 id="8">8. 同花顺/通达信指标调用指南</h2>
-<table>
-<thead>
-<tr>
-<th>指标</th>
-<th>调用方式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>均线（MA）</td>
-<td>K线图界面按 <strong>MA</strong> 键，或右键 → 主图指标 → MA</td>
-</tr>
-<tr>
-<td>MACD</td>
-<td>按 <strong>MACD</strong> 键，或副图指标 → MACD</td>
-</tr>
-<tr>
-<td>成交量（VOL）</td>
-<td>默认显示在K线下方</td>
-</tr>
-<tr>
-<td>量比</td>
-<td>F10 → 基本资料 → 实时数据（或分时图上方）</td>
-</tr>
-<tr>
-<td>所属板块/涨停家数</td>
-<td>首页 → 涨停聚焦 / 行业板块</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>✅ <strong>无需编写公式，无需计算，全部肉眼观察即可</strong></p>
-</blockquote>
-<hr />
-<h2 id="9">9. 策略优势</h2>
-<ul>
-<li><strong>完全T+1合规</strong>：买入次日可卖，无制度冲突  </li>
-<li><strong>零计算负担</strong>：依赖软件现成指标，肉眼判断  </li>
-<li><strong>信号明确</strong>：金叉+放量+MACD红柱，三者共振  </li>
-<li><strong>风险可控</strong>：6%止损 + 3日持有上限 + 20%仓位  </li>
-<li><strong>适合上班族</strong>：每日仅需10–15分钟操作</li>
-</ul>
-<hr />
-<h2 id="10">10. 风险提示</h2>
-<ul>
-<li>该策略在<strong>震荡市或反弹初期</strong>效果最佳，<strong>单边下跌市慎用</strong>；  </li>
-<li>均线金叉可能是“假信号”，必须配合<strong>量能与MACD</strong>验证；  </li>
-<li><strong>绝不全仓、绝不追高、绝不持仓过周末</strong>（除非涨停）；  </li>
-<li>若大盘破位（如上证跌破20日线），应主动空仓。</li>
-</ul>
-<p>-</p></div>
+<hr /></div>
             </div>
         </div>
 
@@ -352,6 +271,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>强势股回调低吸策略（散户手动友好版） - 量化策略武器库</title>
+        <title>强势股回调低吸策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,41 +75,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">强势股回调低吸策略（散户手动友好版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">强势股回调低吸策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤（纯人工交易版）</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">交易成本考虑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">风险提示</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -120,13 +112,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">强势股回调低吸策略（散户手动友好版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<p><strong>一级分类</strong>：技术面中短线策略<br />
-<strong>二级分类</strong>：强势股回调低吸策略<br />
-<strong>核心逻辑</strong>：筛选近期有过涨停、量能活跃、趋势向上的强势股，在其首次明显回调至关键支撑位（如5日或10日均线）时低吸介入，通过合理止盈止损，捕捉第二波上涨机会，避免追高风险，追求高胜率、中等收益的稳健短线回报。</p>
-<hr />
-<h2 id="2">2. 选股条件</h2>
+<h1 id="_1">强势股回调低吸策略</h1>
+<h2 id="1">1. 选股</h2>
 <p><strong>选股范围</strong>：全市场A股（主板为主）  </p>
 <p><strong>排除范围</strong>：<br />
 - 科创板、创业板、北交所股票（可选，若接受可保留）<br />
@@ -146,7 +133,7 @@
 - 总市值 ≥ 50亿元（避免小盘庄股）<br />
 - 流通市值 ≤ 800亿元（保证弹性）  </p>
 <hr />
-<h2 id="3">3. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <p><strong>交易频率</strong>：<strong>低频择机买入</strong>（平均每月1–3次，非每日交易）  </p>
 <p><strong>买入时机</strong>：<strong>尾盘14:45–14:55</strong>（避免盘中假跌破）  </p>
 <p><strong>买入规则</strong>：<br />
@@ -160,7 +147,7 @@
 <p><strong>执行方式</strong>：<br />
 - 尾盘手动下单，避免早盘情绪干扰  </p>
 <hr />
-<h2 id="4">4. 卖出条件</h2>
+<h2 id="3">3. 卖出条件</h2>
 <p><strong>止盈规则</strong>：<br />
 - <strong>第一目标</strong>：盈利 ≥ 8% 时，卖出1/2仓位<br />
 - <strong>第二目标</strong>：若继续上涨并<strong>再次涨停</strong>，剩余仓位次日冲高卖出<br />
@@ -172,7 +159,7 @@
 - 若买入后次日直接涨停，可持有至打开涨停或次日冲高卖出<br />
 - 遇重大利空（如业绩暴雷、监管处罚），无论盈亏立即清仓  </p>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <p><strong>持仓数量</strong>：<strong>最多4只</strong>（分散行业，避免同质化）  </p>
 <p><strong>调整逻辑</strong>：<br />
 - 市场强势（上证站上20日线）：可持有3–4只<br />
@@ -186,7 +173,7 @@
 <p><strong>现金管理</strong>：<br />
 - 未使用资金持有<strong>货币ETF（511880）</strong> 或余额宝，保持流动性  </p>
 <hr />
-<h2 id="6">6. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <p><strong>盘前风控</strong>：<br />
 - 只交易符合“强势+回调”双重条件的股票，杜绝随意买入  </p>
 <p><strong>盘中风控</strong>：<br />
@@ -201,7 +188,7 @@
 - <strong>8%止盈必须执行</strong><br />
 - <strong>不持仓过周末</strong>（除非已涨停或重大利好）  </p>
 <hr />
-<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
+<h2 id="6">6. 手动实操步骤（纯人工交易版）</h2>
 <h3 id="16001700">第一步：盘后观察（每日16:00–17:00）</h3>
 <ul>
 <li>浏览当日涨停股列表（同花顺“涨停棱镜”或东方财富“涨停板”）  </li>
@@ -247,14 +234,7 @@
 <li>年交易次数：约15–25笔  </li>
 <li><strong>年化交易成本 ≈ 2%–3%</strong>，可控  </li>
 </ul>
-<hr />
-<h2 id="_7">风险提示</h2>
-<ul>
-<li>强势股回调后可能继续下跌，形成“下跌中继”；  </li>
-<li>市场风格切换时（如从题材转向蓝筹），中小盘强势股易集体补跌；  </li>
-<li>该策略依赖趋势延续，震荡市中成功率下降；  </li>
-<li><strong>最大风险仍是纪律执行</strong>——必须接受“买错就亏7%”的设定。</li>
-</ul></div>
+<hr /></div>
             </div>
         </div>
 
@@ -268,6 +248,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

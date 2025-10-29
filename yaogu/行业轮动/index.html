@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>行业轮动小市值策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
+        <title>行业轮动小市值策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,37 +75,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">行业轮动小市值策略（散户实操优化版 · A股合规版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业轮动小市值策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 核心筛选流程</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,15 +112,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="a">行业轮动小市值策略（散户实操优化版 · A股合规版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：行业轮动策略  </li>
-<li><strong>二级分类</strong>：市场宽度择时 + 小市值选股  </li>
-<li><strong>核心逻辑</strong>：通过<strong>同花顺问财自然语言</strong>一键筛选<strong>基本面优质的小市值股票</strong>，结合<strong>全市场行业宽度指标</strong>排除周期性强的四大行业（银行、有色、钢铁、煤炭），在每周调仓时动态调整持仓。策略<strong>简化了行业宽度计算、避免高频交易、降低操作难度</strong>，全部条件均可在免费软件中实现，符合A股T+1、100股整数倍、交易时段等规则，适合普通散户每周操作30分钟。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件</h2>
+<h1 id="_1">行业轮动小市值策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：中证全指成分股（主板+中小板）  </li>
 <li><strong>排除范围</strong>：  </li>
@@ -154,7 +143,7 @@
 <code>中证全指成分股，非ST，上市天数大于375，ROE大于10，ROA大于5，总市值从小到大排序</code></p>
 </blockquote>
 <hr />
-<h2 id="3">3. 核心筛选流程</h2>
+<h2 id="2">2. 核心筛选流程</h2>
 <h3 id="900915">第一步：行业分析（每周一9:00–9:15）</h3>
 <ol>
 <li><strong>获取行业宽度数据</strong>：  </li>
@@ -178,7 +167,7 @@
 <li><strong>记录买入名单</strong>（代码、名称、市值）；  </li>
 <li>准备调仓对比名单。</li>
 </ol>
-<h3 id="_1">第三步：调仓准备（周一开盘前）</h3>
+<h3 id="_2">第三步：调仓准备（周一开盘前）</h3>
 <ol>
 <li><strong>持仓分析</strong>：  </li>
 <li>检查当前持仓情况；  </li>
@@ -189,7 +178,7 @@
 <li>确定每只新股的买入金额（等分资金）。</li>
 </ol>
 <hr />
-<h2 id="4">4. 买入条件</h2>
+<h2 id="3">3. 买入条件</h2>
 <ul>
 <li><strong>调仓频率</strong>：<strong>每周一次</strong>（每周一）  </li>
 <li><strong>持仓数量</strong>：<strong>固定持有10只股票</strong>  </li>
@@ -199,7 +188,7 @@
 <li><strong>执行时间</strong>：<strong>9:35–10:00</strong>（避开集合竞价，确保成交）</li>
 </ul>
 <hr />
-<h2 id="5">5. 卖出条件</h2>
+<h2 id="4">4. 卖出条件</h2>
 <ul>
 <li><strong>定期调仓卖出</strong>：  </li>
 <li>每周调仓日，<strong>卖出不在新选股名单中的持仓股</strong>；  </li>
@@ -214,7 +203,7 @@
 <li>其他情况下，次日开盘卖出。</li>
 </ul>
 <hr />
-<h2 id="6">6. 仓位管理</h2>
+<h2 id="5">5. 仓位管理</h2>
 <ul>
 <li><strong>持仓数量</strong>：固定持有10只股票  </li>
 <li><strong>资金分配</strong>：等权重，每只约占10%资金  </li>
@@ -224,7 +213,7 @@
 <li><strong>行业分散</strong>：强制覆盖≥3个不同行业（消费、制造、医药等）</li>
 </ul>
 <hr />
-<h2 id="7">7. 风控管理</h2>
+<h2 id="6">6. 风控管理</h2>
 <ul>
 <li><strong>行业风控</strong>：通过排除周期性强的四大行业控制系统性风险；  </li>
 <li><strong>基本面风控</strong>：严格的财务指标筛选确保标的质量；  </li>
@@ -234,7 +223,7 @@
 <li><strong>止损风控</strong>：收盘价连续2日低于20日均线 → 次日开盘卖出。</li>
 </ul>
 <hr />
-<h2 id="8">8. 手动实操步骤</h2>
+<h2 id="7">7. 手动实操步骤</h2>
 <h3 id="900915_1">第一步：行业分析（每周一9:00–9:15）</h3>
 <ol>
 <li><strong>行业宽度计算</strong>：  </li>
@@ -257,7 +246,7 @@
 <li>排除停牌和涨跌停股票；  </li>
 <li>生成买入名单。</li>
 </ol>
-<h3 id="_2">第三步：调仓准备（周一开盘前）</h3>
+<h3 id="_3">第三步：调仓准备（周一开盘前）</h3>
 <ol>
 <li><strong>持仓分析</strong>：  </li>
 <li>检查当前持仓情况；  </li>
@@ -283,7 +272,7 @@
 <li>涨停打开的股票立即卖出；  </li>
 <li>记录卖出操作和原因。</li>
 </ol>
-<h3 id="_3">第六步：行业监控</h3>
+<h3 id="_4">第六步：行业监控</h3>
 <ol>
 <li><strong>持续观察</strong>：  </li>
 <li>每日监控行业宽度变化；  </li>
@@ -294,7 +283,7 @@
 <li>关注财报更新对持仓的影响；  </li>
 <li>评估策略适应性。</li>
 </ol>
-<h3 id="_4">第七步：纪律执行</h3>
+<h3 id="_5">第七步：纪律执行</h3>
 <ol>
 <li><strong>周期纪律</strong>：  </li>
 <li>严格按周度周期调仓；  </li>
@@ -319,6 +308,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

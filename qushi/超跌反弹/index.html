@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>超跌反弹反转策略（散户友好版） - 量化策略武器库</title>
+        <title>超跌反弹反转策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,37 +75,45 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">超跌反弹反转策略（散户友好版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">超跌反弹反转策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 交易频率</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 交易频率</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工交易版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工交易版）</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">问财筛股步骤</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_28" class="nav-link">问财实操建议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_29" class="nav-link">总结：问财语句清单</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,28 +124,13 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">超跌反弹反转策略（散户友好版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<h3 id="_2">一级分类</h3>
-<ul>
-<li>技术面反转策略</li>
-</ul>
-<h3 id="_3">二级分类</h3>
-<ul>
-<li>超跌反弹+均线突破</li>
-</ul>
-<h3 id="_4">核心逻辑</h3>
-<ul>
-<li><strong>捕捉长期下跌后首次突破55日均线的股票</strong>，利用超跌反弹的动能获取收益，通过严格止损控制风险。  </li>
-<li><strong>强调多重过滤</strong>，确保选股质量，避免过度暴露于高风险个股。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件</h2>
-<h3 id="_5">选股范围</h3>
+<h1 id="_1">超跌反弹反转策略</h1>
+<h2 id="1">1. 选股</h2>
+<h3 id="_2">选股范围</h3>
 <ul>
 <li>全市场A股（主板为主）</li>
 </ul>
-<h3 id="_6">排除范围</h3>
+<h3 id="_3">排除范围</h3>
 <ul>
 <li>ST股及风险警示股票  </li>
 <li>科创板股票  </li>
@@ -146,7 +139,7 @@
 <li>流通市值 &lt; 50亿的股票  </li>
 <li><strong>新增排除</strong>：近一年内出现过重大负面公告（如诉讼、监管处罚等）</li>
 </ul>
-<h3 id="_7">核心筛选流程</h3>
+<h3 id="_4">核心筛选流程</h3>
 <ul>
 <li><strong>基本面初筛</strong>：ROE &gt; 0，按ROE降序排列取前10  </li>
 <li><strong>技术面确认</strong>：55日均线突破信号验证  </li>
@@ -154,8 +147,8 @@
 <li><strong>新增要求</strong>：剔除资产负债率 &gt; 70%的公司（财务稳健性）</li>
 </ul>
 <hr />
-<h2 id="3">3. 买入条件</h2>
-<h3 id="_8">技术信号</h3>
+<h2 id="2">2. 买入条件</h2>
+<h3 id="_5">技术信号</h3>
 <ul>
 <li><strong>40日内仅有1-3天突破55日均线</strong>  </li>
 <li><strong>最近3日内有突破55日均线</strong>  </li>
@@ -163,101 +156,101 @@
 <li><strong>10日内低点为60日内最低点</strong>  </li>
 <li><strong>新增要求</strong>：开盘涨幅不超过5%，避免追高</li>
 </ul>
-<h3 id="_9">仓位控制</h3>
+<h3 id="_6">仓位控制</h3>
 <ul>
 <li><strong>持仓数量</strong>：最多5只股票  </li>
 <li><strong>等权重分配资金</strong>  </li>
 <li><strong>可用现金充足性检查</strong>  </li>
 <li><strong>逐步建仓至满仓</strong></li>
 </ul>
-<h3 id="_10">买入方式</h3>
+<h3 id="_7">买入方式</h3>
 <ul>
 <li><strong>尾盘14:45–14:55市价单买入</strong>（避开早盘情绪干扰）  </li>
 <li><strong>按100股整数倍下单</strong></li>
 </ul>
 <hr />
-<h2 id="4">4. 卖出条件</h2>
-<h3 id="_11">技术卖出</h3>
+<h2 id="3">3. 卖出条件</h2>
+<h3 id="_8">技术卖出</h3>
 <ul>
 <li><strong>日内高点回撤5%</strong>  </li>
 <li><strong>单日下跌5%</strong>  </li>
 <li><strong>跌破55日均线2%</strong>  </li>
 <li><strong>新增条件</strong>：持有满3周仍未上涨，则强制卖出（避免长期滞涨）</li>
 </ul>
-<h3 id="_12">止损卖出</h3>
+<h3 id="_9">止损卖出</h3>
 <ul>
 <li><strong>总亏损达到5%</strong>  </li>
 <li><strong>任何卖出信号触发立即执行</strong></li>
 </ul>
-<h3 id="_13">盘中监控</h3>
+<h3 id="_10">盘中监控</h3>
 <ul>
 <li><strong>每日收盘后检查是否跌破20日均线</strong>，若连续两日破线，则次日开盘卖出（趋势破坏信号）</li>
 </ul>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
-<h3 id="_14">持仓数量</h3>
+<h2 id="4">4. 仓位管理</h2>
+<h3 id="_11">持仓数量</h3>
 <ul>
 <li>最多5只股票（保持分散投资）</li>
 </ul>
-<h3 id="_15">资金分配</h3>
+<h3 id="_12">资金分配</h3>
 <ul>
 <li><strong>严格的等权重分配</strong>（每只股票约20%仓位）  </li>
 <li><strong>新增资金管理</strong>：未使用资金买入货币ETF（511880），享受T+0流动性与收益</li>
 </ul>
-<h3 id="_16">调仓频率</h3>
+<h3 id="_13">调仓频率</h3>
 <ul>
 <li><strong>日度信号检查</strong>，每周一调仓</li>
 </ul>
-<h3 id="_17">仓位控制</h3>
+<h3 id="_14">仓位控制</h3>
 <ul>
 <li><strong>接近满仓运作</strong>，但保留部分现金应对突发情况</li>
 </ul>
 <hr />
-<h2 id="6">6. 风控管理</h2>
-<h3 id="_18">质量风控</h3>
+<h2 id="5">5. 风控管理</h2>
+<h3 id="_15">质量风控</h3>
 <ul>
 <li><strong>排除ST、科创板、次新股等风险股票</strong>  </li>
 <li><strong>新增排除</strong>：近期有重大负面公告的公司</li>
 </ul>
-<h3 id="_19">流动性风控</h3>
+<h3 id="_16">流动性风控</h3>
 <ul>
 <li><strong>排除停牌股票</strong>  </li>
 <li><strong>新增要求</strong>：日成交额 &lt; 1亿元的股票不参与（确保流动性）</li>
 </ul>
-<h3 id="_20">技术风控</h3>
+<h3 id="_17">技术风控</h3>
 <ul>
 <li><strong>多重卖出信号监控</strong>  </li>
 <li><strong>新增要求</strong>：每日收盘后检查是否跌破20日均线，若连续两日破线，则次日开盘卖出（趋势破坏信号）</li>
 </ul>
-<h3 id="_21">止损风控</h3>
+<h3 id="_18">止损风控</h3>
 <ul>
 <li><strong>5%硬性止损线</strong></li>
 </ul>
-<h3 id="_22">分散风控</h3>
+<h3 id="_19">分散风控</h3>
 <ul>
 <li><strong>5只股票分散投资</strong>，避免集中持股带来的风险</li>
 </ul>
 <hr />
-<h2 id="7">7. 交易频率</h2>
-<h3 id="_23">选股计算</h3>
+<h2 id="6">6. 交易频率</h2>
+<h3 id="_20">选股计算</h3>
 <ul>
 <li>开盘前</li>
 </ul>
-<h3 id="_24">买入操作</h3>
+<h3 id="_21">买入操作</h3>
 <ul>
 <li>开盘09:30（改为尾盘14:45–14:55）</li>
 </ul>
-<h3 id="_25">卖出操作</h3>
+<h3 id="_22">卖出操作</h3>
 <ul>
 <li>尾盘14:55</li>
 </ul>
-<h3 id="_26">持仓监控</h3>
+<h3 id="_23">持仓监控</h3>
 <ul>
 <li>持续跟踪</li>
 </ul>
 <hr />
-<h2 id="8">8. 手动实操步骤（纯人工交易版）</h2>
-<h3 id="_27">第一步：盘前准备（每周日晚）</h3>
+<h2 id="7">7. 手动实操步骤（纯人工交易版）</h2>
+<h3 id="_24">第一步：盘前准备（每周日晚）</h3>
 <ul>
 <li>获取全市场股票池  </li>
 <li>执行基本面和技术面筛选  </li>
@@ -293,13 +286,89 @@
 <li><strong>执行触发信号的卖出操作</strong>  </li>
 <li><strong>记录卖出原因和结果</strong></li>
 </ol>
-<h3 id="_28">第六步：盘后总结（收盘后）</h3>
+<h3 id="_25">第六步：盘后总结（收盘后）</h3>
 <ol>
 <li><strong>分析当日交易记录</strong>  </li>
 <li><strong>计算账户收益率</strong>  </li>
 <li><strong>总结策略表现</strong>  </li>
 <li><strong>优化参数设置</strong></li>
-</ol></div>
+</ol>
+<h2 id="_26">问财筛股步骤</h2>
+<h3 id="_27">📌 <strong>完整版问财选股语句（用于每周一盘前筛选）</strong></h3>
+<pre><code class="language-text">非ST，非*ST，非科创板，上市时间大于250天，流通市值大于50亿，近1日成交额大于1亿元，ROE大于0，资产负债率小于70%，股价上穿55日均线，10日内最低价等于60日内最低价，收盘价大于55日均线
+</code></pre>
+<blockquote>
+<p>💡 说明：
+- “股价上穿55日均线” ≈ 最近1-3日首次站上均线（问财默认为当日或近期）
+- “10日内最低价等于60日内最低价” → 精准捕捉“60日新低后反弹”信号
+- 问财会自动排除停牌股（因无成交数据）</p>
+</blockquote>
+<hr />
+<h2 id="_28">问财实操建议</h2>
+<h3 id="1_1">1. <strong>使用时机</strong></h3>
+<ul>
+<li><strong>每周一早盘前（9:00–9:25）</strong> 执行问财筛选</li>
+<li>输出结果后，人工检查：</li>
+<li>是否真为“首次突破”（看K线图确认）</li>
+<li>开盘涨幅是否 &gt;5%（若&gt;5%，跳过该股）</li>
+</ul>
+<h3 id="2_1">2. <strong>排序与选股</strong></h3>
+<ul>
+<li>问财结果默认按相关性排序，建议手动按 <strong>ROE降序</strong> 或 <strong>跌幅排序（60日跌幅）</strong></li>
+<li>选出 <strong>10只候选股</strong>，再根据流动性、行业分散等人工定5只</li>
+</ul>
+<h3 id="3_1">3. <strong>无法自动化的部分（需人工）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>处理方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>40日内突破次数 ≤3次</td>
+<td>查K线图，看55日均线穿越次数</td>
+</tr>
+<tr>
+<td>开盘涨幅 ≤5%</td>
+<td>盘中观察，若超5%则放弃当日买入</td>
+</tr>
+<tr>
+<td>重大负面公告</td>
+<td>用“个股F10→重大事项”快速浏览</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_29">总结：问财语句清单</h2>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>问财语句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>主力筛选</strong></td>
+<td><code>非ST，非科创板，上市&gt;250天，流通市值&gt;50亿，成交额&gt;1亿，ROE&gt;0，负债率&lt;70%，股价上穿55日均线，10日最低价=60日最低价</code></td>
+</tr>
+<tr>
+<td><strong>超跌强化版</strong></td>
+<td>上述 + <code>60日跌幅&gt;15%</code></td>
+</tr>
+<tr>
+<td><strong>财务预筛</strong></td>
+<td><code>非ST，流通市值&gt;50亿，ROE&gt;0，负债率&lt;70%，上市&gt;250天</code></td>
+</tr>
+<tr>
+<td><strong>流动性验证</strong></td>
+<td><code>近1日成交额&gt;1亿元</code></td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
             </div>
         </div>
 
@@ -313,6 +382,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

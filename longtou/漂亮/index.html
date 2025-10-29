@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>漂亮50行业龙头策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
+        <title>漂亮50行业龙头策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,45 +75,37 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#50-a" class="nav-link">漂亮50行业龙头策略（散户实操优化版 · A股合规版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#50" class="nav-link">漂亮50行业龙头策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 核心筛选流程</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 交易频率</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略特点</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 手动实操步骤</a>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,15 +116,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="50-a">漂亮50行业龙头策略（散户实操优化版 · A股合规版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：基本面量化策略  </li>
-<li><strong>二级分类</strong>：行业龙头 + 价值成长 + 月度轮动  </li>
-<li><strong>核心逻辑</strong>：在<strong>全市场主板股票中</strong>，通过<strong>同花顺问财自然语言</strong>一键筛选<strong>各行业高ROE、高增长、合理估值的龙头公司</strong>，<strong>每月调仓一次</strong>，构建5–8只分散化组合。策略<strong>放弃中证500成分限制、行业内百分比排名、PEG计算等复杂操作</strong>，全部条件均可在免费软件中实现，符合A股T+1、100股整数倍、交易时段等规则，适合普通散户每月操作15分钟。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件</h2>
+<h1 id="50">漂亮50行业龙头策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：A股主板（60/00开头）  </li>
 <li><strong>排除范围</strong>：  </li>
@@ -156,7 +141,7 @@
 <code>主板股票，非ST，上市天数大于250，ROE大于10，净利润同比增长大于15，市盈率大于10且小于30，总市值大于300亿，近20日日均成交额大于5000万</code></p>
 </blockquote>
 <hr />
-<h2 id="3">3. 核心筛选流程</h2>
+<h2 id="2">2. 核心筛选流程</h2>
 <p><strong>第一步：基础过滤（问财自动完成）</strong><br />
 - 通过问财语句自动排除ST、新股、小市值、低成交股票。</p>
 <p><strong>第二步：行业分散保障（人工辅助）</strong><br />
@@ -169,7 +154,7 @@
 - 按<strong>ROE从高到低排序</strong>，取前8只；<br />
 - 若行业分散良好，可保留8只；若集中，取5–6只。</p>
 <hr />
-<h2 id="4">4. 买入条件</h2>
+<h2 id="3">3. 买入条件</h2>
 <ul>
 <li><strong>调仓周期</strong>：<strong>每月一次</strong>（每月第一个交易日）  </li>
 <li><strong>持仓数量</strong>：<strong>5–8只股票</strong>（根据行业分散情况动态调整）  </li>
@@ -179,7 +164,7 @@
 <li><strong>执行时间</strong>：<strong>9:35–10:00</strong>（避开集合竞价，确保成交）</li>
 </ul>
 <hr />
-<h2 id="5">5. 卖出条件</h2>
+<h2 id="4">4. 卖出条件</h2>
 <ul>
 <li><strong>定期调仓卖出</strong>：  </li>
 <li>每月调仓日，<strong>卖出不在新选股名单中的持仓股</strong>；  </li>
@@ -194,7 +179,7 @@
 <p>✅ <strong>完全符合T+1</strong>：所有卖出均为<strong>上月或更早买入的股票</strong>，可当日卖出。</p>
 </blockquote>
 <hr />
-<h2 id="6">6. 仓位管理</h2>
+<h2 id="5">5. 仓位管理</h2>
 <ul>
 <li><strong>持仓数量</strong>：5–8只（行业分散优先）  </li>
 <li><strong>资金分配</strong>：等权重，每只约占12.5%–20%资金  </li>
@@ -204,7 +189,7 @@
 <li><strong>行业分散</strong>：强制覆盖≥5个不同行业（消费、制造、金融、医药、周期等）</li>
 </ul>
 <hr />
-<h2 id="7">7. 风控管理</h2>
+<h2 id="6">6. 风控管理</h2>
 <ul>
 <li><strong>质量风控</strong>：ROE&gt;10% + 净利润增长&gt;15% + PE合理，保障“真龙头、真成长”；  </li>
 <li><strong>价格风控</strong>：20日均线止损，避免深度回撤；  </li>
@@ -213,7 +198,7 @@
 <li><strong>操作风控</strong>：月度调仓，年交易仅12次，成本可控。</li>
 </ul>
 <hr />
-<h2 id="8">8. 交易频率</h2>
+<h2 id="7">7. 交易频率</h2>
 <ul>
 <li><strong>选股计算</strong>：每月第一个交易日9:00（问财10秒完成）  </li>
 <li><strong>买入执行</strong>：9:35–10:00  </li>
@@ -221,21 +206,7 @@
 <li><strong>调仓周期</strong>：<strong>每月1次</strong>（非10天）</li>
 </ul>
 <hr />
-<h2 id="9">9. 策略特点</h2>
-<p><strong>基本面选股优势</strong>：<br />
-- ROE+净利润增长+PE三因子，兼顾质量、成长、估值；<br />
-- 市值&gt;300亿，聚焦行业龙头；<br />
-- 问财一键筛选，无需编程或专业终端。</p>
-<p><strong>风险控制完善</strong>：<br />
-- 20日均线止损，简单有效；<br />
-- 行业强制分散，降低风格风险；<br />
-- 月度调仓，避免过度交易。</p>
-<p><strong>执行效率高</strong>：<br />
-- 每月15分钟完成；<br />
-- 无需维护成分股名单；<br />
-- 无需计算PEG或行业百分位。</p>
-<hr />
-<h2 id="10">10. 手动实操步骤</h2>
+<h2 id="8">8. 手动实操步骤</h2>
 <p><strong>第一步：数据准备（9:00–9:10）</strong><br />
 1. 打开同花顺问财，粘贴上述问财语句；<br />
 2. 点击“问一下”，导出结果（通常20–40只）。</p>
@@ -267,6 +238,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

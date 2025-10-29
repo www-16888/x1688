@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>低价小盘轮动策略（散户友好版） - 量化策略武器库</title>
+        <title>低价小盘轮动策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,45 +75,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">低价小盘轮动策略（散户友好版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">低价小盘轮动策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 策略理论基础</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工交易版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_27" class="nav-link">策略优势</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_30" class="nav-link">进一步建议</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_20" class="nav-link">策略优势</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,28 +112,13 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">低价小盘轮动策略（散户友好版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<h3 id="_2">一级分类</h3>
-<ul>
-<li>技术面+基本面复合策略</li>
-</ul>
-<h3 id="_3">二级分类</h3>
-<ul>
-<li>低价小盘股轮动策略（周度调仓）</li>
-</ul>
-<h3 id="_4">核心逻辑</h3>
-<ul>
-<li><strong>选择市场中价格最低、市值最小的股票</strong>，利用小盘股的高弹性和低价股的反弹特性，通过周度轮动捕捉短期收益机会。  </li>
-<li><strong>强调多重过滤</strong>，确保选股质量，避免过度暴露于高风险个股。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件</h2>
-<h3 id="_5">选股范围</h3>
+<h1 id="_1">低价小盘轮动策略</h1>
+<h2 id="1">1. 选股条件</h2>
+<h3 id="_2">选股范围</h3>
 <ul>
 <li>全市场A股（主板为主）</li>
 </ul>
-<h3 id="_6">排除范围</h3>
+<h3 id="_3">排除范围</h3>
 <ul>
 <li>科创板、北交所股票  </li>
 <li>上市未满250天的次新股  </li>
@@ -155,7 +128,7 @@
 <li><strong>新增排除</strong>：股价 &gt; 10元（控制波动）  </li>
 <li><strong>新增排除</strong>：近一年内出现过重大负面公告（如诉讼、监管处罚等）</li>
 </ul>
-<h3 id="_7">核心筛选流程</h3>
+<h3 id="_4">核心筛选流程</h3>
 <ul>
 <li><strong>低价股筛选</strong>：选择全市场股价最低的<strong>前20%</strong>（放宽至20%，增加可选范围）  </li>
 <li><strong>小市值筛选</strong>：按流通市值升序排列，选择最小的股票  </li>
@@ -163,12 +136,12 @@
 <li><strong>最终选择</strong>：从低价小盘股中选择<strong>流通市值最小的15只股票</strong>，再从中选出<strong>前10只</strong>作为候选标的</li>
 </ul>
 <hr />
-<h2 id="3">3. 买入条件</h2>
-<h3 id="_8">交易频率</h3>
+<h2 id="2">2. 买入条件</h2>
+<h3 id="_5">交易频率</h3>
 <ul>
 <li><strong>周度调仓</strong>（每周一09:30）</li>
 </ul>
-<h3 id="_9">买入规则</h3>
+<h3 id="_6">买入规则</h3>
 <ul>
 <li><strong>等权重分配可用现金</strong>  </li>
 <li><strong>持仓数量</strong>：最多10只股票  </li>
@@ -176,90 +149,71 @@
 <li><strong>特殊要求</strong>：避开当日涨跌停股票  </li>
 <li><strong>新增要求</strong>：若周一开盘涨幅超过5%，则暂缓买入，等待回调后再入场（避免追高）</li>
 </ul>
-<h3 id="_10">买入方式</h3>
+<h3 id="_7">买入方式</h3>
 <ul>
 <li><strong>尾盘14:45–14:55市价单买入</strong>（避开早盘情绪干扰）  </li>
 <li><strong>按100股整数倍下单</strong></li>
 </ul>
 <hr />
-<h2 id="4">4. 卖出条件</h2>
-<h3 id="_11">常规卖出</h3>
+<h2 id="3">3. 卖出条件</h2>
+<h3 id="_8">常规卖出</h3>
 <ul>
 <li><strong>调仓时不在新选股名单中的持仓</strong>，一律卖出  </li>
 <li><strong>涨停保护</strong>：昨日涨停股票暂缓卖出，但需在14:00检查，若打开涨停则立即卖出  </li>
 <li><strong>新增条件</strong>：持有满<strong>3周</strong>仍未上涨，则强制卖出（避免长期滞涨）</li>
 </ul>
-<h3 id="_12">盘中监控</h3>
+<h3 id="_9">盘中监控</h3>
 <ul>
 <li><strong>昨日涨停股票14:00检查</strong>，若涨停打开立即卖出  </li>
 <li><strong>新增监控</strong>：每日收盘后检查是否跌破20日均线，若连续两日破线，则次日开盘卖出（趋势破坏信号）</li>
 </ul>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
-<h3 id="_13">持仓数量</h3>
+<h2 id="4">4. 仓位管理</h2>
+<h3 id="_10">持仓数量</h3>
 <ul>
 <li>最多10只股票（保持分散投资）</li>
 </ul>
-<h3 id="_14">资金分配</h3>
+<h3 id="_11">资金分配</h3>
 <ul>
 <li><strong>严格的等权重分配</strong>（每只股票约10%仓位）  </li>
 <li><strong>新增资金管理</strong>：未使用资金买入货币ETF（511880），享受T+0流动性与收益</li>
 </ul>
-<h3 id="_15">调仓频率</h3>
+<h3 id="_12">调仓频率</h3>
 <ul>
 <li><strong>周度调仓</strong>（每周一09:30）</li>
 </ul>
-<h3 id="_16">仓位控制</h3>
+<h3 id="_13">仓位控制</h3>
 <ul>
 <li><strong>接近满仓运作</strong>，但保留部分现金应对突发情况</li>
 </ul>
 <hr />
-<h2 id="6">6. 风控管理</h2>
-<h3 id="_17">质量风控</h3>
+<h2 id="5">5. 风控管理</h2>
+<h3 id="_14">质量风控</h3>
 <ul>
 <li><strong>排除ST、科创板、次新股等风险股票</strong>  </li>
 <li><strong>新增排除</strong>：近期有重大负面公告的公司</li>
 </ul>
-<h3 id="_18">流动性风控</h3>
+<h3 id="_15">流动性风控</h3>
 <ul>
 <li><strong>排除停牌、涨跌停股票</strong>  </li>
 <li><strong>新增要求</strong>：日成交额 &lt; 1亿元的股票不参与（确保流动性）</li>
 </ul>
-<h3 id="_19">基本面风控</h3>
+<h3 id="_16">基本面风控</h3>
 <ul>
 <li><strong>确保EPS为正，ROE &gt; 3%</strong>  </li>
 <li><strong>新增要求</strong>：剔除资产负债率 &gt; 70%的公司（财务稳健性）</li>
 </ul>
-<h3 id="_20">涨停风控</h3>
+<h3 id="_17">涨停风控</h3>
 <ul>
 <li><strong>特殊处理涨停股票</strong>：昨日涨停股票暂缓卖出，但需在14:00检查，若打开涨停则立即卖出</li>
 </ul>
-<h3 id="_21">分散风控</h3>
+<h3 id="_18">分散风控</h3>
 <ul>
 <li><strong>多只股票分散投资</strong>，避免集中持股带来的风险</li>
 </ul>
 <hr />
-<h2 id="7">7. 策略理论基础</h2>
-<h3 id="_22">小盘股效应</h3>
-<ul>
-<li>小市值股票长期存在超额收益，尤其在市场情绪回暖时表现突出</li>
-</ul>
-<h3 id="_23">低价股反弹</h3>
-<ul>
-<li>绝对价格低的股票更容易吸引短线资金关注，具备较强的反弹潜力</li>
-</ul>
-<h3 id="_24">均值回归</h3>
-<ul>
-<li>极端低价的股票有回归均值的动力，尤其是在业绩改善或市场情绪好转的情况下</li>
-</ul>
-<h3 id="_25">新增理论支持</h3>
-<ul>
-<li><strong>ROE &gt; 3%</strong>：确保公司具备一定的盈利能力，避免纯粹的“垃圾股”炒作  </li>
-<li><strong>20日均线支撑</strong>：趋势跟随，避免逆势操作</li>
-</ul>
-<hr />
-<h2 id="8">8. 手动实操步骤（纯人工交易版）</h2>
-<h3 id="_26">第一步：盘前准备（每周日晚）</h3>
+<h2 id="6">6. 手动实操步骤</h2>
+<h3 id="_19">第一步：盘前准备（每周日晚）</h3>
 <ul>
 <li>记录当前持仓股票列表  </li>
 <li>识别昨日涨停的持仓股票  </li>
@@ -295,33 +249,21 @@
 <li><strong>准备下周交易计划</strong></li>
 </ol>
 <hr />
-<h2 id="_27">策略优势</h2>
-<h3 id="_28">简单有效</h3>
+<h2 id="_20">策略优势</h2>
+<h3 id="_21">简单有效</h3>
 <ul>
 <li><strong>选股逻辑清晰直接</strong>，无需复杂的技术指标  </li>
 <li><strong>双重复合优势</strong>：低价+小市值的双重弹性  </li>
 <li><strong>多重过滤确保质量</strong>，降低踩雷概率  </li>
 <li><strong>成本优势</strong>：低单价降低投资门槛</li>
 </ul>
-<h3 id="_29">风险提示</h3>
+<h3 id="_22">风险提示</h3>
 <ul>
 <li><strong>波动较大</strong>：低价小盘股波动性较大，在熊市或流动性紧张时可能面临较大回撤  </li>
 <li><strong>风格敏感</strong>：对小盘股风格敏感，需严格控制仓位  </li>
 <li><strong>严格执行纪律</strong>：必须遵守止损、止盈纪律，避免情绪化操作</li>
 </ul>
-<hr />
-<h2 id="_30">进一步建议</h2>
-<h3 id="_31">数据工具推荐</h3>
-<ul>
-<li><strong>同花顺/东方财富</strong>：提供龙虎榜、涨停棱镜等功能，便于快速筛选  </li>
-<li><strong>Excel模板</strong>：可用于记录每日持仓、成交记录、收益率等信息</li>
-</ul>
-<h3 id="_32">实际操作注意事项</h3>
-<ul>
-<li><strong>每日复盘</strong>：记录每日涨跌情况，及时调整策略  </li>
-<li><strong>定期回顾</strong>：每月或每季度回顾一次整体收益，评估策略有效性  </li>
-<li><strong>心理建设</strong>：低价小盘股波动大，需保持冷静心态，严格执行纪律</li>
-</ul></div>
+<hr /></div>
             </div>
         </div>
 
@@ -335,6 +277,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>北上资金净买入策略（简化手动版） - 量化策略武器库</title>
+        <title>北上资金净买入策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,45 +75,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">北上资金净买入策略（简化手动版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">北上资金净买入策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 交易频率</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略特点</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 手动实操步骤</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,20 +112,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">北上资金净买入策略（简化手动版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：资金流向跟踪策略  </li>
-<li><strong>二级分类</strong>：北上资金 + 龙头股选择（简化版）  </li>
-<li><strong>核心逻辑</strong>：基于公开可查的北上资金净买入排名，选取沪股通与深股通中资金流入靠前、质地较好的龙头股票进行跟随操作，辅以基础风控措施。</li>
-</ul>
-<h2 id="2">2. 选股条件</h2>
-<ul>
-<li><strong>数据来源</strong>：东方财富网、同花顺等免费平台提供的“沪深港通十大成交股”或“个股资金流向排行”  </li>
-<li><strong>选股范围</strong>：沪股通（310001）与深股通（310002）成分股中当日净买入排名靠前的股票（通常为前10名）  </li>
-<li><strong>核心指标</strong>：当日北上资金净买入金额（平台显示值）</li>
-</ul>
-<h2 id="3">3. 核心筛选流程</h2>
+<h1 id="_1">北上资金净买入策略</h1>
+<h2 id="1">1. 选股</h2>
 <p><strong>第一步：数据获取</strong><br />
 - 访问东方财富网【沪深港通】板块（如：https://data.eastmoney.com/hsgt/）<br />
 - 分别查看“沪股通”和“深股通”当日净买入排名（通常展示前10名）  </p>
@@ -151,7 +127,7 @@
   - 最近一年净利润为负且营收下滑（可通过免费财报摘要判断）
   - 市值过小（建议&gt;200亿元，避免小盘股波动风险）
 - 若前3名均被排除，则顺延至第4~5名；若仍无合适标的，该通道当月空仓</p>
-<h2 id="4">4. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>资金信号</strong>：</li>
 <li>北上资金当日净买入金额显著（如超1亿元）</li>
@@ -161,7 +137,7 @@
 <li>等权重分配可用资金</li>
 <li><strong>调仓频率</strong>：每月第一个交易日执行（替代原“7日”，避免节假日问题）</li>
 </ul>
-<h2 id="5">5. 卖出条件</h2>
+<h2 id="3">3. 卖出条件</h2>
 <ul>
 <li><strong>调仓卖出</strong>：</li>
 <li>股票未进入本月新选股名单</li>
@@ -173,7 +149,7 @@
 <li>股票被ST/*ST或进入退市整理期</li>
 <li>连续停牌超5个交易日</li>
 </ul>
-<h2 id="6">6. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <ul>
 <li><strong>持仓限制</strong>：最多2只股票（沪、深各1）  </li>
 <li><strong>资金分配</strong>：</li>
@@ -181,7 +157,7 @@
 <li>若仅1只入选，则全仓买入该股（或保留部分现金）</li>
 <li><strong>调仓机制</strong>：每月首个交易日收盘前完成调仓</li>
 </ul>
-<h2 id="7">7. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <ul>
 <li><strong>质量风控</strong>：</li>
 <li>人工排除问题股（ST、小市值、业绩恶化）</li>
@@ -193,23 +169,13 @@
 <li>涨停日不强制调仓卖出</li>
 <li>避免在尾盘最后10分钟下单（防止价格异动）</li>
 </ul>
-<h2 id="8">8. 交易频率</h2>
+<h2 id="6">6. 交易频率</h2>
 <ul>
 <li><strong>选股频率</strong>：每月第一个交易日  </li>
 <li><strong>止损监控</strong>：每个交易日收盘后检查持仓盈亏，或依赖条件单自动执行  </li>
 <li><strong>调仓执行</strong>：每月一次，收盘前完成</li>
 </ul>
-<h2 id="9">9. 策略特点</h2>
-<p><strong>资金流向逻辑</strong>：<br />
-- 利用北上资金作为“聪明钱”风向标<br />
-- 聚焦流动性好、机构关注的龙头股  </p>
-<p><strong>风险控制特点</strong>：<br />
-- 手动可执行的止损与过滤规则<br />
-- 避免高风险标的，强调基本质地  </p>
-<p><strong>执行效率</strong>：<br />
-- 依赖免费公开数据，无需编程<br />
-- 每月仅需1次集中操作，适合兼职投资者  </p>
-<h2 id="10">10. 手动实操步骤</h2>
+<h2 id="7">7. 手动实操步骤</h2>
 <p><strong>第一步：每月首个交易日早盘前准备</strong><br />
 - 打开东方财富网“沪深港通资金流向”页面<br />
 - 记录沪股通、深股通当日净买入前5名股票及金额  </p>
@@ -225,19 +191,7 @@
 <p><strong>第六步：日常监控</strong><br />
 - 每日收盘后查看持仓是否触发止损<br />
 - 关注公司公告，防范突发ST或退市风险  </p>
-<hr />
-<p><strong>策略优势</strong>：<br />
-- 逻辑透明，规则清晰<br />
-- 依托免费数据，散户可手动执行<br />
-- 风控机制健全，避免重大回撤  </p>
-<p><strong>风险提示</strong>：<br />
-- 免费数据仅覆盖前10名，可能遗漏真实龙头<br />
-- 北上资金存在短期博弈行为，非绝对“聪明”<br />
-- 建议结合行业趋势与估值水平辅助判断<br />
-- 在市场整体下跌或外资流出周期中，策略可能阶段性失效  </p>
-<blockquote>
-<p>💡 <strong>适用人群</strong>：有基本股票知识、能每月花30分钟操作、接受适度信息滞后性的普通散户投资者。</p>
-</blockquote></div>
+<hr /></div>
             </div>
         </div>
 
@@ -251,6 +205,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

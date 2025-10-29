@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>首板低开策略（散户实操优化版） - 量化策略武器库</title>
+        <title>首板低开策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,37 +75,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板低开策略（散户实操优化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">首板低开策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简化+明确）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">⚠️ 风险提示（散户特别注意）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,15 +108,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">首板低开策略（散户实操优化版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：方向性策略  </li>
-<li><strong>二级分类</strong>：<strong>事件驱动策略</strong>（核心博弈“首板涨停”后“低开”这一特定事件模式）  </li>
-<li><strong>核心逻辑</strong>：捕捉强势股（昨日首次涨停）在次日因情绪或洗盘低开3%-4%时的短线反弹机会。策略假设低开是短暂错杀，股价当日有望冲高，通过开盘买入、日内冲高卖出，获取1%-5%的短线收益。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件（适配普通软件）</h2>
+<h1 id="_1">首板低开策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：A股主板（排除科创板688/689、创业板300开头、北交所4/8开头、ST/*ST、停牌股、上市不足250天新股）  </li>
 <li>
@@ -151,20 +136,9 @@
 <code>昨日涨停，非ST，主板，上市天数&gt;250，昨日非连续涨停，今日开盘价&lt;昨日收盘价*0.97，今日开盘价&gt;昨日收盘价*0.96</code><br />
 或更精确版：<br />
 <code>涨停家数中，非ST，代码不以300、688、689、4、8开头，上市超过250天，昨日涨停且前日未涨停，今日开盘跌幅介于3%到4%</code></p>
-<p>✅ <strong>通达信选股公式（可保存为条件选股）</strong>：<br />
-```pascal
-{ 首板低开策略 - 散户版 }
-ZT := C/REF(C,1) &gt;= 1.095 AND C = H;        { 昨日涨停 }
-NOT_ZT_YESTER := REF(C,2)/REF(C,3) &lt; 1.095; { 前日未涨停，确保首板 }
-LOW_OPEN := O/REF(C,1) &gt;= 0.96 AND O/REF(C,1) &lt;= 0.97; { 今低开3%-4% }
-NOT_NEW := FINANCE(42) &gt; 250;               { 上市天数&gt;250 }
-NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
-MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
-<p>ZT AND NOT_ZT_YESTER AND LOW_OPEN AND NOT_NEW AND NOT_ST AND MAIN_BOARD;
-```</p>
 </blockquote>
 <hr />
-<h2 id="3">3. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>触发信号</strong>：集合竞价结束（9:25）后，股票满足上述全部条件  </li>
 <li><strong>确认方式</strong>：  </li>
@@ -176,7 +150,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
 <li>若开盘后快速拉升，可放弃该股（避免追高）</li>
 </ul>
 <hr />
-<h2 id="4">4. 卖出条件（简化+明确）</h2>
+<h2 id="3">3. 卖出条件</h2>
 <ul>
 <li><strong>上午止盈（11:28）</strong>：  </li>
 <li>若<strong>当前价 &gt; 买入成本</strong> 且 <strong>未封涨停</strong> → <strong>全部卖出</strong>  </li>
@@ -189,7 +163,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
 <p>📌 <strong>操作提示</strong>：设置手机闹钟提醒 11:28 和 14:50，避免遗忘。</p>
 </blockquote>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <ul>
 <li><strong>资金分配</strong>：若选出 N 只股票，则每只分配 <strong>总可用资金的 1/N</strong>  </li>
 <li>例：总资金10万，选出2只 → 每只买5万  </li>
@@ -198,7 +172,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
 <li><strong>空仓规则</strong>：若无符合条件股票，当日空仓；前一日持仓必在当日清空</li>
 </ul>
 <hr />
-<h2 id="6">6. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <ul>
 <li><strong>个股风控</strong>：  </li>
 <li>低开3%-4%天然限制初始亏损（最大浮亏约4%）  </li>
@@ -211,7 +185,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
 <li>软件自动过滤ST、新股、非主板，降低踩雷概率</li>
 </ul>
 <hr />
-<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h2 id="6">6. 手动实操步骤</h2>
 <h3 id="915925">第一步：盘前准备（9:15–9:25）</h3>
 <ol>
 <li>打开<strong>同花顺问财</strong>（网页或APP）  </li>
@@ -240,18 +214,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
 <li><strong>每日记录</strong>：股票代码、买入价、卖出价、盈亏、是否符合逻辑  </li>
 <li><strong>每周复盘</strong>：统计胜率、平均收益、失败原因（如“低开低走”“冲高回落”）</li>
 </ul>
-<hr />
-<h2 id="_4">⚠️ 风险提示（散户特别注意）</h2>
-<ul>
-<li>该策略<strong>非稳赚</strong>，在市场退潮期（如连续跌停潮）胜率会显著下降  </li>
-<li>手动操作存在<strong>延迟、漏单、情绪干扰</strong>风险  </li>
-<li><strong>建议先用模拟盘或≤10%资金试运行1个月</strong>，验证个人执行力  </li>
-<li>若连续3日亏损，暂停策略，检查市场环境是否适合  </li>
-</ul>
-<blockquote>
-<p>✅ <strong>一句话总结</strong>：<br />
-<strong>“首板+低开3%-4%+主板+非连板”是核心，纪律执行是盈利关键。借助问财/通达信可实现筛选，但需人工复核+严格守时。</strong></p>
-</blockquote></div>
+<hr /></div>
             </div>
         </div>
 
@@ -265,6 +228,7 @@ MAIN_BOARD := CODELIKE('60') OR CODELIKE('00');</p>
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

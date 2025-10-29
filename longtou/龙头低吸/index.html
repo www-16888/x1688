@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>龙头股低吸策略（散户手动简化版） - 量化策略武器库</title>
+        <title>龙头股低吸策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,49 +75,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">龙头股低吸策略（散户手动简化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">龙头股低吸策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 情绪周期监控（简化版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤（纯人工交易版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">策略理论基础（简化版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">交易执行要点</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">风险提示</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -128,13 +108,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">龙头股低吸策略（散户手动简化版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<p><strong>一级分类</strong>：技术面+情绪面策略（简化执行版）<br />
-<strong>二级分类</strong>：龙头股低吸策略（非打板版）<br />
-<strong>核心逻辑</strong>：基于市场情绪周期理论，识别近期市场中连板数最多或板块地位最强的龙头股，在其首次明显分歧回调（如炸板、放量滞涨、回踩均线）后，于次日或尾盘低吸介入，避免追高打板，通过合理止盈止损，捕捉龙头第二波上涨机会，追求稳健的短线超额收益。</p>
-<hr />
-<h2 id="2">2. 选股条件</h2>
+<h1 id="_1">龙头股低吸策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <p><strong>选股范围</strong>：全市场A股（主板为主）  </p>
 <p><strong>排除范围</strong>：<br />
 - 科创板、北交所股票<br />
@@ -151,7 +126,7 @@
   - 股价回调至<strong>10日均线附近</strong>（±2%）且未破20日均线。<br />
 - <strong>黑名单机制</strong>：若某龙头股买入后亏损超5%，3日内不再参与。</p>
 <hr />
-<h2 id="3">3. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <p><strong>交易频率</strong>：<strong>低频择机</strong>（平均每月1–3次，非每日交易）  </p>
 <p><strong>买入规则</strong>：<br />
 - 仅当龙头股出现明确<strong>分歧回调信号</strong>后才考虑买入；<br />
@@ -163,7 +138,7 @@
 - 手动市价单买入（尾盘流动性充足，无需限价排队）；<br />
 - 不追求买在最低点，只求买在“安全区域”。</p>
 <hr />
-<h2 id="4">4. 卖出条件</h2>
+<h2 id="3">3. 卖出条件</h2>
 <p><strong>止损卖出</strong>：<br />
 - 从买入成本起算，<strong>亏损 ≥ 7%</strong> 立即卖出；<br />
 - 若买入后次日低开低走，无反抽意愿，可提前止损。  </p>
@@ -175,7 +150,7 @@
 - 若买入后当日涨停，可持有至次日冲高卖出；<br />
 - 遇重大利好（如政策支持、业绩超预期），可延长持有至5日。</p>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <p><strong>持仓数量</strong>：<strong>最多2只股票</strong>（避免精力分散）  </p>
 <p><strong>资金分配</strong>：<br />
 - 单只股票初始仓位10%～25%；<br />
@@ -185,7 +160,7 @@
 - 不满仓、不杠杆、不All in单一个股；<br />
 - 同一板块最多持有1只龙头。</p>
 <hr />
-<h2 id="6">6. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <p><strong>盘前风控</strong>：<br />
 - 不参与无明确逻辑的“跟风涨停”；<br />
 - 只做市场公认的主线龙头（如AI、新能源、消费等当前热点）。  </p>
@@ -202,17 +177,7 @@
 - <strong>不持仓过周末</strong>（除非已涨停或重大利好）；<br />
 - <strong>每月最多交易3次，宁可错过，不可做错</strong>。</p>
 <hr />
-<h2 id="7">7. 情绪周期监控（简化版）</h2>
-<p><strong>情绪指标</strong>：<br />
-- 观察同花顺“连板天梯”或东方财富“涨停板”栏目中的<strong>最高连板数</strong>；  </p>
-<p><strong>周期判断</strong>：<br />
-- 最高连板 ≥ 4板，且梯队完整（3板、2板有跟风）→ <strong>上升期</strong>，可参与；<br />
-- 最高连板 ≤ 2板，或龙头连续A杀 → <strong>退潮期</strong>，空仓观望。  </p>
-<p><strong>情绪记录</strong>：<br />
-- 每周日晚简单记录：“本周龙头是谁？是否赚钱效应？”<br />
-- 不需复杂模型，凭常识判断即可。</p>
-<hr />
-<h2 id="8">8. 手动实操步骤（纯人工交易版）</h2>
+<h2 id="6">6. 手动实操步骤</h2>
 <p><strong>第一步：盘后观察（每日16:00–17:00）</strong><br />
 - 打开同花顺“涨停棱镜”或“连板天梯”；<br />
 - 标记当前市场最高连板股及板块核心标的；<br />
@@ -236,30 +201,7 @@
 - 不因“怕卖飞”而放弃止损；<br />
 - 不因“市场热闹”而强行开仓；<br />
 - <strong>只做高确定性机会，其余时间空仓学习</strong>。</p>
-<hr />
-<h2 id="_2">策略理论基础（简化版）</h2>
-<ul>
-<li><strong>龙头效应</strong>：市场最强股在分歧后常有反包机会；  </li>
-<li><strong>情绪周期</strong>：退潮期空仓，上升期轻仓试错；  </li>
-<li><strong>低吸优于打板</strong>：回避开盘抢筹劣势，提升盈亏比；  </li>
-<li><strong>强者恒强</strong>：真龙头回调后往往率先修复。</li>
-</ul>
-<hr />
-<h2 id="_3">交易执行要点</h2>
-<ul>
-<li><strong>耐心等待</strong>：每月可能只有1–2次机会；  </li>
-<li><strong>尾盘介入</strong>：避开早盘情绪干扰；  </li>
-<li><strong>严格止损</strong>：7%是生命线；  </li>
-<li><strong>轻仓试错</strong>：单票≤25%，总仓≤50%。</li>
-</ul>
-<hr />
-<h2 id="_4">风险提示</h2>
-<ul>
-<li>龙头股波动大，单日回撤可达5%～8%；  </li>
-<li>情绪退潮时，龙头也可能连续大跌；  </li>
-<li>该策略依赖对“主线”和“龙头”的正确识别，判断错误将导致亏损；  </li>
-<li><strong>最大风险仍是纪律执行——必须接受“小亏离场”的设定</strong>。</li>
-</ul></div>
+<hr /></div>
             </div>
         </div>
 
@@ -273,6 +215,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

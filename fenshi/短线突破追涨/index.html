@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>短线突破追涨策略（散户实操优化版） - 量化策略武器库</title>
+        <title>短线突破追涨策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,37 +75,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">短线突破追涨策略（散户实操优化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">短线突破追涨策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（简化+可执行）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">⚠️ 风险提示（散户特别注意）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,15 +108,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">短线突破追涨策略（散户实操优化版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：技术面短线策略  </li>
-<li><strong>二级分类</strong>：<strong>短线突破追涨策略</strong>  </li>
-<li><strong>核心逻辑</strong>：聚焦<strong>小盘、近期活跃但未近期涨停</strong>的股票，在其<strong>盘中快速拉升至接近涨停（94.5%–97.5%）</strong> 时追涨买入，博弈当日封板或次日冲高。通过<strong>多重止盈止损规则+6日持仓上限</strong>控制风险，适合有盯盘时间、执行力强的散户捕捉强势股爆发点。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件（适配普通软件）</h2>
+<h1 id="_1">短线突破追涨策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：A股主板 + 创业板（<strong>排除科创板688/689、北交所4/8开头、ST/*ST、上市&lt;100天新股、停牌股</strong>）  </li>
 <li>
@@ -158,21 +143,9 @@
 <p>✅ <strong>同花顺问财语句（盘前筛选用）</strong>：<br />
 <code>流通市值&lt;25亿，非ST，主板或创业板，上市天数&gt;100，300日内有涨停，30日内无涨停，15日振幅&gt;2.5%，股价&gt;0</code><br />
 （注：突破形态需盘中人工判断，无法完全自动化）</p>
-<p>✅ <strong>通达信选股公式（保存为“突破候选池”）</strong>：<br />
-```pascal
-{ 短线突破追涨 - 候选股池 }
-NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
-MAIN_OR_GEM := CODELIKE('60') OR CODELIKE('00') OR CODELIKE('30');
-NOT_NEW := FINANCE(42) &gt; 100;
-LIQ_MCAP := FINANCE(40) &lt; 2500000000;  { 流通市值&lt;25亿，单位：元 }
-HAS_ZT_300D := COUNT(C/REF(C,1)&gt;=1.095,300) &gt;= 1;
-NO_ZT_30D := COUNT(C/REF(C,1)&gt;=1.095,30) = 0;
-AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
-<p>NOT_ST AND MAIN_OR_GEM AND NOT_NEW AND LIQ_MCAP AND HAS_ZT_300D AND NO_ZT_30D AND AMP_15D;
-```</p>
 </blockquote>
 <hr />
-<h2 id="3">3. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>触发信号</strong>：盘中实时价格进入<strong>涨停价的94.5%–97.5%区间</strong>  </li>
 <li>即：当前价 ∈ [涨停价×0.945, 涨停价×0.975]  </li>
@@ -188,7 +161,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
 - 若股票快速冲板（如9:45前），可放弃（避免高位接盘）。</p>
 </blockquote>
 <hr />
-<h2 id="4">4. 卖出条件（简化+可执行）</h2>
+<h2 id="3">3. 卖出条件</h2>
 <ul>
 <li><strong>止盈卖出</strong>：  </li>
 <li><strong>盈利 ≥ 12%</strong> → <strong>当日或次日冲高卖出</strong>（不强求15%）  </li>
@@ -206,7 +179,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
 - 设置手机闹钟：每日14:50检查持仓。</p>
 </blockquote>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <ul>
 <li><strong>最大持股数</strong>：<strong>3只</strong>（兼顾操作可行性与分散风险）  </li>
 <li><strong>单股仓位</strong>：≤ 总资金的35%  </li>
@@ -215,7 +188,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
 <li><strong>空仓规则</strong>：若无符合买入条件的股票，保持空仓</li>
 </ul>
 <hr />
-<h2 id="6">6. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <ul>
 <li><strong>价格风控</strong>：只在94.5%–97.5%区间追涨，避免涨停板上追高  </li>
 <li><strong>时间风控</strong>：6日上限防止陷入“假突破”陷阱  </li>
@@ -224,7 +197,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
 <li><strong>情绪风控</strong>：涨停股次日若高开低走，不幻想“反包”，果断止盈</li>
 </ul>
 <hr />
-<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h2 id="6">6. 手动实操步骤</h2>
 <h3 id="830900">第一步：盘前准备（8:30–9:00）</h3>
 <ol>
 <li>打开<strong>同花顺问财</strong>，输入筛选语句，生成“突破候选池”（约20–50只）  </li>
@@ -260,19 +233,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
 <li><strong>每周复盘</strong>：统计成功率、平均收益、失败主因（如“假突破”“尾盘诱多”）  </li>
 <li><strong>连续2次亏损超5%</strong>：暂停策略，检查市场情绪是否退潮</li>
 </ul>
-<hr />
-<h2 id="_4">⚠️ 风险提示（散户特别注意）</h2>
-<ul>
-<li>该策略本质是<strong>高风险追涨</strong>，在<strong>市场情绪退潮期（如连板股大面积跌停）胜率极低</strong>，需空仓观望；  </li>
-<li><strong>94.5%–97.5%区间买入，若当日未封板，次日低开概率高</strong>，务必严守止损；  </li>
-<li><strong>小盘股易被操纵</strong>，警惕“尾盘拉升诱多”；  </li>
-<li><strong>强烈建议先用模拟盘或≤10%资金试运行</strong>，熟悉节奏后再加大仓位；  </li>
-<li><strong>交易成本较高</strong>（佣金+印花税+滑点≈0.2%），单笔盈利需&gt;2%才有意义。</li>
-</ul>
-<blockquote>
-<p>✅ <strong>一句话总结</strong>：<br />
-<strong>“小盘+近期活跃+未近期涨停+盘中冲高至94.5%–97.5%”是买入核心，12%止盈、6%止损、6日上限是生存底线。借助问财筛选+价格预警，普通散户可执行，但必须严守纪律。</strong></p>
-</blockquote></div>
+<hr /></div>
             </div>
         </div>
 
@@ -286,6 +247,7 @@ AMP_15D := (HHV(H,15)-LLV(L,15))/REF(C,15) &gt; 0.025;</p>
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

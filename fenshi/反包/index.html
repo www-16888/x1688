@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>分时均线反包策略（A股合规手动版） - 量化策略武器库</title>
+        <title>分时均线反包策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,33 +75,25 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">分时均线反包策略（A股合规手动版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">分时均线反包策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">一、策略分类</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#t" class="nav-link">二、选股条件（T日盘中观察）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1、选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#t-14301440" class="nav-link">三、买入条件（T日 14:30–14:40）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2、买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#t1" class="nav-link">四、卖出条件（T+1日）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3、卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">五、仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4、仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#a_1" class="nav-link">六、手动实操步骤（A股合规流程）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">💡 提升成功率的小技巧（同花顺免费功能）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5、手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -112,21 +104,13 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="a">分时均线反包策略（A股合规手动版）</h1>
-<h2 id="_1">一、策略分类</h2>
-<ul>
-<li><strong>策略类型</strong>：短线T+1博弈（持有1晚）</li>
-<li><strong>适用市场</strong>：震荡市、情绪平稳期、题材轮动阶段</li>
-<li><strong>核心逻辑</strong>：强势股早盘冲高洗盘，午后资金回流形成“二次进攻”信号，次日有冲高溢价</li>
-<li><strong>交易规则</strong>：严格遵守A股T+1，<strong>T日买入，T+1日卖出</strong></li>
-</ul>
-<hr />
-<h2 id="t">二、选股条件（T日盘中观察）</h2>
+<h1 id="_1">分时均线反包策略</h1>
+<h2 id="1">1、选股条件</h2>
 <p><strong>无需提前选股，盘中从以下池子中观察</strong>（建议提前建立自选股池）：
 - 近3日涨幅 &gt; 10% 的个股；
 - 或昨日涨停但未连板的个股；
 - 或当日早盘涨幅榜前50（9:45–10:30期间）。</p>
-<h3 id="t_1">需同时满足以下条件（T日）：</h3>
+<h3 id="t">需同时满足以下条件（T日）：</h3>
 <ol>
 <li><strong>早盘明显冲高</strong>  </li>
 <li>
@@ -163,7 +147,7 @@
 <li>所属概念板块当日<strong>无大面积下跌</strong>（同花顺“板块涨幅榜”可查）。</li>
 </ol>
 <hr />
-<h2 id="t-14301440">三、买入条件（T日 14:30–14:40）</h2>
+<h2 id="2">2、买入条件</h2>
 <p><strong>仅当以下全部条件满足时，于14:30–14:40之间手动买入</strong>：</p>
 <ul>
 <li>✅ 股价在 <strong>13:30–14:40</strong> 站上分时均线；</li>
@@ -179,14 +163,14 @@
 - <strong>单票仓位 ≤ 15%</strong>（因尾盘介入，次日不确定性较高）。</p>
 </blockquote>
 <hr />
-<h2 id="t1">四、卖出条件（T+1日）</h2>
-<h3 id="t1_1">✅ 止盈（T+1日）：</h3>
+<h2 id="3">3、卖出条件</h2>
+<h3 id="t1">✅ 止盈（T+1日）：</h3>
 <ul>
 <li><strong>高开冲高（+2% ~ +5%）但无法突破T日高点</strong> → <strong>9:45–10:15分批卖出</strong>；</li>
 <li><strong>平开或小幅低开后快速翻红</strong> → 若板块强势，可持有至冲高回落破分时均线时卖出；</li>
 <li><strong>若直接涨停</strong> → 持有，但<strong>一旦开板立即卖出</strong>。</li>
 </ul>
-<h3 id="t1_2">❌ 止损（T+1日）：</h3>
+<h3 id="t1_1">❌ 止损（T+1日）：</h3>
 <ul>
 <li><strong>低开 ≤ -2% 且30分钟内无法翻红</strong> → 止损；</li>
 <li><strong>开盘后跌破T日最低价</strong> → 止损；</li>
@@ -196,7 +180,7 @@
 <p>📌 原则：<strong>T+1日必须卖出，不持仓过周末</strong>（除非突发重大利好，极罕见）。</p>
 </blockquote>
 <hr />
-<h2 id="_2">五、仓位管理</h2>
+<h2 id="4">4、仓位管理</h2>
 <table>
 <thead>
 <tr>
@@ -224,7 +208,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="a_1">六、手动实操步骤（A股合规流程）</h2>
+<h2 id="5">5、手动实操步骤</h2>
 <table>
 <thead>
 <tr>
@@ -266,19 +250,7 @@
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="_3">💡 提升成功率的小技巧（同花顺免费功能）</h2>
-<ol>
-<li><strong>自选股池预设</strong>：  </li>
-<li>问财语句（每日收盘后更新）：<br />
-<code>text
-     近3日涨幅&gt;10%，非ST，非北交所，流通市值&lt;300亿</code></li>
-<li><strong>分时图设置</strong>：  </li>
-<li>开启“分时均线”（默认黄色线）；</li>
-<li>开启“成交量”柱状图（对比上午/下午）；</li>
-<li><strong>板块监控</strong>：  </li>
-<li>使用“同花顺—板块—概念涨幅榜”，确认个股所属板块是否活跃。</li>
-</ol></div>
+<hr /></div>
             </div>
         </div>
 
@@ -292,6 +264,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

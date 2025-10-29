@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>涨停板回调策略（散户实操优化版 · A股合规版） - 量化策略武器库</title>
+        <title>涨停板回调策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,41 +75,37 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#a" class="nav-link">涨停板回调策略（散户实操优化版 · A股合规版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">涨停板回调策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 核心筛选流程</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 核心筛选流程</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 交易频率</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 手动实操步骤</a>
+            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -120,15 +116,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="a"><strong>涨停板回调策略（散户实操优化版 · A股合规版）</strong></h1>
-<h2 id="1"><strong>1. 策略分类和核心逻辑</strong></h2>
-<ul>
-<li><strong>一级分类</strong>：技术面短线策略  </li>
-<li><strong>二级分类</strong>：涨停板回调 + 低吸战法  </li>
-<li><strong>核心逻辑</strong>：在<strong>符合A股T+1规则</strong>的前提下，筛选<strong>近5日内曾涨停、当前回调至支撑位、未破位的小市值主板股</strong>，于<strong>次日早盘低吸</strong>，持有1–3个交易日博弈反弹。核心是“<strong>有涨停基因 + 回调不过度 + 位置相对安全</strong>”，避免追高，专注可买、可卖、可止损的标的。</li>
-</ul>
-<hr />
-<h2 id="2"><strong>2. 选股条件</strong></h2>
+<h1 id="_1">涨停板回调策略</h1>
+<h2 id="1"><strong>1. 选股条件</strong></h2>
 <ul>
 <li><strong>选股范围</strong>：A股主板（60/00开头）  </li>
 <li><strong>排除范围</strong>：  </li>
@@ -139,7 +128,7 @@
 <li>上市不满375天的次新股  </li>
 </ul>
 <hr />
-<h2 id="3"><strong>3. 核心筛选流程</strong></h2>
+<h2 id="2"><strong>2. 核心筛选流程</strong></h2>
 <p><strong>第一步：周度基础池准备（每周日晚或周一早）</strong><br />
 - 使用问财筛选全市场符合长期条件的股票（非次新、小市值、非ST、主板）  </p>
 <p><strong>第二步：每日盘前精细筛选（交易日9:00–9:20）</strong><br />
@@ -151,13 +140,9 @@
 <blockquote>
 <p>✅ <strong>同花顺问财语句（直接复制使用）</strong>：<br />
 <code>主板股票，非ST，上市天数大于375，流通市值小于200亿，近5日有涨停，当前价比近5日最高价低10%到25%，股价高于20日均线，昨日成交额大于30000000</code></p>
-<p>📌 <strong>说明</strong>：<br />
-- 问财支持“近5日有涨停”“流通市值”“20日均线”等自然语言；<br />
-- “当前价比近5日最高价低10%到25%”可有效捕捉合理回调；<br />
-- 结果通常为5–15只，人工再按<strong>集合竞价涨幅</strong>排序剔除高开/低开极端股。</p>
 </blockquote>
 <hr />
-<h2 id="4"><strong>4. 买入条件</strong></h2>
+<h2 id="3"><strong>3. 买入条件</strong></h2>
 <ul>
 <li><strong>技术信号</strong>：  </li>
 <li>满足问财筛选结果  </li>
@@ -171,7 +156,7 @@
 <li><strong>建仓方式</strong>：一次性买入，不补仓</li>
 </ul>
 <hr />
-<h2 id="5"><strong>5. 卖出条件</strong></h2>
+<h2 id="4"><strong>4. 卖出条件</strong></h2>
 <ul>
 <li><strong>主动止盈</strong>：  </li>
 <li>持仓第2日或第3日<strong>冲高涨幅 ≥ 6%</strong> → 卖出  </li>
@@ -188,7 +173,7 @@
 <p>✅ <strong>完全符合T+1</strong>：T日买入 → T+1日起可卖出。</p>
 </blockquote>
 <hr />
-<h2 id="6"><strong>6. 仓位管理</strong></h2>
+<h2 id="5"><strong>5. 仓位管理</strong></h2>
 <ul>
 <li><strong>固定持仓数量</strong>：<strong>3只</strong>（新手建议1–2只）  </li>
 <li><strong>等权重分配</strong>：每只约30%–35%资金  </li>
@@ -196,7 +181,7 @@
 <li><strong>现金管理</strong>：无符合标的时空仓，不强行交易</li>
 </ul>
 <hr />
-<h2 id="7"><strong>7. 风控管理</strong></h2>
+<h2 id="6"><strong>6. 风控管理</strong></h2>
 <ul>
 <li><strong>质量风控</strong>：排除ST、次新、创业板、科创板  </li>
 <li><strong>流动性风控</strong>：成交额 &gt; 3000万 + 主板交易，确保可成交  </li>
@@ -205,7 +190,7 @@
 <li><strong>分散风控</strong>：3只行业尽量不集中（如不全买新能源）</li>
 </ul>
 <hr />
-<h2 id="8"><strong>8. 交易频率</strong></h2>
+<h2 id="7"><strong>7. 交易频率</strong></h2>
 <ul>
 <li><strong>周度准备</strong>：每周初更新基础池（可选）  </li>
 <li><strong>每日盘前</strong>：9:00用问财筛选当日候选股  </li>
@@ -214,7 +199,7 @@
 <li><strong>盘后总结</strong>：记录交易日志，每周复盘</li>
 </ul>
 <hr />
-<h2 id="9"><strong>9. 手动实操步骤</strong></h2>
+<h2 id="8"><strong>8. 手动实操步骤</strong></h2>
 <p><strong>第一步：盘前选股（9:00–9:20）</strong><br />
 1. 打开同花顺问财，粘贴上述语句；<br />
 2. 导出结果，剔除集合竞价涨幅 &lt; -2% 或 &gt; +3% 的股票；<br />
@@ -233,17 +218,7 @@
 - 更新交易记录；<br />
 - 评估策略有效性；<br />
 - 优化候选股选择标准。</p>
-<hr />
-<p><strong>策略优势</strong>：<br />
-- 选股条件全部可通过<strong>问财自然语言实现</strong>；<br />
-- 买入卖出时点明确，<strong>符合A股T+1、100股整数倍、交易时段等规则</strong>；<br />
-- 止损止盈量化清晰，避免情绪干扰；<br />
-- 适合兼职散户每日10分钟操作。</p>
-<p><strong>风险提示</strong>：<br />
-- 小市值股波动大，<strong>单笔亏损可能达7%</strong>；<br />
-- <strong>熊市中回调股可能持续阴跌</strong>，需严格止损；<br />
-- <strong>严禁在大盘暴跌日（如上证跌&gt;2%）操作</strong>；<br />
-- 建议先用<strong>模拟盘或≤10%资金试运行1个月</strong>。</p></div>
+<hr /></div>
             </div>
         </div>
 
@@ -257,6 +232,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

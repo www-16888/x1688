@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>集合竞价量比策略（简化手动版） - 量化策略武器库</title>
+        <title>集合竞价量比策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,13 +75,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">集合竞价量比策略（简化手动版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">集合竞价量比策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -89,31 +85,27 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3_1" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 交易频率</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 交易频率</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略特点</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 手动实操步骤</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,14 +116,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">集合竞价量比策略（简化手动版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：技术面短线策略  </li>
-<li><strong>二级分类</strong>：开盘量能 + 换手活跃 + 突破确认  </li>
-<li><strong>核心逻辑</strong>：放弃对9:25集合竞价数据的强依赖，转而在<strong>开盘后30分钟内</strong>捕捉量比显著放大、换手活跃且价格站稳的股票，于10:00前买入，尾盘14:45卖出，实现低延迟、可手动执行的日内短线交易。</li>
-</ul>
-<h2 id="2">2. 选股条件</h2>
+<h1 id="_1">集合竞价量比策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：全市场A股（排除科创板688开头、北交所）  </li>
 <li><strong>核心指标</strong>：  </li>
@@ -163,7 +149,7 @@
 - 选择最多3只，优先选择：<br />
   - 所属板块当日涨幅前3<br />
   - 有近期利好或热点题材支撑  </p>
-<h2 id="4">4. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>买入时间</strong>：10:00前完成下单  </li>
 <li><strong>仓位控制</strong>：  </li>
@@ -174,7 +160,7 @@
 <li>仅买入价格未快速冲高（如10:00前涨幅未超7%）的标的  </li>
 <li>若买入时已涨停，放弃该股  </li>
 </ul>
-<h2 id="5">5. 卖出条件</h2>
+<h2 id="3_1">3. 卖出条件</h2>
 <ul>
 <li><strong>买入日</strong>：T日10:00前买入  </li>
 <li><strong>卖出日</strong>：T+1日9:45–10:00（次日早盘）  </li>
@@ -183,13 +169,13 @@
 <blockquote>
 <p>📌 <strong>策略本质调整</strong>：从“纯日内”变为“<strong>隔夜1晚的短线策略</strong>”，但持仓时间仍极短，风险可控。</p>
 </blockquote>
-<h2 id="6">6. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <ul>
 <li><strong>持仓限制</strong>：最多3只股票  </li>
 <li><strong>资金分配</strong>：等权重分配可用资金  </li>
 <li><strong>调仓机制</strong>：每日独立决策，不自动续持  </li>
 </ul>
-<h2 id="7">7. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <ul>
 <li><strong>质量风控</strong>：  </li>
 <li>严格排除问题股（ST、小市值、低流动性）  </li>
@@ -201,24 +187,14 @@
 <li>不追高（涨幅&gt;7%不买）  </li>
 <li>不接“天地板”或分时破位股  </li>
 </ul>
-<h2 id="8">8. 交易频率</h2>
+<h2 id="6">6. 交易频率</h2>
 <ul>
 <li><strong>选股时间</strong>：每个交易日9:30–9:55  </li>
 <li><strong>买入时间</strong>：10:00前  </li>
 <li><strong>卖出时间</strong>：次日9:45–10:00  </li>
 <li><strong>持仓周期</strong>：约18小时（T日10:00 – T+1日10:00）  </li>
 </ul>
-<h2 id="9">9. 策略特点</h2>
-<p><strong>量价分析优势</strong>：<br />
-- 利用开盘活跃度识别资金意图<br />
-- 量比+换手双重验证，提高信号质量  </p>
-<p><strong>短线交易特点</strong>：<br />
-- 持仓时间极短，规避中长期波动风险<br />
-- 严格买卖窗口，纪律性强  </p>
-<p><strong>执行效率</strong>：<br />
-- 完全依赖免费APP（同花顺/东方财富）<br />
-- 每日仅需20分钟操作，适合兼职投资者  </p>
-<h2 id="10">10. 手动实操步骤</h2>
+<h2 id="7">7. 手动实操步骤</h2>
 <p><strong>第一步：盘前准备（9:25前）</strong><br />
 - 打开同花顺APP → 自选股或“沪深京”全市场<br />
 - 预设筛选：非ST、非688、上市&gt;180天  </p>
@@ -237,12 +213,7 @@
 <p><strong>第六步：次日卖出（T+1日9:45–10:00）</strong><br />
 - 无论盈亏，按时卖出<br />
 - 若开盘跌超-3%，立即止损  </p>
-<hr />
-<p><strong>策略优势</strong>：<br />
-- 完全基于免费数据，手动可执行<br />
-- 规避集合竞价数据滞后难题<br />
-- 持仓时间短，风险相对可控<br />
-- 适合有基础技术分析能力的散户  </p></div>
+<hr /></div>
             </div>
         </div>
 
@@ -256,6 +227,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>错杀反弹策略（散户实操优化版） - 量化策略武器库</title>
+        <title>错杀反弹策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,37 +75,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">错杀反弹策略（散户实操优化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">错杀反弹策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略的风险等级、分类和策略核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（适配普通软件）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 买入条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 买入条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 卖出条件（明确+可执行）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 仓位管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 仓位管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 风控管理</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 风控管理</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工+普通软件版）</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">⚠️ 风险提示（散户特别注意）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -116,15 +108,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">错杀反弹策略（散户实操优化版）</h1>
-<h2 id="1">1. 策略的风险等级、分类和策略核心逻辑</h2>
-<ul>
-<li><strong>风险等级</strong>：R4（积极型）——简化信号、缩短持仓、强化止盈  </li>
-<li><strong>策略分类</strong>：逆向投资策略 / 小盘错杀反弹策略（简化版）  </li>
-<li><strong>策略核心逻辑</strong>：在<strong>市场出现明显恐慌情绪</strong>（如中证1000指数大跌、跌停股激增）的交易日，筛选<strong>超跌、小市值、非ST、有流动性的股票</strong>，于盘中低点介入，博弈次日或短期技术性反弹。核心是“<strong>看得见的恐慌 + 可买的错杀股 + 快进快出</strong>”，避免主观抄底，只做情绪冰点后的反弹。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件（适配普通软件）</h2>
+<h1 id="_1">错杀反弹策略</h1>
+<h2 id="1">1. 选股条件</h2>
 <ul>
 <li><strong>选股范围</strong>：A股主板 + 创业板（<strong>排除科创板688/689、北交所4/8开头、ST/*ST、停牌股、上市&lt;100天新股</strong>）  </li>
 <li><strong>基础池</strong>：全市场符合条件的小盘股  </li>
@@ -141,22 +126,9 @@
 <p>✅ <strong>同花顺问财语句（盘中9:45后使用）</strong>：<br />
 <code>流通市值&lt;30亿，股价&lt;15元，非ST，主板或创业板，上市天数&gt;100，昨日成交额&gt;30000000，今日跌幅&gt;5%，今日未跌停</code><br />
 （注：问财支持“今日跌幅”实时筛选，但需在9:45后使用，避免集合竞价干扰）</p>
-<p>✅ <strong>通达信盘中选股公式（9:45后运行）</strong>：<br />
-```pascal
-{ 错杀反弹 - 盘中筛选 }
-SMALL_MCAP := FINANCE(40) &lt; 3000000000;     { 流通市值&lt;30亿 }
-PRICE_LT_15 := C &lt; 15;
-NOT_ST := NAMELIKE('ST')=0 AND NAMELIKE('*ST')=0;
-MAIN_OR_GEM := CODELIKE('60') OR CODELIKE('00') OR CODELIKE('30');
-NOT_NEW := FINANCE(42) &gt; 100;
-LIQ_YESTER := REF(AMO,1) &gt; 30000000;       { 昨日成交额&gt;3000万 }
-FALL_TODAY := (REF(C,1) - C) / REF(C,1) &gt;= 0.05;  { 今日跌幅≥5% }
-NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
-<p>SMALL_MCAP AND PRICE_LT_15 AND NOT_ST AND MAIN_OR_GEM AND NOT_NEW AND LIQ_YESTER AND FALL_TODAY AND NOT_LIMIT_DOWN;
-```</p>
 </blockquote>
 <hr />
-<h2 id="3">3. 买入条件</h2>
+<h2 id="2">2. 买入条件</h2>
 <ul>
 <li><strong>触发前提（恐慌日确认）</strong>：满足以下任一即视为“恐慌日”：  </li>
 <li><strong>中证1000指数（000852）当日跌幅 ≥ 3%</strong>；或  </li>
@@ -169,7 +141,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
 <li><strong>单笔≥100股</strong>，符合交易规则。</li>
 </ul>
 <hr />
-<h2 id="4">4. 卖出条件（明确+可执行）</h2>
+<h2 id="3">3. 卖出条件</h2>
 <ul>
 <li><strong>止盈卖出</strong>：  </li>
 <li><strong>次日冲高卖出</strong>：若次日<strong>高开或盘中上涨 ≥ 3%</strong>，立即卖出；  </li>
@@ -194,7 +166,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
 - 不幻想“V型反转”，反弹即卖。</p>
 </blockquote>
 <hr />
-<h2 id="5">5. 仓位管理</h2>
+<h2 id="4">4. 仓位管理</h2>
 <ul>
 <li><strong>最大持仓数</strong>：<strong>3只</strong>（避免过度分散，聚焦最强错杀标的）  </li>
 <li><strong>单股仓位</strong>：≤ 总资金的35%  </li>
@@ -202,7 +174,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
 <li><strong>换仓频率</strong>：每周最多操作1–2次，避免频繁交易</li>
 </ul>
 <hr />
-<h2 id="6">6. 风控管理</h2>
+<h2 id="5">5. 风控管理</h2>
 <ul>
 <li><strong>情绪风控</strong>：仅在“中证1000跌≥3%”或“跌停&gt;40家”时启动策略  </li>
 <li><strong>个股风控</strong>：通过流通市值&lt;30亿+成交额&gt;3000万+非ST，规避流动性陷阱  </li>
@@ -211,7 +183,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
 <li><strong>极端风控</strong>：若买入后市场继续崩盘（如中证1000再跌2%），次日开盘全割</li>
 </ul>
 <hr />
-<h2 id="7">7. 手动实操步骤（纯人工+普通软件版）</h2>
+<h2 id="6">6. 手动实操步骤</h2>
 <h3 id="930940">第一步：恐慌日识别（9:30–9:40）</h3>
 <ol>
 <li>打开同花顺，输入 <strong>“000852”</strong> 查看中证1000指数跌幅；  </li>
@@ -244,18 +216,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
 <li>每月统计：胜率、平均收益、最大回撤；  </li>
 <li><strong>连续2次亏损，暂停策略1周</strong>。</li>
 </ul>
-<hr />
-<h2 id="_5">⚠️ 风险提示（散户特别注意）</h2>
-<ul>
-<li>该策略仍属<strong>高波动短线交易</strong>，单笔亏损可达4%–6%；  </li>
-<li><strong>“恐慌日”并非必反弹</strong>，若遇系统性风险（如黑天鹅），可能连续下跌；  </li>
-<li><strong>严禁在非恐慌日强行操作</strong>，避免“接飞刀”；  </li>
-<li><strong>强烈建议先用模拟盘或≤10%资金试运行1个月</strong>，熟悉流程后再加大投入。</li>
-</ul>
-<blockquote>
-<p>✅ <strong>一句话总结</strong>：<br />
-<strong>“中证1000跌≥3% + 小市值+跌超5%”是选股核心，“次日冲高即卖+2日清仓”是保命纪律。借助问财实时筛选+人工排序，普通散户可有限执行，但必须严守恐慌信号与止损规则。</strong></p>
-</blockquote></div>
+<hr /></div>
             </div>
         </div>
 
@@ -269,6 +230,7 @@ NOT_LIMIT_DOWN := L &gt; REF(C,1) * 0.9;      { 未跌停（留余地） }</p>
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

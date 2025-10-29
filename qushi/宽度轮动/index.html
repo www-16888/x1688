@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>行业宽度轮动策略（散户简化版） - 量化策略武器库</title>
+        <title>行业宽度轮动策略 - 量化策略武器库</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -75,45 +75,33 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业宽度轮动策略（散户简化版）</a>
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">行业宽度轮动策略</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 策略分类和核心逻辑</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 选股条件（人工可执行）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. 选股</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 行业选择方法（替代“行业宽度”）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 行业选择方法</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 个股筛选方法（人工可查）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. 个股筛选方法</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5_4" class="nav-link">5. 买入与卖出条件</a>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 买入与卖出条件</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 仓位与风控</a>
+            <li class="nav-item" data-bs-level="2"><a href="#5_4" class="nav-link">5. 仓位与风控</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 手动实操步骤（纯人工版）</a>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 手动实操步骤</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#8" class="nav-link">8. 通达信 / 问财 / 同花顺友好语句</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#9" class="nav-link">9. 策略优势与风险</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#10" class="nav-link">10. 给散户的建议</a>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 通达信 / 问财 / 同花顺友好语句</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -124,17 +112,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="_1">行业宽度轮动策略（散户简化版）</h1>
-<h2 id="1">1. 策略分类和核心逻辑</h2>
-<ul>
-<li><strong>一级分类</strong>：行业轮动策略  </li>
-<li><strong>二级分类</strong>：技术面行业强弱轮动  </li>
-<li><strong>核心逻辑</strong>：<br />
-  每周从<strong>5个代表性行业</strong>中，选出<strong>近期整体走势最强的1个行业</strong>，然后在该行业中挑选<strong>5只技术面稳健、未大涨的优质股</strong>，通过<strong>每周调仓</strong>捕捉轮动机会。<br />
-<strong>简化原则</strong>：用“行业指数走势”代替“行业宽度计算”，用“肉眼观察”代替“个股20日均线统计”。</li>
-</ul>
-<hr />
-<h2 id="2">2. 选股条件（人工可执行）</h2>
+<h1 id="_1">行业宽度轮动策略</h1>
+<h2 id="1">1. 选股</h2>
 <h3 id="5">行业池（固定5个，无需变动）：</h3>
 <table>
 <thead>
@@ -181,7 +160,7 @@
 <li><strong>排除</strong>：当日涨停/跌停、停牌股（开盘前一眼可见）</li>
 </ul>
 <hr />
-<h2 id="3">3. 行业选择方法（替代“行业宽度”）</h2>
+<h2 id="2">2. 行业选择方法</h2>
 <h3 id="5_1">✅ 简化逻辑：<strong>用“行业指数5日涨幅”代替“行业宽度”</strong></h3>
 <blockquote>
 <p>理由：行业宽度 = 行业内上涨个股比例，而<strong>行业指数涨幅 ≈ 行业整体强弱的代理指标</strong>，肉眼可查、无需计算。</p>
@@ -197,7 +176,7 @@
 <p>🌰 举例：若军工指数5日涨8%，银行涨2%，煤炭跌1% → 选<strong>国防军工</strong></p>
 </blockquote>
 <hr />
-<h2 id="4">4. 个股筛选方法（人工可查）</h2>
+<h2 id="3">3. 个股筛选方法</h2>
 <h3 id="5_2">在选定行业中，按以下规则选5只股票：</h3>
 <h4 id="_3">✅ 筀选条件（三选二即可）：</h4>
 <ol>
@@ -213,7 +192,7 @@
 </blockquote>
 <h3 id="5_3">最终名单：选出5只符合条件的股票</h3>
 <hr />
-<h2 id="5_4">5. 买入与卖出条件</h2>
+<h2 id="4">4. 买入与卖出条件</h2>
 <h3 id="_4">买入：</h3>
 <ul>
 <li><strong>时间</strong>：每周一 9:30（如遇节假日顺延）  </li>
@@ -228,7 +207,7 @@
 <li>若继续涨停 → 持有至开板日卖出（最多持有一周）</li>
 </ul>
 <hr />
-<h2 id="6">6. 仓位与风控</h2>
+<h2 id="5_4">5. 仓位与风控</h2>
 <ul>
 <li><strong>持仓数量</strong>：固定5只  </li>
 <li><strong>行业集中</strong>：100%资金投入1个行业（接受短期波动）  </li>
@@ -236,7 +215,7 @@
 <li><strong>不频繁操作</strong>：仅周一调仓，其余时间不交易</li>
 </ul>
 <hr />
-<h2 id="7">7. 手动实操步骤（纯人工版）</h2>
+<h2 id="6">6. 手动实操步骤</h2>
 <h3 id="900930">📅 每周一操作流程（9:00–9:30）：</h3>
 <h4 id="900910">第一步：看行业强弱（9:00–9:10）</h4>
 <ol>
@@ -268,7 +247,7 @@
 <li>14:50检查：是否有持仓股涨停打开？如有，立即卖出</li>
 </ul>
 <hr />
-<h2 id="8">8. 通达信 / 问财 / 同花顺友好语句</h2>
+<h2 id="7">7. 通达信 / 问财 / 同花顺友好语句</h2>
 <h3 id="_7">✅ 同花顺问财选股语句（行业成分股筛选）：</h3>
 <pre><code class="language-text">所属行业=国防军工，非ST，非创业板，非科创板，上市满1年，股价在20日均线上方，5日涨幅&lt;8%，成交额&gt;1亿
 </code></pre>
@@ -280,28 +259,7 @@
 <li>直接输入指数代码：<code>881144</code>、<code>881121</code> 等  </li>
 <li>按 <code>F5</code> 切换K线，下方显示“5日%”即为5日涨幅</li>
 </ul>
-<hr />
-<h2 id="9">9. 策略优势与风险</h2>
-<h3 id="_9">✅ 优势：</h3>
-<ul>
-<li><strong>逻辑清晰</strong>：强行业 + 稳个股  </li>
-<li><strong>工具免费</strong>：仅需同花顺/问财  </li>
-<li><strong>频率适中</strong>：每周一次，适合上班族  </li>
-<li><strong>纪律明确</strong>：避免情绪化交易</li>
-</ul>
-<h3 id="_10">⚠️ 风险：</h3>
-<ul>
-<li><strong>行业集中风险</strong>：若选错行业，可能单周回撤较大（如-5%~8%）  </li>
-<li><strong>震荡市失效</strong>：行业轮动不明显时，频繁调仓增加摩擦成本  </li>
-<li><strong>龙头滞后</strong>：有时行业指数涨，但成分股分化大，需人工甄别</li>
-</ul>
-<hr />
-<h2 id="10">10. 给散户的建议</h2>
-<ul>
-<li><strong>初始资金建议 ≥ 5万元</strong>：确保5只股票每只可买≥100股，降低佣金占比  </li>
-<li><strong>搭配大盘判断</strong>：若上证指数&lt;2900，可暂停策略，转为持有现金  </li>
-<li><strong>记录交易日志</strong>：用Excel记录每周选的行业、个股、收益，便于复盘</li>
-</ul></div>
+<hr /></div>
             </div>
         </div>
 
@@ -315,6 +273,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../js/base.js"></script>
+        <script src="../../js/baidu_tongji.js"></script>
         <script src="../../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
